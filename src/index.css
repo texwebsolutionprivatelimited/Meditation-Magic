@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cosmic-darkest: #1E003B;  /* Deepest royal purple */
+  --color-cosmic-dark: #2F0A59;     /* Deep eggplant purple */
+  --color-cosmic-card: #FFFFFF;     /* White cards from products screenshot */
+  --color-cosmic-lavender: #A047B8; /* Bright orchid purple */
+  --color-cosmic-light: #F0E6FC;    /* Light lavender background */
+  --color-cosmic-cream: #FFFFFF;    /* Pure white text */
+  --color-brand-text: #35086B;      /* Deep purple for headings */
+  --color-brand-purple: #A047B8;    /* Bright orchid purple */
+  --color-brand-accent: #7C3AED;    /* Vibrant purple buttons */
+}
+
+@layer base {
+  body {
+    background-color: #1E003B;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(160, 71, 184, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Custom Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1E003B;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2F0A59;
+    border-radius: 4px;
+    border: 2px solid #1E003B;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A047B8;
+  }
+
+  /* Default heading color */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-brand-text);
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  /* Premium Glassmorphic Card */
+  .glass-card {
+    background: rgba(31, 15, 55, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 210, 142, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-5px);
+    border-color: rgba(245, 210, 142, 0.3);
+    box-shadow: 0 12px 40px 0 rgba(165, 128, 246, 0.15);
+    background: rgba(31, 15, 55, 0.6);
+  }
+
+  /* Gold Gradient Button */
+  .btn-gold {
+    background: linear-gradient(135deg, #F5D28E 0%, #D4AF37 100%);
+    color: #0B0418;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px 0 rgba(245, 210, 142, 0.3);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(245, 210, 142, 0.5);
+    filter: brightness(1.05);
+  }
+
+  /* Purple Glass Button */
+  .btn-purple {
+    background: rgba(165, 128, 246, 0.1);
+    border: 1px solid rgba(165, 128, 246, 0.3);
+    color: #FAF7F2;
+    transition: all 0.3s ease;
+  }
+
+  .btn-purple:hover {
+    background: rgba(165, 128, 246, 0.25);
+    border-color: rgba(165, 128, 246, 0.6);
+    transform: translateY(-1px);
+  }
+
+  /* Gold Text Gradient */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #FAF7F2 0%, #F5D28E 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Star Sparkle Glow */
+  .star-glow {
+    text-shadow: 0 0 10px rgba(245, 210, 142, 0.5), 0 0 20px rgba(165, 128, 246, 0.3);
+  }
+}
+@layer utilities {
+  .brand-text {
+    @apply text-brand-text;
+  }
+  .brand-bg {
+    @apply bg-brand-text;
+  }
+  
+  @keyframes tagline-blink {
+    0%, 100% { 
+      opacity: 1; 
+      text-shadow: 0 0 4px rgba(107, 23, 54, 0.6); 
+    }
+    50% { 
+      opacity: 0.45; 
+      text-shadow: 0 0 0px rgba(107, 23, 54, 0); 
+    }
+  }
+
+  .animate-tagline-blink {
+    animation: tagline-blink 2.5s infinite ease-in-out;
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 4s ease-in-out infinite;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+  }
+}
