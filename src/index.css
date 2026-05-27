@@ -13,6 +13,12 @@
 }
 
 @layer base {
+  html, body, #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     background-color: #1E003B;
     background-image: 
@@ -156,5 +162,30 @@
 
   .animate-pulse-slow {
     animation: pulse-slow 2s ease-in-out infinite;
+  }
+
+  @keyframes magic-shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .text-magic {
+    background: linear-gradient(
+      270deg,
+      #1C0320,
+      #6B1736,
+      #A855F7,
+      #D4AF37,
+      #F5D28E,
+      #A855F7,
+      #6B1736,
+      #1C0320
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: magic-shimmer 4s ease infinite;
   }
 }

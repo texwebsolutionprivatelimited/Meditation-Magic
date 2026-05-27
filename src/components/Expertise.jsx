@@ -94,8 +94,13 @@ export default function Expertise({ onOpenModal }) {
     }
   ];
 
+  const getWhatsAppLink = (title, cta) => {
+    const msg = `Hello Neelam Arora Team! I would like to inquire about: *${title}* (${cta}). Please share the booking details and schedule!`;
+    return `https://wa.me/919829156812?text=${encodeURIComponent(msg)}`;
+  };
+
   return (
-    <section id="expertise" className="relative pt-14 pb-6 bg-[#E2D5F3] text-gray-900 overflow-hidden">
+    <section id="expertise" className="relative pt-16 pb-8 bg-[#E2D5F3] text-gray-900 overflow-hidden">
 
       {/* Self-contained style tag for infinite marquee animation */}
       <style>{`
@@ -138,43 +143,48 @@ export default function Expertise({ onOpenModal }) {
         <div className="relative w-full overflow-hidden">
           <div className="animate-marquee-rtl gap-6 py-4">
             {/* Render items twice for seamless loop */}
-            {[...expertiseItems, ...expertiseItems].map((exp, idx) => (
-              <div
-                key={idx}
-                onClick={onOpenModal}
-                className="group relative w-60 h-[17.5rem] sm:w-64 sm:h-[18.5rem] rounded-[28px] border border-white/15 flex flex-col justify-end p-5 shadow-md hover:shadow-[0_15px_35px_rgba(107,23,54,0.25)] hover:-translate-y-1.5 transition-all duration-500 flex-shrink-0 overflow-hidden cursor-pointer"
-              >
-                {/* Full Bleed Background Image */}
-                <img
-                  src={exp.image}
-                  alt={exp.title}
-                  className="absolute inset-0 w-full h-full object-cover filter brightness-[0.72] group-hover:brightness-[0.92] group-hover:scale-108 transition-all duration-700 ease-out"
-                />
+            {[...expertiseItems, ...expertiseItems].map((exp, idx) => {
+              const waLink = getWhatsAppLink(exp.title, exp.cta);
+              return (
+                <a
+                  key={idx}
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative w-60 h-[17.5rem] sm:w-64 sm:h-[18.5rem] rounded-[28px] border border-white/15 flex flex-col justify-end p-5 shadow-md hover:shadow-[0_15px_35px_rgba(107,23,54,0.25)] hover:-translate-y-1.5 transition-all duration-500 flex-shrink-0 overflow-hidden cursor-pointer"
+                >
+                  {/* Full Bleed Background Image */}
+                  <img
+                    src={exp.image}
+                    alt={exp.title}
+                    className="absolute inset-0 w-full h-full object-cover filter brightness-[0.72] group-hover:brightness-[0.92] group-hover:scale-108 transition-all duration-700 ease-out"
+                  />
 
-                {/* Rich Gradient Overlay for maximum text contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent z-10" />
+                  {/* Rich Gradient Overlay for maximum text contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent z-10" />
 
-                {/* Elegant Sparkle Icon Badge appearing on hover */}
-                <div className="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm z-20">
-                  <Sparkles className="w-3.5 h-3.5 text-[#FFD95A]" />
-                </div>
+                  {/* Elegant Sparkle Icon Badge appearing on hover */}
+                  <div className="absolute top-3 right-3 p-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm z-20">
+                    <Sparkles className="w-3.5 h-3.5 text-[#FFD95A]" />
+                  </div>
 
-                {/* Card Content Overlay */}
-                <div className="relative z-20 space-y-3.5 text-left">
-                  {/* Title */}
-                  <h3 className="font-serif font-extrabold text-white group-hover:text-[#FFD95A] text-center text-xs sm:text-sm leading-snug line-clamp-2 px-1 transition-colors duration-300">
-                    {exp.title}
-                  </h3>
-                  
-                  {/* Action Button */}
-                  <button
-                    className="w-full bg-[#FFD95A] text-[#3E0844] hover:bg-white hover:text-[#6B1736] font-bold py-2.5 px-4 rounded-xl text-[10px] tracking-wider uppercase transition-all duration-300 transform active:scale-95 shadow-md border border-transparent"
-                  >
-                    {exp.cta}
-                  </button>
-                </div>
-              </div>
-            ))}
+                  {/* Card Content Overlay */}
+                  <div className="relative z-20 space-y-3.5 text-left">
+                    {/* Title */}
+                    <h3 className="font-serif font-extrabold text-white group-hover:text-[#FFD95A] text-center text-xs sm:text-sm leading-snug line-clamp-2 px-1 transition-colors duration-300">
+                      {exp.title}
+                    </h3>
+                    
+                    {/* Action Button */}
+                    <div
+                      className="w-full bg-[#FFD95A] text-[#3E0844] hover:bg-white hover:text-[#6B1736] font-bold py-2.5 px-4 rounded-xl text-[10px] tracking-wider uppercase transition-all duration-300 transform active:scale-95 shadow-md border border-transparent text-center block"
+                    >
+                      {exp.cta}
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
 

@@ -4,25 +4,32 @@ import { Newspaper } from 'lucide-react';
 
 export default function BlogPage() {
   return (
-    <div className="pt-24 min-h-screen bg-[#E2D5F3]">
-      {/* Page Header */}
-      <div className="relative py-12 text-center overflow-hidden">
+    <div className="pt-24 pb-16 min-h-screen bg-[#E2D5F3] relative overflow-hidden text-gray-900">
+
+      {/* 🌌 Background soft ambient blurs matching light spiritual style */}
+      <div className="absolute top-0 right-[-10%] w-[500px] h-[500px] rounded-full bg-white/40 blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-10 left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-200/50 blur-[130px] pointer-events-none" />
+
+      {/* Seamless Cosmic Page Header */}
+      <div className="relative pt-4 pb-8 text-center overflow-hidden z-10">
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-3">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-3 animate-tagline-blink">
             <Newspaper className="w-4 h-4 text-[#6B1736]" />
-            Spiritual knowledge & Cosmic wisdom
+            Spiritual Knowledge &amp; Cosmic Wisdom
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1C0320] leading-tight mb-3">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#1C0320] leading-tight mb-4">
             The Magic Blog
           </h1>
-          <p className="text-gray-700 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+          <div className="w-20 h-1 bg-gradient-to-r from-[#3E0844] to-[#6B1736] mx-auto rounded-full mb-4" />
+          <p className="text-gray-600 max-w-2xl mx-auto text-xs sm:text-sm font-semibold leading-relaxed">
             Read daily vibrational updates, science-backed spiritual studies, and deep manifestation guides curated to help reprogram your subconscious mind.
           </p>
         </div>
       </div>
 
-      {/* Render Blog component */}
+      {/* Render Blog component with Centered Solar System Orbits & Same bg color */}
       <Blog />
+
     </div>
   );
 }

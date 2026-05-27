@@ -245,12 +245,12 @@ export default function CourseDetailsPage() {
 
   // Get suggestions of the same general type (group program vs 1-to-1 session)
   const isOneOnOne = workshop.type === '1-to-1 Session';
-  
+
   const related = WORKSHOPS_DATA.filter((w) => {
     const typeMatch = isOneOnOne ? w.type === '1-to-1 Session' : w.type !== '1-to-1 Session';
     return typeMatch && w.category === workshop.category && w.id !== workshop.id;
   });
-  
+
   let suggestions = [...related];
   if (suggestions.length < 3) {
     const remaining = WORKSHOPS_DATA.filter((w) => {
@@ -275,7 +275,7 @@ export default function CourseDetailsPage() {
     if (!detailsText) return [];
     // Split by newlines and clean empty lines
     const rawLines = detailsText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    
+
     return rawLines.map((line) => {
       // Find splits like ":" or "—" or "–" to identify headings
       const splitChar = line.includes(':') ? ':' : (line.includes('—') ? '—' : (line.includes('–') ? '–' : ''));
@@ -296,13 +296,13 @@ export default function CourseDetailsPage() {
   const curriculumBlocks = parseDetailsToBlocks(workshop.details);
 
   return (
-    <div className="pt-28 min-h-screen bg-[#E2D5F3] text-gray-900 pb-24">
+    <div className="pt-24 min-h-screen bg-[#E2D5F3] text-gray-900 pb-24">
       {/* Decorative backdrop glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[40%] rounded-full bg-white/30 blur-[130px] pointer-events-none" />
 
       {/* Main Container */}
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Back Link */}
         <div className="mb-6">
           <Link
@@ -318,7 +318,7 @@ export default function CourseDetailsPage() {
         <div className="bg-white rounded-[2.5rem] p-6 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden mb-8">
           <div className="absolute top-[-20%] right-[-10%] w-80 h-80 rounded-full bg-purple-100/40 blur-3xl pointer-events-none" />
           <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 rounded-full bg-white/40 blur-2xl pointer-events-none" />
-          
+
           <div className="relative z-10 border-b border-purple-100 pb-6 mb-6">
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="text-[9px] font-black uppercase tracking-widest text-[#6B1736] bg-[#6B1736]/5 border border-[#6B1736]/15 px-3 py-1 rounded-full">
@@ -342,7 +342,7 @@ export default function CourseDetailsPage() {
 
         {/* Row 2: Split Columns for Core Details (Left 5-cols, Right 7-cols) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
-          
+
           {/* LEFT SIDE: Sidebar image & action elements (5 cols on lg) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-white rounded-[2.5rem] p-6 border border-purple-100 shadow-2xl relative overflow-hidden group">
@@ -368,7 +368,7 @@ export default function CourseDetailsPage() {
                     <span className="font-bold text-xs sm:text-sm text-[#1C0320]">{workshop.duration}</span>
                   </div>
                 </div>
-                
+
                 <div className="bg-purple-50/60 p-4 rounded-2xl border-2 border-purple-300/80 flex flex-col justify-between hover:bg-purple-50/80 hover:scale-[1.02] transition-all duration-300">
                   <Sparkles className="w-5 h-5 text-[#6B1736] mb-2" />
                   <div>
@@ -444,13 +444,13 @@ export default function CourseDetailsPage() {
                     <BookOpen className="w-5 h-5 text-[#6B1736]" />
                     Program Roadmap & Curriculum
                   </h3>
-                  
+
                   <div className="relative pl-6 sm:pl-8 border-l-2 border-purple-300/80 ml-2 space-y-6">
                     {curriculumBlocks.map((block, idx) => (
                       <div key={idx} className="relative group/timeline">
                         {/* Timeline Node dot */}
                         <span className="absolute left-[-33px] sm:left-[-41px] top-1.5 w-5 h-5 rounded-full bg-[#3E0844] border-4 border-white shadow-md group-hover/timeline:scale-110 transition-transform duration-300 flex items-center justify-center z-10" />
-                        
+
                         <div className="bg-purple-50/40 border-2 border-purple-300/80 p-5 rounded-2xl group-hover/timeline:border-[#3E0844]/40 group-hover/timeline:bg-purple-50/70 transition-all duration-300">
                           {block.title ? (
                             <>
@@ -498,7 +498,7 @@ export default function CourseDetailsPage() {
         <div className="bg-white/85 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl relative overflow-hidden border border-purple-200/60 mb-8">
           <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#E2D5F3]/50 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-10 -left-10 w-64 h-64 rounded-full bg-purple-50 blur-3xl pointer-events-none" />
-          
+
           <div className="flex flex-col md:flex-row gap-8 sm:gap-10 items-center md:items-start relative z-10">
             {/* Left side: Beautiful large styled portrait photo of Neelam */}
             <div className="w-48 h-48 sm:w-60 sm:h-60 rounded-3xl bg-[#E2D5F3] p-1.5 flex-shrink-0 shadow-2xl border-2 border-purple-300/80 relative group overflow-hidden">
@@ -509,7 +509,7 @@ export default function CourseDetailsPage() {
               />
               <div className="absolute inset-0 border border-[#F5D28E]/20 rounded-2xl pointer-events-none" />
             </div>
-            
+
             {/* Right side: Detailed spiritual Facilitator Bio directly matching user image content */}
             <div className="flex-1 text-center md:text-left space-y-4">
               <div>
@@ -520,7 +520,7 @@ export default function CourseDetailsPage() {
                   About- Neelam Arora
                 </h3>
               </div>
-              
+
               <div className="space-y-3.5 text-gray-700 text-xs sm:text-sm leading-relaxed font-medium">
                 <p className="text-[#3E0844] font-semibold text-sm sm:text-base border-l-4 border-[#6B1736]/40 pl-3">
                   Neelam Arora is not just a healer—she is a direct channel of divine intelligence, working beyond traditional spirituality to create real, measurable transformation in people's lives.
@@ -539,12 +539,12 @@ export default function CourseDetailsPage() {
         {/* Row 4: Collapsible FAQs Accordion (Full Width) */}
         <div className="bg-white rounded-[2.5rem] p-6 sm:p-10 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden mb-12">
           <div className="absolute top-[-10%] right-[-10%] w-64 h-64 rounded-full bg-purple-50 blur-3xl pointer-events-none" />
-          
+
           <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1C0320] flex items-center gap-2 mb-6">
             <Star className="w-5 h-5 text-[#6B1736] flex-shrink-0 animate-pulse" />
             Frequently Asked Questions
           </h3>
-          
+
           <div className="space-y-3">
             {faqItems.map((item, idx) => {
               const isOpen = openFaqIdx === idx;
@@ -565,11 +565,10 @@ export default function CourseDetailsPage() {
                       ▼
                     </span>
                   </button>
-                  
+
                   <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                      isOpen ? 'max-h-[14rem] border-t-2 border-purple-200/80 p-5 bg-white/40' : 'max-h-0'
-                    }`}
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[14rem] border-t-2 border-purple-200/80 p-5 bg-white/40' : 'max-h-0'
+                      }`}
                   >
                     <p className="text-[11px] sm:text-xs text-gray-700 leading-relaxed font-medium">
                       {item.a}
@@ -644,7 +643,7 @@ export default function CourseDetailsPage() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
                     />
                     <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-[#3E0844]/80 text-[#F5D28E] border border-[#F5D28E]/20 px-3 py-1.5 rounded-full backdrop-blur-md">
-                      {s.type}
+                      {s.category}
                     </span>
                   </div>
 

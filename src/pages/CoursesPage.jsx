@@ -5,10 +5,10 @@ import { WORKSHOPS_DATA } from '../data/workshops';
 
 export default function CoursesPage() {
   const [searchParams] = useSearchParams();
-  
+
   // Internal type filter coming from Navbar Query Parameter (e.g. ?type=Courses)
   const typeParam = searchParams.get('type') || 'All';
-  
+
   // Screen Category tabs visible on the page (Abundance & Wealth, etc.)
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -16,8 +16,8 @@ export default function CoursesPage() {
   const typeMatchedWorkshops = WORKSHOPS_DATA.filter((w) => {
     if (typeParam !== 'All') {
       return (typeParam === 'Courses' && w.type === 'Course') ||
-             (typeParam === 'Workshops' && w.type === 'Workshop') ||
-             (typeParam === '1-to-1 Sessions' && w.type === '1-to-1 Session');
+        (typeParam === 'Workshops' && w.type === 'Workshop') ||
+        (typeParam === '1-to-1 Sessions' && w.type === '1-to-1 Session');
     }
     // If "All", show everything EXCEPT private '1-to-1 Session' products
     return w.type !== '1-to-1 Session';
@@ -56,14 +56,14 @@ export default function CoursesPage() {
   }, []);
 
   return (
-    <div className="pt-20 min-h-screen bg-[#E2D5F3] text-gray-900">
+    <div className="pt-24 min-h-screen bg-[#E2D5F3] text-gray-900">
       {/* Immersive Page Header */}
-      <div className="relative pt-8 pb-10 text-center overflow-hidden">
+      <div className="relative pt-4 pb-8 text-center overflow-hidden">
         {/* Soft light glow backdrop */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-white/40 blur-[120px] pointer-events-none" />
-        
+
         <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-4 bg-white/60 border border-purple-200 px-4 py-1.5 rounded-full">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-4 animate-tagline-blink">
             <BookOpen className="w-4 h-4 text-[#6B1736] animate-pulse" />
             Vibrational Upgrades & Attunements
           </span>
@@ -83,11 +83,10 @@ export default function CoursesPage() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 border uppercase tracking-wider ${
-                selectedCategory === cat
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 border uppercase tracking-wider ${selectedCategory === cat
                   ? 'bg-[#3E0844] text-white border-transparent shadow-lg shadow-purple-950/25'
                   : 'bg-white/60 text-[#3E0844]/80 border-purple-200 hover:bg-white hover:text-[#3E0844]'
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -119,7 +118,7 @@ export default function CoursesPage() {
               <Link
                 key={w.id}
                 to={`/courses/${w.id}`}
-                className="bg-white rounded-[2rem] border border-purple-100 p-5 flex flex-col justify-between hover:border-[#3E0844]/30 hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 text-left cursor-pointer animate-fade-in"
+                className="bg-white rounded-[2rem] border-2 border-[#3E0844]/50 p-5 flex flex-col justify-between hover:border-[#3E0844] hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 text-left cursor-pointer animate-fade-in"
               >
                 <div>
                   {/* Thumbnail Image */}

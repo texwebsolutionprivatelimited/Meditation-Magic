@@ -7,69 +7,49 @@ export default function Podcasts() {
   // All video IDs are from the official @meditationmagic33 YouTube channel
   const podcastVideos = [
     {
-      id: 'it1Gy5CYbCU',
-      title: 'Dragon Therapy Level-1 | Activate Powerful Dragon Energy 🐉',
+      id: 'Z5BWDanryH0',
+      title: 'Receive Divine Healing Now: पुरानी से पुरानी बीमारी को Angels की मदद से ठीक करें 🧘‍♀️',
+      tag: 'Divine Healing',
+    },
+    {
+      id: '_5A5Sd9uXKw',
+      title: 'Heal Your Finances with Golden Dragons | Live Podcast on Dragon Therapy level -1',
       tag: 'Dragon Therapy',
     },
     {
-      id: 'uTqvv5UC498',
-      title: 'Unlock Instant Wealth with Laxmi Kuber Energy 💰',
-      tag: 'Abundance Healing',
+      id: '_tpJuBPABUQ',
+      title: 'Elemental Unicorn Energy Activation 🦄✨ | Chakra Healing & Live Podcast | By Sr.Master Neelam Arora',
+      tag: 'Unicorn Activation',
     },
     {
-      id: 'hh11ZwLJaZU',
-      title: 'जब Angels साथ होते हैं, life में Miracles होने लगते हैं ✨',
-      tag: 'Angel Healing',
-    },
-    {
-      id: 'GKgMvV_UNJ0',
-      title: 'Kasar Devi Cosmic Belt | Swami Vivekananda Cave Meditation 🔮',
-      tag: 'Sacred Meditation',
-    },
-    {
-      id: 'MlXfS1FafJ0',
-      title: '12/12 Portal Prosperity Activation | Akashic Abundance Healing',
-      tag: 'Portal Activation',
-    },
-    {
-      id: 'SexaNwR77Vc',
-      title: 'Feeling Drained? Etheric Implants Removal & Energy Clearing',
-      tag: 'Energy Clearing',
-    },
-    {
-      id: 'd96UbCrXsOE',
-      title: 'Cut Toxic Etheric Cords | Cord Cutting Energy Session',
+      id: 'PzWuTo5N2xI',
+      title: 'Glimpse of Offline Cord Cutting Workshop | PMC Gujarat | Sr. Master Neelam Arora & Bhavya Chudasama',
       tag: 'Cord Cutting',
     },
     {
-      id: 'wePX4HzcBaw',
-      title: 'Ancient Dragon Therapy Level 1 Initiation 🐲',
-      tag: 'Dragon Energy',
+      id: '-_HNRZ8occ0',
+      title: 'Live Testimonials: Akashic Financial Healing Results 💰 | Real Abundance Stories',
+      tag: 'Akashic Healing',
     },
     {
-      id: 'WJkpxWyIZBA',
-      title: 'Babaji Cave Meditation – Gateway to Higher Consciousness',
-      tag: 'Deep Meditation',
+      id: 'F5WK17Jdw3Y',
+      title: 'From Fear to Power 🔥 Solar Plexus Chakra Healing Testimonials | Real Transformations',
+      tag: 'Solar Plexus',
     },
     {
-      id: 'LwE3J331YTM',
-      title: 'Glimpse of Offline Cord Cutting Workshop | PMC Gujarat',
-      tag: 'Live Workshop',
+      id: 'v_CxJakdI1s',
+      title: 'CLEAR NEGATIVE ENERGIES WITH SHESHNAAG & DRAGONS THERAPY LEVEL- 2 PODCAST BY SR MASTER NEELAM ARORA',
+      tag: 'Sheshnaag & Dragon',
     },
     {
-      id: 'rM1-33_m7Cs',
-      title: 'Money Magnet Activation 🔥 Laxmi Maa & Kuber Attunement Secrets',
-      tag: 'Wealth Activation',
-    },
-    {
-      id: 's3FBvnL-xSo',
-      title: 'Womb Healing Workshop | Clear Sacred Womb Space Trauma',
-      tag: 'Feminine Healing',
+      id: '6BAY3blG1PY',
+      title: 'Money Magnet Activation 🔥 Laxmi Maa & Kuber Ji Prosperity Podcast”',
+      tag: 'Money Magnet',
     },
   ];
 
   return (
-    <section id="podcasts" className="relative py-10 bg-[#E2D5F3] text-gray-900 overflow-hidden">
+    <section id="podcasts" className="relative pt-8 pb-8 bg-[#E2D5F3] text-gray-900 overflow-hidden">
 
       {/* Soft glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-white/30 blur-[100px] pointer-events-none rounded-full" />
@@ -83,11 +63,11 @@ export default function Podcasts() {
             Live Class & Workshop Highlights
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1C0320] mb-4">
-            Course & Workshop Video Highlights
+            Watch Our Spiritual Journeys
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#3E0844] to-[#6B1736] mx-auto rounded-full" />
           <p className="mt-4 text-sm text-gray-600 font-medium">
-            Watch real healing sessions, student experiences, and spiritual activations live from our courses and workshops on{' '}
+            Watch live energy healing sessions, spiritual activations, and real success stories recorded from our sacred classes on{' '}
             <a
               href="https://www.youtube.com/@meditationmagic33"
               target="_blank"
@@ -105,7 +85,7 @@ export default function Podcasts() {
             <div
               key={idx}
               onClick={() => setActiveVideoId(video.id)}
-              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-purple-100/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border-2 border-[#3E0844]/40 hover:border-[#3E0844] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               {/* Thumbnail */}
               <div className="relative aspect-video overflow-hidden bg-black">

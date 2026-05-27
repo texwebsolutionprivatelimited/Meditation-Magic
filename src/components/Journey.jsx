@@ -53,11 +53,11 @@ export default function Journey() {
   ];
 
   return (
-    <section id="journey" className="relative py-2 bg-[#E2D5F3] text-gray-900">
+    <section id="journey" className="relative pt-8 pb-8 bg-[#E2D5F3] text-gray-900">
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-1">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="text-xs font-bold tracking-widest text-[#6B1736] uppercase block mb-3 animate-tagline-blink">
             Course & Workshop Milestones
           </span>
@@ -68,11 +68,11 @@ export default function Journey() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-1 sm:gap-1">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {blocks.map((block, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-6 border border-purple-100/60 flex items-center gap-4 hover:shadow-xl hover:bg-white/80 transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-white rounded-3xl p-6 border-2 border-[#3E0844]/40 flex items-center gap-4 hover:shadow-xl hover:bg-white/80 hover:border-[#3E0844]/80 transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="flex-shrink-0 w-16 h-16 rounded-2xl overflow-hidden bg-purple-50/50 border border-purple-100 p-2 flex items-center justify-center shadow-sm">
                 <img

@@ -8,7 +8,7 @@ import {
   Newspaper, Phone, ChevronDown, Flower2, GraduationCap, Award
 } from 'lucide-react';
 
-export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onClearCart }) {
+export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onClearCart, onAddToCart }) {
   const location = useLocation();
   const currentFullPath = decodeURIComponent(location.pathname + location.search);
   const [activeSection, setActiveSection] = useState('Home');
@@ -19,22 +19,10 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
   const [isMobileCoursesOpen, setIsMobileCoursesOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Track scroll direction for hide/show and scrolled bg state
-  const [showNavbar, setShowNavbar] = useState(true);
-  const lastScrollY = useRef(0);
-
+  // Track scroll state for compressed bg padding
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY;
-      setIsScrolled(currentY > 20);
-      if (currentY > lastScrollY.current && currentY > 50) {
-        // scrolling down
-        setShowNavbar(false);
-      } else {
-        // scrolling up
-        setShowNavbar(true);
-      }
-      lastScrollY.current = currentY;
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -57,9 +45,9 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
 
     if (path === '/about') {
       setActiveSection('About');
-    } else if (path === '/products') {
+    } else if (path === '/products' || path.startsWith('/products/')) {
       setActiveSection('Product');
-    } else if (path === '/blog') {
+    } else if (path === '/blog' || path.startsWith('/blog/')) {
       setActiveSection('Blog');
     } else if (path === '/courses' || path.startsWith('/courses/')) {
       setActiveSection('Courses');
@@ -106,6 +94,7 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
 
   const firstLinks = [
     { name: 'Home', href: '/', icon: <Home className="w-5 h-5" /> },
+    { name: 'About', href: '/about', icon: <User className="w-5 h-5" /> },
     { name: 'Product', href: '/products', icon: <ShoppingCart className="w-5 h-5" /> },
   ];
 
@@ -117,8 +106,7 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-[#3E0844] ${isScrolled ? 'py-2 shadow-lg shadow-black/25' : 'py-3'} ${showNavbar ? 'translate-y-0' : '-translate-y-full'}
-          }`}
+        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-[#3E0844] ${isScrolled ? 'py-2 shadow-lg shadow-black/25' : 'py-3'}`}
       >
         <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -148,15 +136,13 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`group flex items-center gap-2 text-base font-semibold px-3 py-2 rounded-lg transition-all duration-200 ${
-                    activeSection === link.name
+                  className={`group flex items-center gap-2 text-base font-semibold px-3 py-2 rounded-lg transition-all duration-200 ${activeSection === link.name
                       ? 'text-[#F5D28E] bg-white/10'
                       : 'text-white/80 hover:text-[#F5D28E] hover:bg-white/10'
-                  }`}
+                    }`}
                 >
-                  <span className={`transition-colors pointer-events-none ${
-                    activeSection === link.name ? 'text-[#F5D28E]' : 'text-white/60 group-hover:text-[#F5D28E]'
-                  }`}>{link.icon}</span>
+                  <span className={`transition-colors pointer-events-none ${activeSection === link.name ? 'text-[#F5D28E]' : 'text-white/60 group-hover:text-[#F5D28E]'
+                    }`}>{link.icon}</span>
                   {link.name}
                 </a>
               ))}
@@ -165,20 +151,17 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
               <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setIsCoursesOpen((prev) => !prev)}
-                  className={`group flex items-center gap-2 text-base font-semibold px-3 py-2 rounded-lg transition-all duration-200 ${
-                    activeSection === 'Courses'
+                  className={`group flex items-center gap-2 text-base font-semibold px-3 py-2 rounded-lg transition-all duration-200 ${activeSection === 'Courses'
                       ? 'text-[#F5D28E] bg-white/10'
                       : 'text-white/80 hover:text-[#F5D28E] hover:bg-white/10'
-                  }`}
+                    }`}
                 >
-                  <BookOpen className={`w-5 h-5 transition-colors pointer-events-none ${
-                    activeSection === 'Courses' ? 'text-[#F5D28E]' : 'text-white/60 group-hover:text-[#F5D28E]'
-                  }`} />
+                  <BookOpen className={`w-5 h-5 transition-colors pointer-events-none ${activeSection === 'Courses' ? 'text-[#F5D28E]' : 'text-white/60 group-hover:text-[#F5D28E]'
+                    }`} />
                   Courses
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-colors transition-transform duration-200 pointer-events-none ${isCoursesOpen ? 'rotate-180' : ''} ${
-                      activeSection === 'Courses' ? 'text-[#F5D28E]' : 'text-white/60 group-hover:text-[#F5D28E]'
-                    }`}
+                    className={`w-3.5 h-3.5 transition-colors transition-transform duration-200 pointer-events-none ${isCoursesOpen ? 'rotate-180' : ''} ${activeSection === 'Courses' ? 'text-[#F5D28E]' : 'text-white/60 group-hover:text-[#F5D28E]'
+                      }`}
                   />
                 </button>
 
@@ -193,15 +176,13 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                             key={item.name}
                             href={item.href}
                             onClick={() => setIsCoursesOpen(false)}
-                            className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all duration-200 ${
-                              isActive
+                            className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all duration-200 ${isActive
                                 ? 'bg-purple-50 text-[#6B1736] font-black border-l-4 border-[#3E0844] pl-3'
                                 : 'text-[#3E0844] font-semibold hover:bg-purple-50 hover:text-[#6B1736]'
-                            }`}
+                              }`}
                           >
-                            <span className={`p-1.5 rounded-lg transition-all pointer-events-none ${
-                              isActive ? 'bg-[#3E0844] text-[#F5D28E]' : 'bg-[#3E0844]/10 text-[#3E0844]'
-                            }`}>
+                            <span className={`p-1.5 rounded-lg transition-all pointer-events-none ${isActive ? 'bg-[#3E0844] text-[#F5D28E]' : 'bg-[#3E0844]/10 text-[#3E0844]'
+                              }`}>
                               {item.icon}
                             </span>
                             {item.name}
@@ -226,45 +207,32 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                       onOpenModal();
                     }
                   }}
-                  className={`group flex items-center gap-2 text-base font-semibold px-3 py-2 rounded-lg transition-all duration-200 ${
-                    activeSection === link.name
+                  className={`group flex items-center gap-2 text-base font-semibold px-3 py-2 rounded-lg transition-all duration-200 ${activeSection === link.name
                       ? 'text-[#F5D28E] bg-white/10'
                       : 'text-white/80 hover:text-[#F5D28E] hover:bg-white/10'
-                  }`}
+                    }`}
                 >
-                  <span className={`transition-colors pointer-events-none ${
-                    activeSection === link.name ? 'text-[#F5D28E]' : 'text-white/60 group-hover:text-[#F5D28E]'
-                  }`}>{link.icon}</span>
+                  <span className={`transition-colors pointer-events-none ${activeSection === link.name ? 'text-[#F5D28E]' : 'text-white/60 group-hover:text-[#F5D28E]'
+                    }`}>{link.icon}</span>
                   {link.name}
                 </a>
               ))}
 
             </div>
 
-            {/* Right: Cart + Enquire Now + Mobile Toggle */}
+            {/* Right: Enquire Now + Mobile Toggle */}
             <div className="flex items-center gap-3">
-              {/* Cart Icon Button */}
-              <button
-                onClick={() => setIsCartOpen((prev) => !prev)}
-                className="relative text-white/80 hover:text-[#F5D28E] p-2 rounded-lg hover:bg-white/10 transition-all duration-200"
-                aria-label="Shopping Cart"
-              >
-                <ShoppingCart className="w-5 h-5 pointer-events-none" />
-                {cart.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#F5D28E] text-[#3E0844] rounded-full text-[10px] font-black flex items-center justify-center pointer-events-none">
-                    {cart.reduce((sum, item) => sum + item.quantity, 0)}
-                  </span>
-                )}
-              </button>
 
               {/* Enquire Now CTA */}
-              <button
-                onClick={onOpenModal}
+              <a
+                href="https://wa.me/919829156812?text=Hello%20Neelam%20Arora%20Team!%20I%20would%20like%20to%20enquire%20about%20your%20spiritual%20courses%2C%20workshops%2C%20or%20blessed%20crystal%20products.%20Please%20guide%20me%20with%20more%20information!"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hidden sm:flex items-center gap-1.5 border border-white/40 hover:border-white text-white font-semibold text-xs px-4 py-2 rounded-lg transition-all duration-300 hover:bg-white hover:text-[#3E0844] active:scale-95"
               >
                 <Sparkles className="w-3.5 h-3.5 pointer-events-none" />
                 Enquire Now
-              </button>
+              </a>
 
               {/* Mobile Menu Toggle */}
               <button
@@ -314,15 +282,13 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`group flex items-center gap-3 font-semibold py-3 px-4 rounded-xl transition-all border ${
-                      activeSection === link.name
+                    className={`group flex items-center gap-3 font-semibold py-3 px-4 rounded-xl transition-all border ${activeSection === link.name
                         ? 'text-[#F5D28E] bg-white/10 border-white/10'
                         : 'text-white/85 hover:text-[#F5D28E] hover:bg-white/10 border-transparent hover:border-white/10'
-                    }`}
+                      }`}
                   >
-                    <span className={`p-1.5 rounded-lg transition-all pointer-events-none ${
-                      activeSection === link.name ? 'bg-[#F5D28E]/10 text-[#F5D28E]' : 'bg-white/10 group-hover:bg-[#F5D28E]/10 group-hover:text-[#F5D28E]'
-                    }`}>{link.icon}</span>
+                    <span className={`p-1.5 rounded-lg transition-all pointer-events-none ${activeSection === link.name ? 'bg-[#F5D28E]/10 text-[#F5D28E]' : 'bg-white/10 group-hover:bg-[#F5D28E]/10 group-hover:text-[#F5D28E]'
+                      }`}>{link.icon}</span>
                     {link.name}
                   </a>
                 ))}
@@ -330,15 +296,13 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                 {/* 4. Courses accordion */}
                 <button
                   onClick={() => setIsMobileCoursesOpen((v) => !v)}
-                  className={`group flex items-center gap-3 font-semibold py-3 px-4 rounded-xl transition-all border w-full text-left ${
-                    activeSection === 'Courses'
+                  className={`group flex items-center gap-3 font-semibold py-3 px-4 rounded-xl transition-all border w-full text-left ${activeSection === 'Courses'
                       ? 'text-[#F5D28E] bg-white/10 border-white/10'
                       : 'text-white/85 hover:text-[#F5D28E] hover:bg-white/10 border-transparent hover:border-white/10'
-                  }`}
+                    }`}
                 >
-                  <span className={`p-1.5 rounded-lg transition-all pointer-events-none ${
-                    activeSection === 'Courses' ? 'bg-[#F5D28E]/10 text-[#F5D28E]' : 'bg-white/10 group-hover:bg-[#F5D28E]/10 group-hover:text-[#F5D28E]'
-                  }`}><BookOpen className="w-4 h-4" /></span>
+                  <span className={`p-1.5 rounded-lg transition-all pointer-events-none ${activeSection === 'Courses' ? 'bg-[#F5D28E]/10 text-[#F5D28E]' : 'bg-white/10 group-hover:bg-[#F5D28E]/10 group-hover:text-[#F5D28E]'
+                    }`}><BookOpen className="w-4 h-4" /></span>
                   Courses
                   <ChevronDown className={`w-4 h-4 ml-auto transition-transform pointer-events-none ${isMobileCoursesOpen ? 'rotate-180' : ''}`} />
                 </button>
@@ -352,15 +316,13 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                           key={item.name}
                           href={item.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className={`group flex items-center gap-2.5 font-semibold py-2.5 px-3 rounded-xl transition-all text-sm ${
-                            isActive
+                          className={`group flex items-center gap-2.5 font-semibold py-2.5 px-3 rounded-xl transition-all text-sm ${isActive
                               ? 'text-[#F5D28E] bg-white/20 border-l-4 border-[#F5D28E] pl-2'
                               : 'text-white/75 hover:text-[#F5D28E] hover:bg-white/10'
-                          }`}
+                            }`}
                         >
-                          <span className={`p-1 rounded-lg transition-all pointer-events-none ${
-                            isActive ? 'bg-[#F5D28E] text-[#3E0844]' : 'bg-white/10 text-white group-hover:bg-[#F5D28E]/10 group-hover:text-[#F5D28E]'
-                          }`}>{item.icon}</span>
+                          <span className={`p-1 rounded-lg transition-all pointer-events-none ${isActive ? 'bg-[#F5D28E] text-[#3E0844]' : 'bg-white/10 text-white group-hover:bg-[#F5D28E]/10 group-hover:text-[#F5D28E]'
+                            }`}>{item.icon}</span>
                           {item.name}
                         </a>
                       );
@@ -380,15 +342,13 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                         onOpenModal();
                       }
                     }}
-                    className={`group flex items-center gap-3 font-semibold py-3 px-4 rounded-xl transition-all border ${
-                      activeSection === link.name
+                    className={`group flex items-center gap-3 font-semibold py-3 px-4 rounded-xl transition-all border ${activeSection === link.name
                         ? 'text-[#F5D28E] bg-white/10 border-white/10'
                         : 'text-white/85 hover:text-[#F5D28E] hover:bg-white/10 border-transparent hover:border-white/10'
-                    }`}
+                      }`}
                   >
-                    <span className={`p-1.5 rounded-lg transition-all pointer-events-none ${
-                      activeSection === link.name ? 'bg-[#F5D28E]/10 text-[#F5D28E]' : 'bg-white/10 group-hover:bg-[#F5D28E]/10 group-hover:text-[#F5D28E]'
-                    }`}>{link.icon}</span>
+                    <span className={`p-1.5 rounded-lg transition-all pointer-events-none ${activeSection === link.name ? 'bg-[#F5D28E]/10 text-[#F5D28E]' : 'bg-white/10 group-hover:bg-[#F5D28E]/10 group-hover:text-[#F5D28E]'
+                      }`}>{link.icon}</span>
                     {link.name}
                   </a>
                 ))}
@@ -396,16 +356,16 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
             </div>
 
             {/* Enquire CTA */}
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                onOpenModal();
-              }}
-              className="mt-6 border border-white/40 hover:border-white text-white w-full py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm font-bold shadow-lg transition-all hover:bg-white hover:text-[#3E0844]"
+            <a
+              href="https://wa.me/919829156812?text=Hello%20Neelam%20Arora%20Team!%20I%20would%20like%20to%20enquire%20about%20your%20spiritual%20courses%2C%20workshops%2C%20or%20blessed%20crystal%20products.%20Please%20guide%20me%20with%20more%20information!"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-6 border border-white/40 hover:border-white text-white w-full py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm font-bold shadow-lg transition-all hover:bg-white hover:text-[#3E0844] text-center block"
             >
-              <Sparkles className="w-4 h-4" />
-              Enquire Now
-            </button>
+              <Sparkles className="w-4 h-4 inline-block mr-1.5 align-middle" />
+              <span className="align-middle">Enquire Now</span>
+            </a>
           </div>
         </div>
       )}
@@ -454,7 +414,7 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                           −
                         </button>
                         <span className="text-xs font-bold text-[#3E0844]">{item.quantity}</span>
-                        <button onClick={() => { /* add handler via prop if needed */ }} className="w-6 h-6 rounded-full bg-[#3E0844] text-white text-xs flex items-center justify-center hover:bg-[#6B1736] transition-colors font-bold">
+                        <button onClick={() => onAddToCart && onAddToCart(item)} className="w-6 h-6 rounded-full bg-[#3E0844] text-white text-xs flex items-center justify-center hover:bg-[#6B1736] transition-colors font-bold">
                           +
                         </button>
                       </div>
@@ -477,7 +437,7 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                   rel="noopener noreferrer"
                   className="w-full bg-gradient-to-r from-[#25D366] to-[#20BA56] text-white font-black py-3.5 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-md transition-all hover:brightness-105 active:scale-[0.98]"
                 >
-                  <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                  <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" /></svg>
                   Order on WhatsApp
                 </a>
                 <button

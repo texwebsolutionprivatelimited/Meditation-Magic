@@ -20,49 +20,50 @@ export default function Offerings({ onOpenModal }) {
   };
 
   return (
-    <section id="programs" className="relative py-6 bg-[#E2D5F3] overflow-hidden">
+    <section id="programs" className="relative pt-12 pb-16 bg-[#E2D5F3] overflow-hidden">
 
       {/* Space left-right inside container */}
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-5">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-3 animate-tagline-blink">
-            <Sparkles className="w-3.5 h-3.5" />
-            Premium Divine Attunements
+            <Sparkles className="w-3.5 h-3.5 text-[#6B1736]" />
+            Certified Classes &amp; Workshops
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1C0320] mb-3">
-            Featured Courses & Workshops
+            Our Offerings
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#3E0844] to-[#6B1736] mx-auto rounded-full mb-4" />
-          <p className="text-gray-600 text-xs sm:text-sm font-semibold max-w-2xl mx-auto">
-            Begin your spiritual path today. Choose from our certified online courses, high-vibrational workshops, and personalized 1-on-1 sessions designed to help you attract wealth, heal emotional blocks, and find deep peace.
+          <p className="text-gray-600 text-xs sm:text-sm font-semibold max-w-2xl mx-auto leading-relaxed">
+            Start your spiritual journey today. Choose from our certified online courses, powerful workshops, and personal 1-on-1 sessions. Learn to attract wealth, heal emotional pain, and find deep peace.
           </p>
         </div>
 
         {/* Offerings Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {programs.map((prog) => (
-            <div
+            <Link
               key={prog.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full border border-purple-100/50"
+              to={`/courses/${prog.id}`}
+              className="group bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(160,71,184,0.05)] hover:shadow-[0_20px_40px_rgba(160,71,184,0.12)] border-2 border-[#3E0844]/50 hover:border-[#3E0844] transition-all duration-300 flex flex-col justify-between h-full hover:-translate-y-1.5 cursor-pointer"
             >
               <div>
                 {/* Card Image */}
-                <div className="relative h-36 sm:h-40 overflow-hidden bg-purple-950">
+                <div className="relative h-44 sm:h-48 overflow-hidden bg-purple-950">
                   <img
                     src={imageMap[prog.id] || prog.image}
                     alt={prog.title}
-                    className="w-full h-full object-cover transform hover:scale-[1.03] transition-transform duration-500 brightness-95"
+                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 brightness-95"
                   />
-                  <span className="absolute top-3 left-3 text-[9px] font-black uppercase tracking-wider bg-[#3E0844]/80 text-[#F5D28E] border border-[#F5D28E]/20 px-3 py-1 rounded-full backdrop-blur-md">
+                  <span className="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest bg-[#3E0844]/80 text-[#FAF7F2] border border-[#FAF7F2]/20 px-3.5 py-1.5 rounded-full backdrop-blur-md">
                     {prog.category}
                   </span>
                 </div>
 
                 {/* Card Info */}
-                <div className="p-5">
-                  <h3 className="font-serif text-lg font-bold text-[#1C0320] leading-snug mb-1 line-clamp-2">
+                <div className="p-6">
+                  <h3 className="font-serif text-lg font-bold text-[#1C0320] group-hover:text-[#6B1736] leading-snug mb-1 line-clamp-2 transition-colors duration-300">
                     {prog.title}
                   </h3>
                   <h4 className="text-[11px] font-semibold text-[#6B1736] tracking-wide mb-3 uppercase">
@@ -75,26 +76,23 @@ export default function Offerings({ onOpenModal }) {
               </div>
 
               {/* Action Button */}
-              <div className="p-5 pt-0">
-                <Link
-                  to={`/courses/${prog.id}`}
-                  className="w-full bg-[#3E0844] hover:bg-[#2C0530] text-white font-bold py-2.5 rounded-lg text-center text-xs transition-all duration-300 transform active:scale-[0.98] block uppercase tracking-wider cursor-pointer"
-                >
-                  View Details & Syllabus
-                </Link>
+              <div className="p-6 pt-0">
+                <div className="w-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3 rounded-xl text-center text-xs transition-all duration-300 uppercase tracking-wider shadow-md hover:shadow-lg">
+                  See Course Details
+                </div>
               </div>
 
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* See More CTA */}
-        <div className="mt-8 text-center">
+        <div className="mt-10 text-center">
           <Link
             to="/courses"
-            className="inline-flex items-center gap-2 bg-[#3E0844] hover:bg-[#1C0320] text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-wider"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-wider"
           >
-            View All Courses & Workshops
+            View All Courses &amp; Workshops
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </Link>
         </div>
