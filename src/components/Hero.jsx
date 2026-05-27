@@ -102,13 +102,13 @@ export default function Hero({ onOpenModal }) {
   ];
 
   return (
-    <section className="relative w-full min-h-[250vh] md:min-h-0 md:h-[calc(100vh-72px)] mt-[72px] flex flex-col md:flex-row overflow-hidden bg-cosmic-darkest">
+    <section className="relative w-full min-h-screen md:min-h-0 md:h-[calc(100vh-72px)] mt-[72px] flex flex-col md:flex-row overflow-hidden bg-cosmic-darkest">
 
       {/* 5 Vertical MAGIC Panels */}
       {panels.map((p) => (
         <div
           key={p.id}
-          className="relative w-full md:w-1/5 h-[50vh] md:h-full flex flex-col justify-end p-6 pb-12 text-center group border-b md:border-b-0 md:border-r border-white/5 transition-all duration-700 hover:md:w-[28%] overflow-hidden cursor-pointer"
+          className="relative w-full md:w-1/5 min-h-[260px] h-[38vh] sm:h-[42vh] md:h-full flex flex-col justify-end p-4 sm:p-6 pb-8 sm:pb-12 text-center group border-b md:border-b-0 md:border-r border-white/5 transition-all duration-700 hover:md:w-[28%] overflow-hidden cursor-pointer"
           onClick={() => navigate(p.path)}
         >
           {/* Panel Background Image */}
@@ -133,7 +133,7 @@ export default function Hero({ onOpenModal }) {
           <div className="relative z-10 flex flex-col items-center justify-end space-y-2 mt-auto">
 
             {/* Title & Abbreviation */}
-            <h3 className="font-serif text-xl sm:text-2xl font-extrabold text-white tracking-wide leading-tight group-hover:text-gold transition-colors duration-300">
+            <h3 className="font-serif text-lg sm:text-2xl font-extrabold text-white tracking-wide leading-tight group-hover:text-gold transition-colors duration-300">
               {p.title}
             </h3>
 
@@ -158,10 +158,10 @@ export default function Hero({ onOpenModal }) {
         href="https://wa.me/919999999999" // Representative WhatsApp link
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-30 p-3 bg-[#25D366] hover:bg-[#20BA56] text-white rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 flex items-center justify-center"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 p-2.5 sm:p-3 bg-[#25D366] hover:bg-[#20BA56] text-white rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 flex items-center justify-center"
         aria-label="Chat on WhatsApp"
       >
-        <svg className="w-8 h-8 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-6 h-6 sm:w-8 sm:h-8 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 2.72 1.49 4.8 1.49 5.53 0 10.03-4.5 10.03-10.03 0-2.66-1.04-5.16-2.92-7.04C16.67 1.74 14.17.7 11.51.7c-5.54 0-10.05 4.51-10.05 10.04 0 1.9.49 3.19 1.4 4.77l-1.02 3.73 3.8-1.08z" />
         </svg>
       </a>

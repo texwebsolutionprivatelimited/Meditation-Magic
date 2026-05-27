@@ -8,7 +8,7 @@ const Section = ({ title, children }) => (
       <ChevronRight className="w-5 h-5 text-[#6B1736] shrink-0" />
       {title}
     </h2>
-    <div className="text-gray-600 text-sm sm:text-base leading-relaxed space-y-3 pl-7">
+    <div className="text-gray-600 text-sm sm:text-base leading-relaxed space-y-3 pl-0 sm:pl-7">
       {children}
     </div>
   </div>
@@ -141,10 +141,10 @@ export default function PrivacyPolicy() {
           </Section>
 
           {/* Bottom links */}
-          <div className="mt-10 pt-8 border-t border-purple-100 flex flex-wrap gap-4 text-xs text-gray-400 font-bold uppercase tracking-widest">
+          <div className="mt-10 pt-8 border-t border-purple-100 flex flex-wrap items-center gap-4 text-xs text-gray-400 font-bold uppercase tracking-widest">
             <Link to="/refund-policy" className="hover:text-[#6B1736] transition-colors">Refund Policy</Link>
             <Link to="/terms-and-conditions" className="hover:text-[#6B1736] transition-colors">Terms &amp; Conditions</Link>
-            <Link to="/" className="hover:text-[#6B1736] transition-colors ml-auto">← Back to Home</Link>
+            <Link to="/" className="hover:text-[#6B1736] transition-colors sm:ml-auto w-full sm:w-auto">← Back to Home</Link>
           </div>
         </div>
       </div>
@@ -152,3 +152,4 @@ export default function PrivacyPolicy() {
     </div>
   );
 }
+

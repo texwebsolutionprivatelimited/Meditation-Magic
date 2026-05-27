@@ -122,7 +122,7 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
                 <span className="font-serif text-white font-extrabold text-sm sm:text-base tracking-wide uppercase leading-none">
                   Meditation Magic
                 </span>
-                <span className="text-[9px] text-white/60 tracking-widest uppercase font-semibold mt-0.5">
+                <span className="hidden sm:block text-[9px] text-white/60 tracking-widest uppercase font-semibold mt-0.5">
                   With Neelam Arora
                 </span>
               </div>
