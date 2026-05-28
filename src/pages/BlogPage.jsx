@@ -4,7 +4,7 @@ import { Newspaper } from 'lucide-react';
 
 export default function BlogPage() {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-[#E2D5F3] relative overflow-hidden text-gray-900">
+    <div className="pt-16 lg:pt-24 pb-16 min-h-screen bg-[#E2D5F3] relative overflow-hidden text-gray-900">
 
       {/* 🌌 Background soft ambient blurs matching light spiritual style */}
       <div className="absolute top-0 right-[-10%] w-[500px] h-[500px] rounded-full bg-white/40 blur-[130px] pointer-events-none" />

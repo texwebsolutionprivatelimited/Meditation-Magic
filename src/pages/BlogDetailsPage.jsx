@@ -61,7 +61,7 @@ export default function BlogDetailsPage() {
   };
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden text-gray-900">
+    <div className="pt-24 lg:pt-28 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden text-gray-900">
 
       {/* Floating Background Sparkles / Orbs */}
       <style>{`
@@ -106,11 +106,11 @@ export default function BlogDetailsPage() {
           Back to Articles
         </Link>
 
-        {/* Blog Reading Container - Set to w-full with a highly visible rounded border and glass background */}
-        <div className="w-full bg-white/20 backdrop-blur-md rounded-[2.5rem] shadow-xl border border-purple-300/60 overflow-hidden relative z-10">
+        {/* Blog Reading Container - Premium glass card with elegant border and responsive corner rounding */}
+        <div className="w-full bg-white/35 backdrop-blur-md rounded-[1.5rem] sm:rounded-[2.5rem] border border-[#3E0844]/10 sm:border-purple-300/50 shadow-xl overflow-hidden relative z-10">
 
           {/* Article Header Details */}
-          <div className="p-8 sm:p-12 pb-6 border-b border-purple-300/40 text-center sm:text-left">
+          <div className="p-4 sm:p-12 pb-6 border-b border-purple-300/40 text-center sm:text-left">
             {/* Meta Tags */}
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 mb-4">
               <span className="inline-flex items-center gap-1.5 text-[10px] font-black tracking-widest text-[#6B1736] uppercase bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-100">
@@ -128,7 +128,7 @@ export default function BlogDetailsPage() {
             </div>
 
             {/* Title */}
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#1C0320] leading-tight mb-4">
+            <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-black text-[#1C0320] leading-tight mb-4">
               {post.title}
             </h1>
 
@@ -150,10 +150,10 @@ export default function BlogDetailsPage() {
           </div>
 
           {/* Side-by-Side Dual Images - Display two square illustrations naturally in a grid so space is beautifully filled */}
-          <div className="p-6 sm:p-10 pb-0 flex justify-center w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 w-full max-w-5xl">
+          <div className="p-4 sm:p-10 pb-0 flex justify-center w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 w-full max-w-5xl">
               {/* Card 1: Core Article Image */}
-              <div className="relative w-full aspect-square bg-[#0D0015] overflow-hidden rounded-[2rem] border border-purple-300/40 shadow-md">
+              <div className="relative w-full aspect-square bg-[#0D0015] overflow-hidden rounded-[1.25rem] sm:rounded-[2rem] border border-purple-300/40 shadow-md">
                 <img
                   src={imageMap[post.id] || post.image}
                   alt={post.title}
@@ -167,7 +167,7 @@ export default function BlogDetailsPage() {
 
               {/* Card 2: Related Course / Companion Attunement Image */}
               {companionPost && (
-                <div className="relative w-full aspect-square bg-[#0D0015] overflow-hidden rounded-[2rem] border border-purple-300/40 shadow-md">
+                <div className="hidden md:block relative w-full aspect-square bg-[#0D0015] overflow-hidden rounded-[1.25rem] sm:rounded-[2rem] border border-purple-300/40 shadow-md">
                   <img
                     src={imageMap[companionPost.id] || companionPost.image}
                     alt={companionPost.title}
@@ -183,7 +183,7 @@ export default function BlogDetailsPage() {
           </div>
 
           {/* Article Body Content */}
-          <div className="p-8 sm:p-12 pt-10 space-y-8 font-medium text-gray-700 text-xs sm:text-sm sm:leading-relaxed leading-relaxed">
+          <div className="p-4 sm:p-12 pt-8 sm:pt-10 space-y-8 font-medium text-gray-700 text-xs sm:text-sm sm:leading-relaxed leading-relaxed">
 
             {/* Intro paragraph */}
             <p className="text-sm sm:text-base font-bold text-[#1C0320]">
@@ -191,10 +191,10 @@ export default function BlogDetailsPage() {
             </p>
 
             {/* Crystalline blockquote */}
-            <div className="p-6 sm:p-8 rounded-[2rem] bg-gradient-to-br from-[#3E0844]/5 to-[#6B1736]/10 border border-purple-100 relative overflow-hidden text-center my-6">
-              <span className="absolute top-2 left-6 text-7xl font-serif text-[#6B1736]/15 pointer-events-none">“</span>
-              <p className="font-serif text-sm sm:text-base font-black text-[#3E0844] relative z-10 leading-snug">
-                {post.quote}
+            <div className="my-6 border-l-4 border-[#6B1736] bg-gradient-to-r from-[#3E0844]/5 to-transparent p-5 pl-6 sm:pl-8 rounded-r-2xl text-left relative overflow-hidden">
+              <span className="absolute right-4 bottom-[-10px] text-7xl font-serif text-[#6B1736]/10 pointer-events-none select-none">”</span>
+              <p className="font-serif text-sm sm:text-base font-black text-[#3E0844] relative z-10 leading-relaxed italic">
+                "{post.quote}"
               </p>
             </div>
 
@@ -213,7 +213,7 @@ export default function BlogDetailsPage() {
             ))}
 
             {/* Structured Technique / Exercise Card */}
-            <div className="bg-[#3E0844]/5 border border-purple-100 rounded-[2.25rem] p-6 sm:p-8 space-y-5 my-8">
+            <div className="bg-[#3E0844]/5 border border-purple-100 rounded-[1.5rem] sm:rounded-[2.25rem] p-4 sm:p-8 space-y-5 my-8">
               <div className="flex items-center gap-3 border-b border-purple-100 pb-4">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center text-white shadow-md">
                   <Sparkles className="w-5 h-5 animate-pulse" />

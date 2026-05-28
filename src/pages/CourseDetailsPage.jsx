@@ -192,7 +192,7 @@ export default function CourseDetailsPage() {
   }, [id]);
 
   // States for FAQs
-  const [openFaqIdx, setOpenFaqIdx] = useState(null);
+  const [openFaqIdx, setOpenFaqIdx] = useState(0);
 
   const defaultFaqs = [
     {
@@ -296,7 +296,7 @@ export default function CourseDetailsPage() {
   const curriculumBlocks = parseDetailsToBlocks(workshop.details);
 
   return (
-    <div className="pt-24 min-h-screen bg-[#E2D5F3] text-gray-900 pb-24">
+    <div className="pt-24 lg:pt-28 min-h-screen bg-[#E2D5F3] text-gray-900 pb-24">
       {/* Decorative backdrop glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[40%] rounded-full bg-white/30 blur-[130px] pointer-events-none" />
 
@@ -315,7 +315,7 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 1: Full-Width Glassmorphic Hero Header */}
-        <div className="bg-white rounded-[2.5rem] p-6 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden mb-8">
+        <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden mb-8">
           <div className="absolute top-[-20%] right-[-10%] w-80 h-80 rounded-full bg-purple-100/40 blur-3xl pointer-events-none" />
           <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 rounded-full bg-white/40 blur-2xl pointer-events-none" />
 
@@ -345,9 +345,9 @@ export default function CourseDetailsPage() {
 
           {/* LEFT SIDE: Sidebar image & action elements (5 cols on lg) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-[2.5rem] p-6 border border-purple-100 shadow-2xl relative overflow-hidden group">
+            <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-4 sm:p-6 border border-purple-100 shadow-2xl relative overflow-hidden group">
               {/* Image Box */}
-              <div className="relative h-64 sm:h-80 w-full rounded-[1.75rem] overflow-hidden mb-6 bg-purple-950 shadow-inner border-2 border-purple-300/80">
+              <div className="relative h-48 sm:h-80 w-full rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden mb-6 bg-purple-950 shadow-inner border-2 border-purple-300/80">
                 <img
                   src={workshop.image}
                   alt={workshop.title}
@@ -398,35 +398,39 @@ export default function CourseDetailsPage() {
             {/* Who Can Join Details Card in Sidebar for Spacing Balance */}
             {workshop.whoCanJoin && workshop.whoCanJoin.length > 0 && (
               <div className={`rounded-[2.5rem] p-6 border shadow-2xl relative overflow-hidden text-left transition-all duration-300 hover:scale-[1.01] ${cardStyle.cardBg}`}>
-                <div className={`absolute top-[-20%] left-[-20%] w-32 h-32 rounded-full blur-2xl pointer-events-none ${cardStyle.glowBg}`} />
-                <h3 className={`font-serif text-sm font-black flex items-center gap-2 mb-3 border-b border-purple-100/25 pb-2 ${cardStyle.titleColor}`}>
-                  {renderCategoryIcon(cardStyle.iconName)}
-                  Who Can Join?
-                </h3>
-                <div className="space-y-2">
-                  {workshop.whoCanJoin.map((who, idx) => (
-                    <div key={idx} className={`flex gap-2.5 text-[11px] leading-relaxed font-semibold p-3 rounded-xl border transition-all duration-200 ${cardStyle.titleColor} ${cardStyle.itemBg}`}>
-                      <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5 ${cardStyle.bulletColor}`} />
-                      <span>{who}</span>
-                    </div>
-                  ))}
+                <div className={`absolute top-[-20%] left-[-20%] w-32 h-32 rounded-full blur-2xl pointer-events-none z-0 ${cardStyle.glowBg}`} />
+                <div className="relative z-10">
+                  <h3 className={`font-serif text-sm font-black flex items-center gap-2 mb-3 border-b border-purple-100/25 pb-2 ${cardStyle.titleColor}`}>
+                    {renderCategoryIcon(cardStyle.iconName)}
+                    Who Can Join?
+                  </h3>
+                  <div className="space-y-2">
+                    {workshop.whoCanJoin.map((who, idx) => (
+                      <div key={idx} className={`flex gap-2.5 text-[11px] leading-relaxed font-semibold p-3 rounded-xl border transition-all duration-200 ${cardStyle.titleColor} ${cardStyle.itemBg}`}>
+                        <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5 ${cardStyle.bulletColor}`} />
+                        <span>{who}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
 
             {/* Unique Portal Element: Mandalic Sacred Geometry SVG Seal */}
             <div className="bg-white rounded-[2.5rem] p-6 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden text-center transition-all duration-300 hover:scale-[1.01]">
-              <div className={`absolute top-[-20%] left-[-20%] w-32 h-32 rounded-full blur-2xl pointer-events-none ${sealData.glowBg}`} />
-              <div className="mx-auto w-24 h-24 mb-4 relative flex items-center justify-center bg-purple-50 rounded-full border border-[#E2D5F3]">
-                {sealData.svg}
-                <Star className="w-4 h-4 text-[#F5D28E] absolute animate-pulse" />
+              <div className={`absolute top-[-20%] left-[-20%] w-32 h-32 rounded-full blur-2xl pointer-events-none z-0 ${sealData.glowBg}`} />
+              <div className="relative z-10">
+                <div className="mx-auto w-24 h-24 mb-4 relative flex items-center justify-center bg-purple-50 rounded-full border border-[#E2D5F3]">
+                  {sealData.svg}
+                  <Star className="w-4 h-4 text-[#F5D28E] absolute animate-pulse" />
+                </div>
+                <h4 className="font-serif font-black text-[#1C0320] text-sm uppercase tracking-widest mb-1.5">
+                  {sealData.title}
+                </h4>
+                <p className="text-[11px] text-gray-600 leading-relaxed max-w-xs mx-auto font-semibold">
+                  {sealData.desc}
+                </p>
               </div>
-              <h4 className="font-serif font-black text-[#1C0320] text-sm uppercase tracking-widest mb-1.5">
-                {sealData.title}
-              </h4>
-              <p className="text-[11px] text-gray-600 leading-relaxed max-w-xs mx-auto font-semibold">
-                {sealData.desc}
-              </p>
             </div>
 
 
@@ -434,7 +438,7 @@ export default function CourseDetailsPage() {
 
           {/* RIGHT SIDE: Core Curriculum, Benefits & Who Can Join (7 cols on lg) */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="bg-white rounded-[2.5rem] p-6 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden">
+            <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden">
               <div className="absolute top-[-5%] right-[-5%] w-64 h-64 rounded-full bg-purple-100/30 blur-3xl pointer-events-none" />
 
               {/* Sacred Roadmap / Curriculum Timeline */}
@@ -451,7 +455,7 @@ export default function CourseDetailsPage() {
                         {/* Timeline Node dot */}
                         <span className="absolute left-[-33px] sm:left-[-41px] top-1.5 w-5 h-5 rounded-full bg-[#3E0844] border-4 border-white shadow-md group-hover/timeline:scale-110 transition-transform duration-300 flex items-center justify-center z-10" />
 
-                        <div className="bg-purple-50/40 border-2 border-purple-300/80 p-5 rounded-2xl group-hover/timeline:border-[#3E0844]/40 group-hover/timeline:bg-purple-50/70 transition-all duration-300">
+                        <div className="bg-purple-50/40 border-2 border-purple-300/80 p-4 sm:p-5 rounded-2xl group-hover/timeline:border-[#3E0844]/40 group-hover/timeline:bg-purple-50/70 transition-all duration-300">
                           {block.title ? (
                             <>
                               <h4 className="font-serif font-black text-sm sm:text-base text-[#1C0320] mb-1.5">
@@ -495,7 +499,7 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 3: Full-Width Meet Your Facilitator Banner (Spans 12 columns) */}
-        <div className="bg-white/85 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl relative overflow-hidden border border-purple-200/60 mb-8">
+        <div className="bg-white/85 rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 shadow-2xl relative overflow-hidden border border-purple-200/60 mb-8">
           <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#E2D5F3]/50 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-10 -left-10 w-64 h-64 rounded-full bg-purple-50 blur-3xl pointer-events-none" />
 
@@ -537,51 +541,53 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 4: Collapsible FAQs Accordion (Full Width) */}
-        <div className="bg-white rounded-[2.5rem] p-6 sm:p-10 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden mb-12">
-          <div className="absolute top-[-10%] right-[-10%] w-64 h-64 rounded-full bg-purple-50 blur-3xl pointer-events-none" />
+        <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden mb-12">
+          <div className="absolute top-[-10%] right-[-10%] w-64 h-64 rounded-full bg-purple-50 blur-3xl pointer-events-none z-0" />
 
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1C0320] flex items-center gap-2 mb-6">
-            <Star className="w-5 h-5 text-[#6B1736] flex-shrink-0 animate-pulse" />
-            Frequently Asked Questions
-          </h3>
+          <div className="relative z-10">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1C0320] flex items-center gap-2 mb-6">
+              <Star className="w-5 h-5 text-[#6B1736] flex-shrink-0 animate-pulse" />
+              Frequently Asked Questions
+            </h3>
 
-          <div className="space-y-3">
-            {faqItems.map((item, idx) => {
-              const isOpen = openFaqIdx === idx;
-              return (
-                <div
-                  key={idx}
-                  className="bg-purple-50/40 border-2 border-purple-300/80 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-purple-50/60"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
-                    className="w-full text-left p-5 flex justify-between items-center gap-4 focus:outline-none hover:bg-purple-50/50 transition-colors"
-                  >
-                    <span className="font-serif font-bold text-xs sm:text-sm text-[#1C0320]">
-                      {item.q}
-                    </span>
-                    <span className={`text-[#6B1736] transition-transform duration-300 font-black text-xs ${isOpen ? 'rotate-180' : ''}`}>
-                      ▼
-                    </span>
-                  </button>
-
+            <div className="space-y-3">
+              {faqItems.map((item, idx) => {
+                const isOpen = openFaqIdx === idx;
+                return (
                   <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[14rem] border-t-2 border-purple-200/80 p-5 bg-white/40' : 'max-h-0'
-                      }`}
+                    key={idx}
+                    className="bg-purple-50/40 border-2 border-purple-300/80 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-purple-50/60"
                   >
-                    <p className="text-[11px] sm:text-xs text-gray-700 leading-relaxed font-medium">
-                      {item.a}
-                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
+                      className="w-full text-left p-4 sm:p-5 flex justify-between items-center gap-4 focus:outline-none hover:bg-purple-50/50 transition-colors"
+                    >
+                      <span className="font-serif font-bold text-xs sm:text-sm text-[#1C0320]">
+                        {item.q}
+                      </span>
+                      <span className={`text-[#6B1736] transition-transform duration-300 font-black text-xs ${isOpen ? 'rotate-180' : ''}`}>
+                        ▼
+                      </span>
+                    </button>
+
+                    <div
+                      className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] border-t-2 border-purple-200/80 p-4 sm:p-5 bg-white/40' : 'max-h-0'
+                        }`}
+                    >
+                      <p className="text-[11px] sm:text-xs text-gray-700 leading-relaxed font-medium">
+                        {item.a}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 
         {/* Row 5: Balanced Bottom Footer Actions */}
-        <div className="bg-white rounded-[2.5rem] p-6 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden mb-16 max-w-2xl mx-auto text-center transition-all duration-300 hover:scale-[1.01]">
+        <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-6 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden mb-6 sm:mb-12 max-w-2xl mx-auto text-center transition-all duration-300 hover:scale-[1.01]">
           <div className={`absolute top-[-30%] left-[-30%] w-32 h-32 rounded-full blur-2xl pointer-events-none ${bottomData.glowBg}`} />
           <h4 className="font-serif font-bold text-[#1C0320] text-sm sm:text-base mb-2">
             {bottomData.title}
@@ -609,7 +615,7 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 6: Suggestion Section (More Like This) */}
-        <div className="border-t border-purple-200/60 pt-16">
+        <div className="border-t border-purple-200/60 pt-6 sm:pt-12 lg:pt-16">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10">
             <div>
               <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#1C0320] leading-tight mb-2">

@@ -16,7 +16,7 @@ const Section = ({ title, children }) => (
 
 export default function RefundPolicy() {
   return (
-    <div className="pt-24 min-h-screen bg-[#E2D5F3] text-gray-900">
+    <div className="pt-16 lg:pt-24 min-h-screen bg-[#E2D5F3] text-gray-900">
 
       {/* Page Header */}
       <div className="relative pt-2 pb-6 text-center overflow-hidden">
@@ -40,7 +40,7 @@ export default function RefundPolicy() {
 
       {/* Content Card */}
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="bg-white/70 border border-purple-200 rounded-3xl p-8 sm:p-12 shadow-sm">
+        <div className="bg-white/70 border border-purple-200 rounded-2xl sm:rounded-3xl p-5 sm:p-12 shadow-sm">
 
           <Section title="Our Refund Philosophy">
             <p>

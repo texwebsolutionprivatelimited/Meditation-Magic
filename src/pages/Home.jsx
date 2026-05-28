@@ -27,7 +27,7 @@ export default function Home({ onOpenModal, onAddToCart }) {
     },
     {
       name: 'Pallavi Hadawale',
-      role: 'Akashic Records Student',
+      role: 'Akashic Records Graduate',
       content: 'I joined the Akashic Records course to clear repeated career blockages. The simple lessons helped me cut family lack timelines and clear my mind. I got my dream job with an amazing package!',
       rating: 5,
     },
@@ -51,7 +51,7 @@ export default function Home({ onOpenModal, onAddToCart }) {
       <AboutBrief />
       <VideoReviews />
       
-      {/* Testimonials Slider (Placed right below student video reviews) */}
+      {/* Testimonials Slider (Placed right below video reviews) */}
       <Testimonials 
         testimonialsList={testimonialsList}
         activeIdx={activeIdx}

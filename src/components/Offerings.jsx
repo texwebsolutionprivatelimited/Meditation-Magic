@@ -20,7 +20,7 @@ export default function Offerings({ onOpenModal }) {
   };
 
   return (
-    <section id="programs" className="relative pt-12 pb-16 bg-[#E2D5F3] overflow-hidden">
+    <section id="programs" className="relative pt-12 pb-8 sm:pb-10 bg-[#E2D5F3] overflow-hidden">
 
       {/* Space left-right inside container */}
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -77,7 +77,7 @@ export default function Offerings({ onOpenModal }) {
 
               {/* Action Button */}
               <div className="p-6 pt-0">
-                <div className="w-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3 rounded-xl text-center text-xs transition-all duration-300 uppercase tracking-wider shadow-md hover:shadow-lg">
+                <div className="w-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3 rounded-xl text-center text-xs transition-all duration-300 uppercase tracking-wider shadow-md hover:shadow-lg whitespace-nowrap">
                   See Course Details
                 </div>
               </div>
@@ -90,9 +90,10 @@ export default function Offerings({ onOpenModal }) {
         <div className="mt-10 text-center">
           <Link
             to="/courses"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-wider"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold text-xs sm:text-sm px-4 sm:px-8 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-wider whitespace-nowrap"
           >
-            View All Courses &amp; Workshops
+            <span className="hidden sm:inline">View All Courses &amp; Workshops</span>
+            <span className="inline sm:hidden">View All Courses</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </Link>
         </div>

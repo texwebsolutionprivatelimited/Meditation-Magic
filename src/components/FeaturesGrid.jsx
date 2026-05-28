@@ -247,35 +247,54 @@ export default function FeaturesGrid() {
           </div>
         </div>
 
-        {/* ─── MOBILE fallback ─── */}
-        <div className="lg:hidden">
-          {/* Mobile logo */}
-          <div className="flex flex-col items-center mb-8">
-            <div className="p-[3px] rounded-full shadow-xl" style={{ background: 'linear-gradient(135deg, #FFD95A, #F5A623, #7B2FBE)' }}>
-              <div className="p-2 bg-[#0D0015] rounded-full">
-                <div className="w-24 h-24 rounded-full overflow-hidden">
-                  <img src={logoImg} alt="Meditation Magic" className="w-full h-full object-cover" />
-                </div>
-              </div>
-            </div>
-            <div className="mt-3 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FFD95A] to-[#F5A623]">
-              <span className="text-[9px] font-extrabold text-[#0D0015] tracking-widest uppercase">The Real Magic is in You</span>
-            </div>
-          </div>
-
+        {/* ─── MOBILE fallback (Symmetrical 5-Logo-5 Layout for Mobile/Tablet ONLY) ─── */}
+        <div className="lg:hidden space-y-8">
+          
+          {/* Top 5 Feature Cards (leftFeatures sliced to 5) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[...leftFeatures, ...rightFeatures].map((feat, i) => (
+            {leftFeatures.slice(0, 5).map((feat, i) => (
               <div key={i} className="group flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 border border-[#FFD95A]/15 hover:border-[#FFD95A]/40 transition-all cursor-pointer">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFD95A] to-[#F5A623] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFD95A] to-[#F5A623] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <img src={feat.iconUrl} className="w-4 h-4 object-contain" alt="" />
                 </div>
                 <div>
-                  <div className="text-white text-xs font-semibold group-hover:text-[#FFD95A] transition-colors">{feat.title}</div>
+                  <div className="text-white text-xs font-semibold group-hover:text-[#FFD95A] transition-colors duration-300">{feat.title}</div>
                   <div className="text-white/40 text-[10px]">{feat.sub}</div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Centered Mobile Logo Orb in the middle */}
+          <div className="flex flex-col items-center py-4 relative">
+            <div className="absolute w-44 h-44 rounded-full border border-dashed border-[#FFD95A]/5 animate-spin" style={{ animationDuration: '30s' }} />
+            <div className="p-[3px] rounded-full shadow-xl relative z-10" style={{ background: 'linear-gradient(135deg, #FFD95A, #F5A623, #7B2FBE)' }}>
+              <div className="p-2 bg-[#0D0015] rounded-full">
+                <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-[#FFD95A]/10">
+                  <img src={logoImg} alt="Meditation Magic" className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FFD95A] to-[#F5A623] shadow-md shadow-[#FFD95A]/10 relative z-10">
+              <span className="text-[9px] font-extrabold text-[#0D0015] tracking-widest uppercase">The Real Magic is in You</span>
+            </div>
+          </div>
+
+          {/* Bottom 5 Feature Cards (rightFeatures sliced to 5) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {rightFeatures.slice(0, 5).map((feat, i) => (
+              <div key={i} className="group flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 border border-[#FFD95A]/15 hover:border-[#FFD95A]/40 transition-all cursor-pointer">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFD95A] to-[#F5A623] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <img src={feat.iconUrl} className="w-4 h-4 object-contain" alt="" />
+                </div>
+                <div>
+                  <div className="text-white text-xs font-semibold group-hover:text-[#FFD95A] transition-colors duration-300">{feat.title}</div>
+                  <div className="text-white/40 text-[10px]">{feat.sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
 
       </div>

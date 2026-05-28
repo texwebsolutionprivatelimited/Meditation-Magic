@@ -216,7 +216,7 @@ export default function ProductDetailsPage() {
   };
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden">
+    <div className="pt-24 lg:pt-28 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden">
       {/* Background soft glowing blurs */}
       <div className="absolute top-0 right-[-10%] w-[500px] h-[500px] rounded-full bg-white/40 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-10 left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-200/50 blur-[130px] pointer-events-none" />
@@ -233,12 +233,12 @@ export default function ProductDetailsPage() {
         </Link>
 
         {/* Product Details Container */}
-        <div className="bg-white rounded-[2.5rem] shadow-2xl border border-purple-100/50 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-10 lg:p-12">
+        <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] shadow-2xl border border-purple-100/50 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-4 sm:p-10 lg:p-12">
 
             {/* Left Column: Image Card */}
             <div className="lg:col-span-5 flex flex-col gap-4">
-              <div className="relative rounded-[2rem] overflow-hidden shadow-lg aspect-square bg-[#0D0015] border border-purple-50 group">
+              <div className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-lg aspect-square bg-[#0D0015] border border-purple-50 group">
                 <img
                   src={product.image}
                   alt={product.title}
@@ -277,7 +277,7 @@ export default function ProductDetailsPage() {
                 </div>
 
                 {/* Main Titles */}
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#1C0320] leading-tight mb-2">
+                <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-black text-[#1C0320] leading-tight mb-2">
                   {product.title}
                 </h1>
                 <h2 className="text-sm sm:text-base font-bold text-[#6B1736] tracking-wide mb-6 uppercase">
@@ -285,7 +285,7 @@ export default function ProductDetailsPage() {
                 </h2>
 
                 {/* Price Label Block */}
-                <div className="mb-6 flex items-center gap-4 flex-wrap bg-purple-50/30 px-6 py-4 rounded-3xl border border-purple-100/60 w-fit">
+                <div className="mb-6 flex items-center gap-3.5 sm:gap-4 flex-wrap bg-purple-50/30 px-3.5 sm:px-6 py-2.5 sm:py-4 rounded-2xl sm:rounded-3xl border border-purple-100/60 w-full sm:w-fit justify-between sm:justify-start">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">Original Price</span>
                     <span className="text-base font-bold text-red-700/80 line-through mt-1">
@@ -364,9 +364,8 @@ export default function ProductDetailsPage() {
 
 
         {/* Tabbed / Extra Details Blocks */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Energization Details */}
-          <div className="bg-white rounded-[2rem] p-8 border border-purple-100 shadow-md">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
             <h3 className="font-serif text-xl font-black text-[#1C0320] mb-4 flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-[#6B1736] animate-pulse" />
               Neelam Arora’s 5D Activation
@@ -380,13 +379,13 @@ export default function ProductDetailsPage() {
           </div>
 
           {/* Specifications */}
-          <div className="bg-white rounded-[2rem] p-8 border border-purple-100 shadow-md flex flex-col justify-between">
+          <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md flex flex-col justify-between">
             <div>
               <h3 className="font-serif text-xl font-black text-[#1C0320] mb-4 flex items-center gap-2">
                 <HelpCircle className="w-5 h-5 text-[#6B1736]" />
                 Crystal Specifications
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Gemstone Material</span>
                   <p className="text-xs font-extrabold text-[#1C0320] mt-0.5">{product.specifications.material}</p>
@@ -409,16 +408,16 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* What's Included in Sacred Box */}
-        <div className="mt-8 bg-white rounded-[2rem] p-8 border border-purple-100 shadow-md">
+        <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
           <h3 className="font-serif text-xl font-black text-[#1C0320] mb-6 flex items-center gap-2">
             <Gift className="w-5 h-5 text-[#6B1736]" />
             What is Included in Your Sacred Package?
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {packageIncludes.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="p-5 rounded-2xl bg-purple-50/20 border border-purple-100/50 hover:shadow-md transition-all duration-300">
+                <div key={idx} className="p-4 rounded-xl bg-purple-50/20 border border-purple-100/50 hover:shadow-md transition-all duration-300">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center mb-3">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
@@ -431,14 +430,14 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* How to Use Block */}
-        <div className="mt-8 bg-white rounded-[2rem] p-8 border border-purple-100 shadow-md">
+        <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
           <h3 className="font-serif text-xl font-black text-[#1C0320] mb-6 flex items-center gap-2">
             <Gem className="w-5 h-5 text-[#6B1736]" />
             How to Wear, Attune & Care for your Crystal
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {product.howToUse.map((step, idx) => (
-              <div key={idx} className="relative p-5 rounded-2xl bg-purple-50/30 border border-purple-100/50 flex gap-4">
+              <div key={idx} className="relative p-4 rounded-xl bg-purple-50/30 border border-purple-100/50 flex gap-4">
                 <span className="w-8 h-8 rounded-full bg-[#3E0844] text-white flex items-center justify-center font-black text-sm flex-shrink-0">
                   {idx + 1}
                 </span>
@@ -451,7 +450,7 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* Interactive FAQs Accordion */}
-        <div className="mt-8 bg-white rounded-[2rem] p-8 border border-purple-100 shadow-md">
+        <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
           <div className="mb-6">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-2 animate-tagline-blink">
               <HelpCircle className="w-4 h-4 text-[#6B1736]" />
@@ -497,7 +496,7 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* Real Seeker Reviews (Product Specific) */}
-        <div className="mt-8 bg-white rounded-[2rem] p-8 border border-purple-100 shadow-md">
+        <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
           <h3 className="font-serif text-xl font-black text-[#1C0320] mb-6 flex items-center gap-2">
             <MessageSquare className="w-5 h-5 text-[#6B1736]" />
             Customer Reviews
@@ -508,13 +507,13 @@ export default function ProductDetailsPage() {
             <div
               className="flex transition-transform duration-500 ease-in-out gap-5"
               style={{
-                transform: `translateX(-${activeIdx * (100 / itemsPerPage)}%)`
+                transform: `translateX(calc(-${activeIdx * (100 / itemsPerPage)}% - ${activeIdx * (20 / itemsPerPage)}px))`
               }}
             >
               {reviews.map((rev, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-white border-2 border-[#3E0844]/50 shadow-sm hover:border-[#3E0844] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between flex-shrink-0"
+                  className="p-4.5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border-2 border-[#3E0844]/50 shadow-sm hover:border-[#3E0844] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between flex-shrink-0"
                   style={{
                     width: `calc(${100 / itemsPerPage}% - ${(itemsPerPage - 1) * 20 / itemsPerPage}px)`
                   }}
@@ -574,7 +573,7 @@ export default function ProductDetailsPage() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleReviewSubmit} className="max-w-2xl bg-purple-50/25 border border-purple-100/65 p-6 sm:p-8 rounded-[2rem] shadow-sm space-y-4">
+              <form onSubmit={handleReviewSubmit} className="max-w-2xl bg-purple-50/25 border border-purple-100/65 p-4 sm:p-8 rounded-2xl sm:rounded-[2rem] shadow-sm space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Your Full Name</label>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import neelamPortrait from '../assets/neelam_portrait.jpg';
 import mahaLaxmiWealthImg from '../assets/maha_laxmi_wealth.png';
@@ -8,11 +8,12 @@ import dragonProtectionImg from '../assets/dragon_protection.png';
 
 export default function Hero({ onOpenModal }) {
   const navigate = useNavigate();
+  const [activeId, setActiveId] = useState('g'); // 'g' (Grounded Belief) active by default
 
   const panels = [
     {
       id: 'm',
-      title: 'Maha Laxmi Wealth',
+      title: 'Mind Clarity',
       letter: 'M',
       desc: 'Clear money worries and bring prosperity into your life with the blessings of Goddess Laxmi and Lord Kuber.',
       image: mahaLaxmiWealthImg,
@@ -33,7 +34,7 @@ export default function Hero({ onOpenModal }) {
     },
     {
       id: 'a',
-      title: 'Angelic Healing',
+      title: 'Aligned Emotions',
       letter: 'A',
       desc: 'Connect with 16 Archangels for deep peace, physical healing, and strong mental clarity.',
       image: angelicHealingImg,
@@ -62,16 +63,16 @@ export default function Hero({ onOpenModal }) {
     },
     {
       id: 'g',
-      title: 'Grounded Kriya Yoga',
+      title: 'Grounded Belief',
       letter: 'G',
-      desc: 'Calm your mind, improve focus, and feel active through simple breathing exercises guided by Neelam Arora.',
+      desc: 'True power comes from unshakable faith, stand firm in what you know is possible.',
       image: neelamPortrait,
       path: '/courses/kundalini-kriya',
-      icons: null // Empty overlay as shown in screenshot (focus on the teacher profile)
+      icons: null // Focus on the teacher profile portrait
     },
     {
       id: 'i',
-      title: 'Inner child & Unicorns',
+      title: 'Inspired Action',
       letter: 'I',
       desc: 'Heal childhood worries, let go of old bad memories, and fill your heart with pure love and peace.',
       image: unicornHealingImg,
@@ -86,7 +87,7 @@ export default function Hero({ onOpenModal }) {
     },
     {
       id: 'c',
-      title: 'Cosmic Dragon Protection',
+      title: 'Conscious Gratitude',
       letter: 'C',
       desc: 'Build a highly strong protective energy shield around you to stay safe from daily stress and bad moods.',
       image: dragonProtectionImg,
@@ -101,61 +102,165 @@ export default function Hero({ onOpenModal }) {
     }
   ];
 
+  const desktopTitleMap = {
+    m: 'Maha Laxmi Wealth',
+    a: 'Angelic Healing',
+    g: 'Grounded Kriya Yoga',
+    i: 'Inner child & Unicorns',
+    c: 'Cosmic Dragon Protection'
+  };
+
+  const desktopPanels = panels.map(p => ({
+    ...p,
+    title: desktopTitleMap[p.id] || p.title
+  }));
+
+  const mobilePanels = panels;
+
   return (
-    <section className="relative w-full min-h-screen md:min-h-0 md:h-[calc(100vh-72px)] mt-[72px] flex flex-col md:flex-row overflow-hidden bg-cosmic-darkest">
-
-      {/* 5 Vertical MAGIC Panels */}
-      {panels.map((p) => (
-        <div
-          key={p.id}
-          className="relative w-full md:w-1/5 min-h-[260px] h-[38vh] sm:h-[42vh] md:h-full flex flex-col justify-end p-4 sm:p-6 pb-8 sm:pb-12 text-center group border-b md:border-b-0 md:border-r border-white/5 transition-all duration-700 hover:md:w-[28%] overflow-hidden cursor-pointer"
-          onClick={() => navigate(p.path)}
-        >
-          {/* Panel Background Image */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src={p.image}
-              alt={p.title}
-              className="w-full h-full object-cover filter brightness-[0.35] group-hover:brightness-100 group-hover:scale-105 transition-all duration-700"
-            />
-            {/* Rich dark overlay gradient for maximum text contrast */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20"></div>
-          </div>
-
-          {/* Central Neon Icons Overlay */}
-          {p.icons && (
-            <div className="absolute inset-0 flex items-center justify-center pb-24 z-10 pointer-events-none group-hover:scale-105 transition-transform duration-700">
-              {p.icons}
+    <>
+      {/* ─── DESKTOP/LAPTOP VERSION (100% Original Layout & Titles) ─── */}
+      <section className="hidden lg:flex relative w-full h-[calc(100vh-72px)] mt-[72px] flex-row overflow-hidden bg-cosmic-darkest">
+        {desktopPanels.map((p) => (
+          <div
+            key={p.id}
+            className="relative w-1/5 h-full flex flex-col justify-end p-4 sm:p-6 pb-8 sm:pb-12 text-center group border-r border-white/5 transition-all duration-700 hover:w-[28%] overflow-hidden cursor-pointer"
+            onClick={() => navigate(p.path)}
+          >
+            {/* Panel Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img
+                src={p.image}
+                alt={p.title}
+                className="w-full h-full object-cover filter brightness-[0.35] group-hover:brightness-100 group-hover:scale-105 transition-all duration-700"
+              />
+              {/* Rich dark overlay gradient for maximum text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/20"></div>
             </div>
-          )}
 
-          {/* Bottom Text and Labels */}
-          <div className="relative z-10 flex flex-col items-center justify-end space-y-2 mt-auto">
+            {/* Central Neon Icons Overlay */}
+            {p.icons && (
+              <div className="absolute inset-0 flex items-center justify-center pb-24 z-10 pointer-events-none group-hover:scale-105 transition-transform duration-700">
+                {p.icons}
+              </div>
+            )}
 
-            {/* Title & Abbreviation */}
-            <h3 className="font-serif text-lg sm:text-2xl font-extrabold text-white tracking-wide leading-tight group-hover:text-gold transition-colors duration-300">
-              {p.title}
-            </h3>
+            {/* Bottom Text and Labels */}
+            <div className="relative z-10 flex flex-col items-center justify-end space-y-2 mt-auto">
+              {/* Title & Abbreviation */}
+              <h3 className="font-serif text-lg sm:text-2xl font-extrabold text-white tracking-wide leading-tight group-hover:text-gold transition-colors duration-300">
+                {p.title}
+              </h3>
 
-            <span className="font-serif text-lg font-bold text-gold tracking-widest block">
-              ({p.letter})
-            </span>
+              <span className="font-serif text-lg font-bold text-gold tracking-widest block">
+                ({p.letter})
+              </span>
 
-            {/* Description Paragraph */}
-            <p className="text-[11px] text-white/95 font-medium leading-relaxed max-w-[240px] mx-auto mt-2">
-              {p.desc}
-            </p>
+              {/* Description Paragraph */}
+              <p className="text-[11px] text-white/95 font-medium leading-relaxed max-w-[240px] mx-auto mt-2">
+                {p.desc}
+              </p>
+            </div>
+
+            {/* Golden Hover Indicator Bar at the bottom */}
+            <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-gold/50 via-gold to-gold/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
           </div>
+        ))}
+      </section>
 
-          {/* Golden Hover Indicator Bar at the bottom */}
-          <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-gold/50 via-gold to-gold/50 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+      {/* ─── MOBILE/TABLET VERSION (Interactive Tab Accordion & M.A.G.I.C. Pillars) ─── */}
+      <section className="relative w-full h-[48vh] min-h-[330px] md:h-[58vh] md:min-h-[420px] mt-16 flex lg:hidden flex-row overflow-hidden bg-[#1E003B]">
+        {mobilePanels.map((p) => {
+          const isActive = activeId === p.id;
+          return (
+            <div
+              key={p.id}
+              onMouseEnter={() => setActiveId(p.id)}
+              onClick={(e) => {
+                if (activeId !== p.id) {
+                  e.preventDefault();
+                  setActiveId(p.id);
+                } else {
+                  navigate(p.path);
+                }
+              }}
+              className="relative flex flex-col justify-end p-2 sm:p-4 pb-6 sm:pb-12 text-center transition-all duration-700 ease-out cursor-pointer overflow-hidden border-r border-white/5 last:border-r-0"
+              style={{
+                flexGrow: isActive ? 4.5 : 0.7,
+                flexShrink: 1,
+                flexBasis: '0%',
+              }}
+            >
+              {/* Panel Background Image */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className={`w-full h-full object-cover filter transition-all duration-700 ease-out ${isActive ? 'brightness-[0.75] scale-105' : 'brightness-[0.25] scale-100'
+                    }`}
+                />
+                {/* Rich dark overlay gradient for maximum text contrast */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/10 transition-opacity duration-700 ease-out ${isActive ? 'opacity-90' : 'opacity-65'
+                  }`}></div>
+              </div>
 
-        </div>
-      ))}
+              {/* Central Neon Icons Overlay */}
+              {p.icons && (
+                <div className={`absolute inset-0 flex items-center justify-center pb-24 z-10 pointer-events-none transition-all duration-700 ease-out ${isActive ? 'opacity-100 scale-100' : 'opacity-20 scale-75'
+                  }`}>
+                  {p.icons}
+                </div>
+              )}
+
+              {/* Bottom Text and Labels */}
+              <div className="relative z-10 flex flex-col items-center justify-end h-full w-full mt-auto">
+                {isActive ? (
+                  // Expanded Active Content Layout
+                  <div className="flex flex-col items-center space-y-2 animate-fade-in w-full px-2">
+                    <h3 className="font-serif text-base sm:text-2xl font-extrabold text-white tracking-wide leading-tight group-hover:text-gold transition-colors duration-300">
+                      {p.title}
+                    </h3>
+                    <span className="font-serif text-sm sm:text-lg font-bold text-gold tracking-widest block">
+                      ({p.letter})
+                    </span>
+                    <p className="text-[10px] sm:text-xs text-white/90 font-medium leading-relaxed max-w-[240px] mx-auto mt-2">
+                      {p.desc}
+                    </p>
+                  </div>
+                ) : (
+                  // Collapsed Inactive Content Layout (Vertical Rotation) - Aligned to bottom (justify-end)
+                  <div className="flex flex-col items-center justify-end space-y-4 h-full animate-fade-in select-none w-full pb-2 sm:pb-4">
+                    <div className="w-full flex justify-center items-center">
+                      <div 
+                        className="font-serif text-xs sm:text-base font-bold text-white/70 tracking-widest uppercase text-center"
+                        style={{
+                          writingMode: 'vertical-rl',
+                          transform: 'rotate(180deg)',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        {p.title}
+                      </div>
+                    </div>
+                    <span className="font-serif text-xs sm:text-sm font-extrabold text-gold/60 tracking-widest block text-center">
+                      ({p.letter})
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Golden Active Indicator Bar at the bottom */}
+              <div className={`absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-gold/50 via-gold to-gold/50 transition-transform duration-500 origin-center ${isActive ? 'scale-x-100' : 'scale-x-0'
+                }`}></div>
+
+            </div>
+          );
+        })}
+      </section>
 
       {/* Embedded WhatsApp Floating Chat Button (Bottom Right matching screenshot) */}
       <a
-        href="https://wa.me/919999999999" // Representative WhatsApp link
+        href="https://wa.me/919829156812" // Neelam Arora WhatsApp link
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 p-2.5 sm:p-3 bg-[#25D366] hover:bg-[#20BA56] text-white rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 flex items-center justify-center"
@@ -165,7 +270,6 @@ export default function Hero({ onOpenModal }) {
           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 2.72 1.49 4.8 1.49 5.53 0 10.03-4.5 10.03-10.03 0-2.66-1.04-5.16-2.92-7.04C16.67 1.74 14.17.7 11.51.7c-5.54 0-10.05 4.51-10.05 10.04 0 1.9.49 3.19 1.4 4.77l-1.02 3.73 3.8-1.08z" />
         </svg>
       </a>
-
-    </section>
+    </>
   );
 }

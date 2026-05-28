@@ -13,7 +13,7 @@ export default function Products({ limit }) {
   };
 
   return (
-    <section id="products" className="relative pt-12 pb-16 bg-[#E2D5F3] overflow-hidden">
+    <section id="products" className={`relative ${limit ? 'pt-12' : 'pt-2 sm:pt-4'} pb-2 sm:pb-4 bg-[#E2D5F3] overflow-hidden`}>
 
       {/* Soft cosmic glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 bg-white/40 blur-[120px] pointer-events-none rounded-full" />
@@ -149,29 +149,30 @@ export default function Products({ limit }) {
           })}
         </div>
 
-        {/* Trust Badges - Only show if displaying catalog page (without limit) */}
+        {/* Trust Badges - Single line swipeable track on mobile with tight vertical spacing */}
         {!limit && (
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-[#3E0844]/60 border-t border-purple-200/50 pt-10">
-            <span className="flex items-center gap-2 text-sm font-bold tracking-wide">
-              <Shield className="w-5 h-5 text-emerald-600" /> 100% Genuine Crystals
+          <div className="mt-4 sm:mt-12 pt-2 sm:pt-8 flex flex-nowrap sm:flex-wrap items-center sm:justify-center gap-5 sm:gap-8 overflow-x-auto no-scrollbar pb-3.5 sm:pb-0 relative z-10">
+            <span className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm font-extrabold sm:font-bold tracking-wide text-[#3E0844]/60 whitespace-nowrap flex-shrink-0">
+              <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 flex-shrink-0" /> 100% Genuine Crystals
             </span>
-            <span className="flex items-center gap-2 text-sm font-bold tracking-wide">
-              <Zap className="w-5 h-5 text-amber-500 fill-amber-500/20" /> Energy Cleansed & Blessed
+            <span className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm font-extrabold sm:font-bold tracking-wide text-[#3E0844]/60 whitespace-nowrap flex-shrink-0">
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 fill-amber-500/20 flex-shrink-0" /> Energy Cleansed & Blessed
             </span>
-            <span className="flex items-center gap-2 text-sm font-bold tracking-wide">
-              <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" /> 5-Star Rated by 1000+ Seekers
+            <span className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm font-extrabold sm:font-bold tracking-wide text-[#3E0844]/60 whitespace-nowrap flex-shrink-0">
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 fill-yellow-500 flex-shrink-0" /> 5-Star Rated by 1000+ Seekers
             </span>
           </div>
         )}
 
         {/* See More CTA - Only render on Homepage (when limit is passed) */}
         {limit && (
-          <div className="mt-12 text-center">
+          <div className="mt-6 sm:mt-8 text-center">
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 bg-[#3E0844] hover:bg-[#1C0320] text-white font-black text-sm px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#3E0844]/15 active:scale-95 uppercase tracking-widest border border-white/10"
+              className="inline-flex items-center gap-2 bg-[#3E0844] hover:bg-[#1C0320] text-white font-black text-xs sm:text-sm px-4 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#3E0844]/15 active:scale-95 uppercase tracking-widest border border-white/10 whitespace-nowrap"
             >
-              Explore All Energized Crystal Products
+              <span className="hidden sm:inline">Explore All Energized Crystal Products</span>
+              <span className="inline sm:hidden">Explore Crystals</span>
               <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

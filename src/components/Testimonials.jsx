@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, Sparkles, CheckCircle2 } from 'lucide-react';
 
-// Default export: Renders the student stories carousel slider
+// Default export: Renders the seeker stories carousel slider
 export default function Testimonials({ testimonialsList, activeIdx, setActiveIdx }) {
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
@@ -14,7 +14,7 @@ export default function Testimonials({ testimonialsList, activeIdx, setActiveIdx
 
   const getItemsPerPage = () => {
     if (windowWidth >= 1024) return 4;
-    if (windowWidth >= 640) return 2;
+    if (windowWidth >= 768) return 2;
     return 1;
   };
 
@@ -49,7 +49,7 @@ export default function Testimonials({ testimonialsList, activeIdx, setActiveIdx
         <div className="text-center max-w-2xl mx-auto mb-8">
           <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-2 animate-tagline-blink">
             <Sparkles className="w-3.5 h-3.5" />
-            Student Success Stories
+            Seeker Success Stories
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#1C0320] mb-3">
             Testimonials
@@ -62,7 +62,7 @@ export default function Testimonials({ testimonialsList, activeIdx, setActiveIdx
           <div
             className="flex transition-transform duration-500 ease-in-out gap-5"
             style={{
-              transform: `translateX(-${activeIdx * (100 / itemsPerPage)}%)`
+              transform: `translateX(calc(-${activeIdx * (100 / itemsPerPage)}% - ${activeIdx * (20 / itemsPerPage)}px))`
             }}
           >
             {testimonialsList.map((t, idx) => (
@@ -162,7 +162,7 @@ export function WriteTestimonialForm({ onAddTestimonial }) {
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Share Your Review Form Split Block */}
-        <div className="bg-white rounded-[2rem] p-6 sm:p-8 border-2 border-[#3E0844]/40 w-full">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-8 border-2 border-[#3E0844]/40 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Column: Warm Call to Action Wording */}
@@ -176,7 +176,7 @@ export function WriteTestimonialForm({ onAddTestimonial }) {
               <p className="text-sm text-gray-600 leading-relaxed font-semibold">
                 Your experience is a source of light for others! Share how these courses or workshops helped clear your mind, bring peace, or guide your life.
               </p>
-              <div className="p-4 bg-purple-50/40 rounded-2xl border border-purple-100/50 space-y-2">
+              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-purple-50/40 border border-purple-100/50 space-y-2">
                 <span className="block text-xs font-black text-[#3E0844] uppercase tracking-wider">Why Share?</span>
                 <p className="text-xs text-gray-500 font-semibold leading-relaxed">
                   Every story shared inspires another seeker to take their first step towards daily peace and self-improvement. Your words matter!
@@ -195,7 +195,7 @@ export function WriteTestimonialForm({ onAddTestimonial }) {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleTestimonialSubmit} className="bg-purple-50/25 border border-purple-100/65 p-5 sm:p-6 rounded-2xl space-y-4">
+                <form onSubmit={handleTestimonialSubmit} className="bg-purple-50/25 border border-purple-100/65 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl space-y-4">
                   <h4 className="font-serif text-lg font-bold text-[#1C0320] mb-1">Write Your Review</h4>
                   <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">Please fill in your details below:</p>
                   
@@ -256,7 +256,7 @@ export function WriteTestimonialForm({ onAddTestimonial }) {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3.5 px-8 rounded-xl text-xs uppercase tracking-widest shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer"
+                      className="w-full sm:w-auto bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3.5 px-8 rounded-xl text-xs uppercase tracking-widest shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer whitespace-nowrap"
                     >
                       Submit Review
                     </button>

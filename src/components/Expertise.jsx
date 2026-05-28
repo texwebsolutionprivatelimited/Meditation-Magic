@@ -100,7 +100,7 @@ export default function Expertise({ onOpenModal }) {
   };
 
   return (
-    <section id="expertise" className="relative pt-16 pb-8 bg-[#E2D5F3] text-gray-900 overflow-hidden">
+    <section id="expertise" className="relative pt-6 sm:pt-8 lg:pt-16 pb-8 bg-[#E2D5F3] text-gray-900 overflow-hidden">
 
       {/* Self-contained style tag for infinite marquee animation */}
       <style>{`
@@ -134,10 +134,6 @@ export default function Expertise({ onOpenModal }) {
 
       {/* Marquee Container wrapping the single row, restricted to max-w-[95%] and centered */}
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 marquee-container overflow-hidden relative">
-
-        {/* Soft fading overlays on the left and right boundaries */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-[#E2D5F3] via-[#E2D5F3]/90 to-transparent z-20 pointer-events-none"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-[#E2D5F3] via-[#E2D5F3]/90 to-transparent z-20 pointer-events-none"></div>
 
         {/* Single Row: Right to Left */}
         <div className="relative w-full overflow-hidden">

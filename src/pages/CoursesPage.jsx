@@ -56,7 +56,7 @@ export default function CoursesPage() {
   }, []);
 
   return (
-    <div className="pt-24 min-h-screen bg-[#E2D5F3] text-gray-900">
+    <div className="pt-16 lg:pt-24 min-h-screen bg-[#E2D5F3] text-gray-900">
       {/* Immersive Page Header */}
       <div className="relative pt-4 pb-8 text-center overflow-hidden">
         {/* Soft light glow backdrop */}
@@ -76,15 +76,26 @@ export default function CoursesPage() {
         </div>
       </div>
 
+      {/* Hide scrollbar utility class */}
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+
       {/* Categories Tabs Filter (Dynamically showing only categories that have items available) */}
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
-        <div className="flex flex-wrap items-center justify-center gap-3 border-b border-purple-200 pb-6">
+      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-12 relative z-10">
+        <div className="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-center gap-2.5 sm:gap-3 overflow-x-auto no-scrollbar border-b border-purple-200 pb-3 sm:pb-6 px-1 sm:px-0">
           {availableCategories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 border uppercase tracking-wider ${selectedCategory === cat
-                  ? 'bg-[#3E0844] text-white border-transparent shadow-lg shadow-purple-950/25'
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 border uppercase tracking-wider whitespace-nowrap flex-shrink-0 ${selectedCategory === cat
+                  ? 'bg-[#3E0844] text-white border-transparent'
                   : 'bg-white/60 text-[#3E0844]/80 border-purple-200 hover:bg-white hover:text-[#3E0844]'
                 }`}
             >

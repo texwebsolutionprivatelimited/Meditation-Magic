@@ -3,10 +3,10 @@ import React from 'react';
 export default function Journey() {
   const blocks = [
     {
-      title: 'Graduated Students',
+      title: 'Graduated Seekers',
       desc: '1 Million+ Seekers',
       image: 'https://amiettkumar.com/wp-content/uploads/2025/06/trained.webp',
-      alt: 'Graduated students'
+      alt: 'Graduated Seekers'
     },
     {
       title: 'Founder & Mentor',

@@ -128,9 +128,9 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-[#E2D5F3]">
+    <div className="pt-16 lg:pt-24 min-h-screen bg-[#E2D5F3]">
       {/* Page Header */}
-      <div className="relative pt-4 pb-8 text-center overflow-hidden">
+      <div className="relative pt-4 pb-3 sm:pb-6 text-center overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-3">
             <Gem className="w-4 h-4 text-[#6B1736]" />
@@ -149,7 +149,7 @@ export default function ProductsPage() {
       <Products />
 
       {/* 🔮 Interactive Crystal Match Calculator */}
-      <div className="mt-12 bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border-2 border-[#FFD95A]/30 relative overflow-hidden shadow-2xl max-w-[95%] mx-auto mb-16">
+      <div className="mt-6 sm:mt-12 bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 lg:p-12 border-2 border-[#FFD95A]/30 relative overflow-hidden shadow-2xl max-w-[95%] mx-auto mb-16">
         
         {/* Subtle sparkles & cosmic background elements */}
         <div className="absolute top-[-10%] right-[-10%] w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -173,7 +173,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Interactive Widget Block */}
-          <div className="bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 shadow-inner">
+          <div className="bg-white/5 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-white/10 shadow-inner">
             
             {!isAuraCalculating && !auraResult && (
               /* Stage 1: The Input Form */
@@ -300,7 +300,7 @@ export default function ProductsPage() {
 
                   {/* Interactive Affirmation Widget */}
                   <div className="bg-[#1E003B]/60 border border-white/10 rounded-2xl p-5 relative overflow-hidden group">
-                    <div className="absolute top-3 right-3">
+                    <div className="relative sm:absolute flex justify-end mb-3 sm:mb-0 sm:top-3 sm:right-3">
                       <button
                         onClick={() => handleCopyAffirmation(auraResult.affirmation)}
                         className="p-2 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-white hover:text-[#FFD95A] transition-all active:scale-90 cursor-pointer flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest"
@@ -322,7 +322,7 @@ export default function ProductsPage() {
                     <span className="block text-[9px] font-black text-[#FFD95A] uppercase tracking-widest mb-2 flex items-center gap-1">
                       <Moon className="w-3 h-3 text-[#FFD95A]" /> Your Positive Daily Mantra:
                     </span>
-                    <p className="text-white text-xs font-black leading-relaxed pr-16 italic">
+                    <p className="text-white text-xs font-black leading-relaxed sm:pr-16 italic">
                       "{auraResult.affirmation}"
                     </p>
                     <span className="block text-[8px] font-bold text-white/35 mt-2.5 uppercase tracking-wide">
@@ -331,12 +331,12 @@ export default function ProductsPage() {
                   </div>
 
                   {/* Call to Actions */}
-                  <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                     <a
                       href={`https://wa.me/919829156812?text=${encodeURIComponent("Hello! I calculated my vibe match for the " + auraResult.crystalName + " and got a wonderful " + auraResult.score + "% score! I want to buy this blessed crystal bracelet.")}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 text-white font-black text-xs px-6 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-widest flex items-center gap-2 cursor-pointer"
+                      className="w-full sm:w-auto text-center justify-center bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 text-white font-black text-xs px-6 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-widest flex items-center gap-2 cursor-pointer"
                     >
                       Claim My Blessed Crystal on WhatsApp
                     </a>
@@ -360,7 +360,7 @@ export default function ProductsPage() {
       </div>
 
       {/* 🧼 Interactive 5D Crystal Care & Cleansing Guide */}
-      <div className="mt-8 bg-white rounded-[2.5rem] p-6 sm:p-10 lg:p-12 border-2 border-[#3E0844]/50 shadow-2xl max-w-[95%] mx-auto mb-16 relative overflow-hidden">
+      <div className="mt-8 bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 lg:p-12 border-2 border-[#3E0844]/50 shadow-2xl max-w-[95%] mx-auto mb-16 relative overflow-hidden">
         
         {/* Soft decorative background blurs */}
         <div className="absolute top-[-20%] left-[-20%] w-72 h-72 rounded-full bg-purple-100/50 blur-3xl pointer-events-none" />
@@ -383,7 +383,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Interactive Care Tabs */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 mb-8">
             {[
               { id: 'camphor', label: '1. CAMPHOR SMOKE', desc: 'Incense Cleansing' },
               { id: 'sound', label: '2. SOUND CHARGING', desc: '528Hz Vibration' },
@@ -393,7 +393,7 @@ export default function ProductsPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveCleanseTab(tab.id)}
-                className={`p-4 rounded-2xl border text-center transition-all duration-300 cursor-pointer ${
+                className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border text-center transition-all duration-300 cursor-pointer ${
                   activeCleanseTab === tab.id
                     ? 'bg-[#3E0844] text-white border-transparent shadow-lg shadow-purple-950/25 scale-[1.02]'
                     : 'bg-purple-50/50 text-[#3E0844] border-purple-200 hover:bg-white'
@@ -406,7 +406,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Tab Display Panel */}
-          <div className="bg-purple-50/40 border-2 border-purple-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+          <div className="bg-purple-50/40 border-2 border-purple-200 rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
             {activeCleanseTab === 'camphor' && (
               <>
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">

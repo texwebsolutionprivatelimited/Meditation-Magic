@@ -43,7 +43,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-[#E2D5F3] text-gray-900 relative overflow-hidden">
+    <div className="pt-16 lg:pt-24 pb-20 min-h-screen bg-[#E2D5F3] text-gray-900 relative overflow-hidden">
 
       {/* Sacred Mandala SVG Background Pattern */}
       <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-[0.04] text-[#3E0844] pointer-events-none" viewBox="0 0 100 100" fill="none" stroke="currentColor">
@@ -101,7 +101,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 flex flex-col gap-6">
 
             {/* Stunning Glowing Portrait Card of Neelam Arora */}
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/60 w-full h-[420px] sm:h-[520px] lg:h-[480px] group bg-[#0D0015]">
+            <div className="relative rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/60 w-full h-[320px] sm:h-[520px] lg:h-[480px] group bg-[#0D0015]">
               <img
                 src={neelamPortrait}
                 alt="Neelam Arora Spiritual Guide"
@@ -113,13 +113,13 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(160,71,184,0.1)_0%,transparent_70%)] animate-pulse pointer-events-none" style={{ animationDuration: '4s' }} />
 
               {/* Elegant Static Portrait Label */}
-              <span className="absolute bottom-5 left-5 inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-[#FFD95A] bg-[#3E0844]/85 px-4 py-2.5 rounded-full border border-[#FFD95A]/25 shadow-lg backdrop-blur-sm z-10">
-                <Sparkles className="w-3.5 h-3.5 text-[#FFD95A]" /> Neelam Arora - Founder &amp; Guide
+              <span className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 inline-flex items-center gap-1.2 sm:gap-1.5 text-[8.5px] sm:text-[10px] font-black uppercase tracking-widest text-[#FFD95A] bg-[#3E0844]/85 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full border border-[#FFD95A]/25 shadow-lg backdrop-blur-sm z-10">
+                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFD95A]" /> Neelam Arora - Founder &amp; Guide
               </span>
             </div>
 
             {/* Deep Spiritual Contact & Trust Oath */}
-            <div className="flex-1 flex flex-col justify-between bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[2.5rem] p-8 sm:p-10 shadow-2xl border border-[#FFD95A]/15 relative overflow-hidden group">
+            <div className="flex-1 flex flex-col justify-between bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 shadow-2xl border border-[#FFD95A]/15 relative overflow-hidden group">
 
               {/* Top decorative glow */}
               <div className="absolute -top-16 -right-16 w-32 h-32 bg-[#FFD95A]/10 rounded-full blur-3xl pointer-events-none" />
@@ -140,7 +140,7 @@ export default function ContactPage() {
 
 
                 {/* Trust Alignment Oath */}
-                <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
+                <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
                   <h4 className="text-[10px] font-black text-[#FFD95A] uppercase tracking-widest mb-1.5 flex items-center gap-1.5">
                     <Heart className="w-3.5 h-3.5 fill-[#FFD95A]/20" /> Safe &amp; Trusted
                   </h4>
@@ -177,7 +177,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Block: Spiritual & High-Contrast Form Card */}
-          <div className="lg:col-span-7 bg-white/90 backdrop-blur-md rounded-[2.5rem] p-8 sm:p-10 border border-purple-100/60 shadow-2xl relative overflow-hidden flex flex-col justify-start">
+          <div className="lg:col-span-7 bg-white/90 backdrop-blur-md rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border border-purple-100/60 shadow-2xl relative overflow-hidden flex flex-col justify-start">
 
             {isSubmitted ? (
               <div className="text-center py-16 flex flex-col items-center justify-center animate-fade-in text-gray-800">
@@ -196,7 +196,7 @@ export default function ContactPage() {
             ) : (
               <>
                 {/* Divine Manifestation Gateway Banner */}
-                <div className="p-5 rounded-2xl bg-gradient-to-r from-purple-50 to-amber-50/60 border border-purple-100/70 mb-6 relative overflow-hidden flex items-start gap-4 shadow-sm">
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-purple-50 to-amber-50/60 border border-purple-100/70 mb-6 relative overflow-hidden flex items-start gap-3.5 shadow-sm">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-amber-200/10 rounded-full blur-2xl pointer-events-none" />
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
                     <Sparkles className="w-4 h-4 animate-pulse" />
@@ -334,7 +334,7 @@ export default function ContactPage() {
                         </div>
                         <div className="min-w-0">
                           <span className="block text-[9px] uppercase font-black text-gray-400 tracking-wider">Email Address</span>
-                          <span className="text-xs font-black text-[#3E0844] truncate block">meditationmagichelp@gmail.com</span>
+                          <span className="text-[10px] sm:text-xs font-black text-[#3E0844] break-all sm:truncate block">meditationmagichelp@gmail.com</span>
                         </div>
                       </a>
                     </div>
@@ -349,7 +349,7 @@ export default function ContactPage() {
         </div>
 
         {/* Global Spiritual Stamps bottom trust builder - Jaw-Dropping Cosmic Altar UI */}
-        <div className="mt-20 bg-gradient-to-br from-[#3E0844]/95 via-[#2F0A59]/90 to-[#1C0320]/95 backdrop-blur-md rounded-[3rem] p-10 sm:p-12 border border-[#FFD95A]/30 shadow-2xl text-center w-full relative overflow-hidden group">
+        <div className="mt-12 sm:mt-20 bg-gradient-to-br from-[#3E0844]/95 via-[#2F0A59]/90 to-[#1C0320]/95 backdrop-blur-md rounded-[2rem] sm:rounded-[3rem] p-5 sm:p-12 border border-[#FFD95A]/30 shadow-2xl text-center w-full relative overflow-hidden group">
           
           {/* Spiritual background glow layers */}
           <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#FFD95A]/10 rounded-full blur-[80px] pointer-events-none group-hover:scale-150 transition-transform duration-1000" />
@@ -376,7 +376,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full border-t border-white/10 pt-10">
             
             {/* Card 1: Private & Secure */}
-            <div className="p-6 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
+            <div className="p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
               <div className="absolute top-0 right-0 w-16 h-16 bg-[#FFD95A]/5 rounded-bl-[2rem] group-hover/item:scale-110 transition-transform" />
               <div className="space-y-4 relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-[#FFD95A] text-[#0D0015] flex items-center justify-center shadow-lg shadow-[#FFD95A]/15 group-hover/item:scale-105 transition-transform duration-300">
@@ -394,7 +394,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 2: Kind support & Advice */}
-            <div className="p-6 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
+            <div className="p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
               <div className="absolute top-0 right-0 w-16 h-16 bg-[#FFD95A]/5 rounded-bl-[2rem] group-hover/item:scale-110 transition-transform" />
               <div className="space-y-4 relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-[#FFD95A] text-[#0D0015] flex items-center justify-center shadow-lg shadow-[#FFD95A]/15 group-hover/item:scale-105 transition-transform duration-300">
@@ -412,7 +412,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 3: Experience */}
-            <div className="p-6 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
+            <div className="p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
               <div className="absolute top-0 right-0 w-16 h-16 bg-[#FFD95A]/5 rounded-bl-[2rem] group-hover/item:scale-110 transition-transform" />
               <div className="space-y-4 relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-[#FFD95A] text-[#0D0015] flex items-center justify-center shadow-lg shadow-[#FFD95A]/15 group-hover/item:scale-105 transition-transform duration-300">

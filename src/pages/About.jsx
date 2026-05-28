@@ -57,34 +57,38 @@ export default function About() {
   ];
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden">
+    <div className="pt-16 lg:pt-24 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden">
 
       {/* Background gradients and visual sparkles */}
       <div className="absolute top-[10%] left-[-15%] w-[50%] h-[50%] rounded-full bg-white/40 blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-15%] w-[50%] h-[50%] rounded-full bg-purple-200/50 blur-[150px] pointer-events-none" />
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-20">
-
-        {/* Main Title Banner */}
-        <div className="text-center space-y-3 max-w-3xl mx-auto animate-fade-in">
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase">
-            <Award className="w-4 h-4 text-[#6B1736] animate-pulse" />
-            Spiritual Guides & Masters
-          </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1C0320] leading-tight">
-            Meet Our Guides
-          </h1>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#3E0844] to-[#6B1736] mx-auto rounded-full" />
-          <p className="text-gray-600 text-xs sm:text-sm font-semibold max-w-2xl mx-auto">
-            Discover the cosmic channels bringing high-frequency energy activations, ancestral healing, and divine guidance to seekers around the globe.
-          </p>
+      {/* Immersive Page Header */}
+      <div className="relative pt-4 pb-8 text-center overflow-hidden z-10">
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <div className="text-center space-y-3 max-w-3xl mx-auto animate-fade-in">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase">
+              <Award className="w-4 h-4 text-[#6B1736] animate-pulse" />
+              Spiritual Guides & Masters
+            </span>
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#1C0320] leading-tight">
+              Meet Our Guides
+            </h1>
+            <div className="w-20 h-1 bg-gradient-to-r from-[#3E0844] to-[#6B1736] mx-auto rounded-full" />
+            <p className="text-gray-600 text-xs sm:text-sm font-semibold max-w-2xl mx-auto">
+              Discover the cosmic channels bringing high-frequency energy activations, ancestral healing, and divine guidance to seekers around the globe.
+            </p>
+          </div>
         </div>
+      </div>
+
+      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-16 lg:space-y-20">
 
         {/* Profiles Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
           {/* Card 1: Neelam Arora */}
-          <div className="bg-white rounded-[2.5rem] p-6 sm:p-10 border border-purple-100/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
+          <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
             {/* Top decorative glow */}
             <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100/40 rounded-full blur-2xl group-hover:scale-150 transition-all duration-500" />
 
@@ -128,14 +132,14 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-purple-50 flex items-center justify-between text-[10px] text-gray-400 font-extrabold tracking-widest uppercase">
+            <div className="mt-8 pt-6 border-t border-purple-50 flex flex-col sm:flex-row gap-2 items-center justify-between text-[9px] sm:text-[10px] text-gray-400 font-extrabold tracking-normal sm:tracking-widest uppercase text-center sm:text-left">
               <span>meditationmagicwithneelamarora.com</span>
               <span className="text-[#6B1736]">Founder</span>
             </div>
           </div>
 
           {/* Card 2: Bhavya Chudasama */}
-          <div className="bg-white rounded-[2.5rem] p-6 sm:p-10 border border-purple-100/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
+          <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
             {/* Top decorative glow */}
             <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100/40 rounded-full blur-2xl group-hover:scale-150 transition-all duration-500" />
 
@@ -175,7 +179,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-purple-50 flex items-center justify-between text-[10px] text-gray-400 font-extrabold tracking-widest uppercase">
+            <div className="mt-8 pt-6 border-t border-purple-50 flex flex-col sm:flex-row gap-2 items-center justify-between text-[9px] sm:text-[10px] text-gray-400 font-extrabold tracking-normal sm:tracking-widest uppercase text-center sm:text-left">
               <span>Timeline Healing & Chakras</span>
               <span className="text-[#6B1736]">Senior Guide</span>
             </div>
@@ -203,7 +207,7 @@ export default function About() {
             {modalities.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[2rem] p-6 sm:p-8 border border-purple-100 hover:border-[#6B1736]/40 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
+                className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-8 border border-purple-100 hover:border-[#6B1736]/40 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -232,7 +236,7 @@ export default function About() {
         </div>
 
         {/* YouTube Spotlight Channel Card */}
-        <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-r from-[#2F0A59] via-[#3E0844] to-[#1E003B] p-8 sm:p-12 border border-white/10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 group">
+        <div className="relative rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden bg-gradient-to-r from-[#2F0A59] via-[#3E0844] to-[#1E003B] p-5 sm:p-12 border border-white/10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 group">
           {/* Subtle overlay decorative grid */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-600/10 via-transparent to-transparent pointer-events-none" />
 
@@ -260,12 +264,12 @@ export default function About() {
             </div>
           </div>
 
-          <div className="relative z-10 flex-shrink-0">
+          <div className="relative z-10 flex-shrink-0 w-full lg:w-auto flex justify-center">
             <a
               href="https://www.youtube.com/@meditationmagic33"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-black px-8 py-4.5 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 text-xs sm:text-sm uppercase tracking-wider group-hover:shadow-red-600/20"
+              className="w-full sm:w-auto justify-center flex items-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-black px-8 py-4.5 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 text-xs sm:text-sm uppercase tracking-wider group-hover:shadow-red-600/20"
             >
               <Youtube className="w-5 h-5 fill-current" />
               Subscribe Channel
