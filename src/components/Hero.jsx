@@ -257,19 +257,6 @@ export default function Hero({ onOpenModal }) {
           );
         })}
       </section>
-
-      {/* Embedded WhatsApp Floating Chat Button (Bottom Right matching screenshot) */}
-      <a
-        href="https://wa.me/919829156812" // Neelam Arora WhatsApp link
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 p-2.5 sm:p-3 bg-[#25D366] hover:bg-[#20BA56] text-white rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 flex items-center justify-center"
-        aria-label="Chat on WhatsApp"
-      >
-        <svg className="w-6 h-6 sm:w-8 sm:h-8 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 2.72 1.49 4.8 1.49 5.53 0 10.03-4.5 10.03-10.03 0-2.66-1.04-5.16-2.92-7.04C16.67 1.74 14.17.7 11.51.7c-5.54 0-10.05 4.51-10.05 10.04 0 1.9.49 3.19 1.4 4.77l-1.02 3.73 3.8-1.08z" />
-        </svg>
-      </a>
     </>
   );
 }
