@@ -1,14 +1,21 @@
-const IMAGEKIT_ENDPOINT = 'https://upload.imagekit.io/api/v1/files/upload';
-const PUBLIC_KEY = 'public_0aFZqOjmJChKeNn7yIHu1M8j0Ss=';
-const PRIVATE_KEY = 'private_KHSYT89ojB2bY3uKbWCwM/11/X8=';
+const IMAGEKIT_ENDPOINT = import.meta.env.VITE_IMAGEKIT_ENDPOINT || 'https://upload.imagekit.io/api/v1/files/upload';
+const PUBLIC_KEY = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY;
+const PRIVATE_KEY = import.meta.env.VITE_IMAGEKIT_PRIVATE_KEY;
 
 /**
- * Uploads a file to ImageKit and returns the secure URL of the uploaded asset.
- * @param {File|Blob|string} file - The file to upload (File/Blob object or base64 data-URL).
- * @param {string} fileName - The desired file name.
- * @returns {Promise<string>} The uploaded image secure URL.
+ * Helper to convert File/Blob to Base64 data URL
  */
-export const uploadToImageKit = async (file, fileName) => {
+const toBase64 = (file) => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result);
+  reader.onerror = (error) => reject(error);
+});
+
+/**
+ * Direct client-side upload fallback (Used ONLY in Local Development Mode)
+ */
+const uploadDirect = async (file, fileName) => {
   try {
     const formData = new FormData();
     formData.append('file', file);
@@ -16,8 +23,6 @@ export const uploadToImageKit = async (file, fileName) => {
     formData.append('useUniqueFileName', 'true');
     formData.append('folder', '/meditation-magic');
 
-    // Create basic authentication header with the private key
-    // Note: privateKey goes in the username slot, password slot is empty
     const authHeader = 'Basic ' + btoa(PRIVATE_KEY + ':');
 
     const response = await fetch(IMAGEKIT_ENDPOINT, {
@@ -30,18 +35,66 @@ export const uploadToImageKit = async (file, fileName) => {
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(`ImageKit upload failed: ${response.statusText} (${errorText})`);
+      throw new Error(`Local ImageKit upload failed: ${response.statusText} (${errorText})`);
     }
 
     const data = await response.json();
-    return data.url; // Returns the secure CDN url
+    return data.url;
   } catch (error) {
-    console.error('Error uploading image to ImageKit:', error);
+    console.error('Local development upload error:', error);
     throw error;
   }
 };
 
+/**
+ * Secure serverless gateway upload (Used in Production Mode)
+ */
+const uploadSecure = async (file, fileName) => {
+  try {
+    let base64File = file;
+    if (file instanceof Blob || file instanceof File) {
+      base64File = await toBase64(file);
+    }
+
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        file: base64File,
+        fileName: fileName || `upload-${Date.now()}`,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || `Secure gateway upload failed: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data.url;
+  } catch (error) {
+    console.error('Secure gateway upload error:', error);
+    throw error;
+  }
+};
+
+/**
+ * Uploads a file to ImageKit.
+ * Dynamically switches between direct upload in Local Dev and secure backend API in Vercel production.
+ */
+export const uploadToImageKit = async (file, fileName) => {
+  if (import.meta.env.DEV) {
+    console.log('Running in Local Dev Mode: Using direct client-side upload.');
+    return uploadDirect(file, fileName);
+  }
+
+  console.log('Running in Production Mode: Routing upload through secure Vercel Serverless Function.');
+  return uploadSecure(file, fileName);
+};
+
 export const IMAGEKIT_CONFIG = {
-  urlEndpoint: 'https://ik.imagekit.io/s975zogcgm',
+  urlEndpoint: import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT || 'https://ik.imagekit.io/s975zogcgm',
   publicKey: PUBLIC_KEY,
 };

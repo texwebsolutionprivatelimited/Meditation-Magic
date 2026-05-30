@@ -649,7 +649,7 @@ export default function CourseDetailsPage() {
               >
                 <div>
                   {/* Thumbnail Image */}
-                  <div className="relative h-48 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950">
+                  <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950">
                     <img
                       src={s.image}
                       alt={s.title}

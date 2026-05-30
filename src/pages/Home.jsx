@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import AboutBrief from '../components/AboutBrief';
+import PhotoGallery from '../components/PhotoGallery';
 import Expertise from '../components/Expertise';
 import Offerings from '../components/Offerings';
 import FeaturesGrid from '../components/FeaturesGrid';
@@ -49,6 +50,7 @@ export default function Home({ onOpenModal, onAddToCart }) {
       <FeaturesGrid />
       <Products limit={4} />
       <AboutBrief />
+      <PhotoGallery />
       <VideoReviews />
       
       {/* Testimonials Slider (Placed right below video reviews) */}
