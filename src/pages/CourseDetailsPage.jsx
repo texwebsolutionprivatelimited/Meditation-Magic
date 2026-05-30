@@ -17,6 +17,16 @@ export default function CourseDetailsPage() {
   // Find the matching workshop
   const workshop = workshops.find((w) => w.id === id);
 
+  useEffect(() => {
+    if (workshop) {
+      document.title = `${workshop.title} | Meditation Magic with Neelam Arora`;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', `${workshop.subtitle || ''} - Learn more about ${workshop.title} guided by Neelam Arora. category: ${workshop.category}.`);
+      }
+    }
+  }, [workshop]);
+
   // Dynamic styling helper for "Who Can Join" card based on course category
   const getWhoCanJoinStyle = (category) => {
     const baseStyle = {

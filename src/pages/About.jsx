@@ -134,7 +134,7 @@ export default function About() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-purple-50 flex flex-col sm:flex-row gap-2 items-center justify-between text-[9px] sm:text-[10px] text-gray-400 font-extrabold tracking-normal sm:tracking-widest uppercase text-center sm:text-left">
-              <span>meditationmagicwithneelamarora.com</span>
+              <span>neelamarora.in</span>
               <span className="text-[#6B1736]">Founder</span>
             </div>
           </div>

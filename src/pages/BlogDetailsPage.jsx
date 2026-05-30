@@ -32,6 +32,16 @@ export default function BlogDetailsPage() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [id]);
 
+  useEffect(() => {
+    if (post) {
+      document.title = `${post.title} | Meditation Magic with Neelam Arora`;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', `${post.tagline || ''} - Read this spiritual article by ${post.author} on ${post.course} alignment and manifestation.`);
+      }
+    }
+  }, [post]);
+
   if (!post) {
     return (
       <div className="pt-32 min-h-screen bg-[#E2D5F3] flex flex-col items-center justify-center px-4 text-center">

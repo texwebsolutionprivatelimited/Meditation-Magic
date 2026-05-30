@@ -8,6 +8,16 @@ export default function ProductDetailsPage() {
   const products = useAdminContent('products');
   const product = products.find((p) => String(p.id) === String(id));
   const isCombo = product?.title?.toLowerCase().includes('combo') || product?.subtitle?.toLowerCase().includes('combo');
+
+  useEffect(() => {
+    if (product) {
+      document.title = `${product.title} | Meditation Magic with Neelam Arora`;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', `${product.subtitle || ''} - Buy energized ${product.title} certified AAA grade crystal charged by Neelam Arora. Price: ₹${product.price}.`);
+      }
+    }
+  }, [product]);
   
   // Price and discount calculations
   const originalPrice = product ? (product.price === 2500 ? 5999
