@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Mail, Phone, Sparkles, Send, CheckCircle, Shield, Award, HelpCircle, Heart, Gem } from 'lucide-react';
 import kundaliniKriyaImg from '../assets/kundalini_kriya.png';
 import neelamPortrait from '../assets/neelam_portrait.jpg';
+import { db } from '../admin/firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,34 +16,40 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
+    const queryId = String(Date.now());
+    const newQuery = {
+      id: Number(queryId),
+      date: new Date().toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      program: formData.program,
+      message: formData.message.trim()
+    };
+
     try {
+      // Sync locally for instant compatibility
       const existing = JSON.parse(localStorage.getItem('mm_admin_contacts') || '[]');
-      const newQuery = {
-        id: Date.now(),
-        date: new Date().toLocaleString('en-US', {
-          month: 'short',
-          day: 'numeric',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        }),
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        phone: formData.phone.trim(),
-        program: formData.program,
-        message: formData.message.trim()
-      };
       localStorage.setItem('mm_admin_contacts', JSON.stringify([newQuery, ...existing]));
       window.dispatchEvent(new Event('meditation-magic-content-updated'));
+
+      // Save to Firebase Firestore cloud database
+      await setDoc(doc(db, 'contacts', queryId), newQuery);
     } catch (err) {
-      console.error('Error saving contact query:', err);
+      console.error('Error saving contact query to Firestore:', err);
     }
 
-    // Simulate API request
+    // Simulate API request delay for manifestation confirmation UX
     setTimeout(() => {
       setLoading(false);
       setIsSubmitted(true);

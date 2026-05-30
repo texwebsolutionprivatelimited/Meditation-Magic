@@ -429,15 +429,15 @@ export default function AdminPanel() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold mb-4 text-gray-600">
                         <div>
                           <span className="block text-[9px] font-black uppercase text-gray-400 tracking-wider">Email Address</span>
-                          <a href={`mailto:${item.email}`} className="text-[#3E0844] hover:underline font-extrabold">{item.email}</a>
+                          <a href={`mailto:${item.email || ''}`} className="text-[#3E0844] hover:underline font-extrabold">{item.email || 'N/A'}</a>
                         </div>
                         <div>
                           <span className="block text-[9px] font-black uppercase text-gray-400 tracking-wider">Phone / WhatsApp</span>
-                          <a href={`https://wa.me/${item.phone.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline font-extrabold">{item.phone}</a>
+                          <a href={`https://wa.me/${(item.phone || '').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline font-extrabold">{item.phone || 'N/A'}</a>
                         </div>
                         <div className="sm:col-span-2">
                           <span className="block text-[9px] font-black uppercase text-gray-400 tracking-wider">Selected Modality / Program</span>
-                          <span className="text-[#1C0320] font-black bg-purple-50 px-3 py-1.5 rounded-lg border border-purple-100/60 inline-block mt-1">{item.program}</span>
+                          <span className="text-[#1C0320] font-black bg-purple-50 px-3 py-1.5 rounded-lg border border-purple-100/60 inline-block mt-1">{item.program || 'N/A'}</span>
                         </div>
                       </div>
                       <div>
