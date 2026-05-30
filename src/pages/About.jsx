@@ -1,9 +1,10 @@
 import React from 'react';
 import {
   Sparkles, Heart, Star, Shield,
-  Compass, Flame, Award, Sun, Zap, Users
+  Compass, Flame, Award, Sun, Zap
 } from 'lucide-react';
 import neelamPortrait from '../assets/neelam_portrait.jpg';
+import bhavyaPortrait from '../assets/bhavya_portrait.png';
 
 // Custom Youtube Icon SVG to avoid lucide-react version export issues
 const Youtube = ({ className }) => (
@@ -145,9 +146,13 @@ export default function About() {
 
             <div className="space-y-6">
               <div className="flex flex-col sm:flex-row items-center gap-6">
-                {/* Visual Avatar Placeholder */}
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden ring-4 ring-[#3E0844]/10 shadow-xl flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-[#3E0844] to-[#1C0320]">
-                  <Users className="w-10 h-10 text-white animate-pulse" />
+                {/* Photo Frame */}
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden ring-4 ring-[#3E0844]/10 shadow-xl flex-shrink-0">
+                  <img
+                    src={bhavyaPortrait}
+                    alt="Bhavya Chudasama"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
                 <div className="text-center sm:text-left space-y-1.5">
                   <h3 className="font-serif text-2xl sm:text-3xl font-black text-[#1C0320]">

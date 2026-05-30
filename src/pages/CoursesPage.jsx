@@ -134,11 +134,11 @@ export default function CoursesPage() {
               >
                 <div>
                   {/* Thumbnail Image */}
-                  <div className="relative h-48 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950">
+                  <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950 flex items-center justify-center">
                     <img
                       src={w.image}
                       alt={w.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-90"
                     />
                     <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-[#3E0844]/80 text-[#F5D28E] border border-[#F5D28E]/20 px-3 py-1.5 rounded-full backdrop-blur-md">
                       {w.category}

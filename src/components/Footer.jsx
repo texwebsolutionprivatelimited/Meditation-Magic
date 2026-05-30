@@ -183,17 +183,17 @@ export default function Footer({ onOpenModal }) {
               <span className="absolute bottom-[-6px] left-0 w-8 h-[2px] bg-[#FFD95A] rounded-full" />
             </h3>
             <div className="space-y-4 text-xs font-bold mb-6">
-              <a href="tel:+919873993666" className="flex items-center gap-2.5 hover:text-white transition-colors duration-200 w-fit">
+              <a href="tel:+919829156812" className="flex items-center gap-2.5 hover:text-white transition-colors duration-200 w-fit">
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FFD95A] border border-white/10">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
-                <span>+91 9873993666</span>
+                <span>+91 98291 56812</span>
               </a>
-              <a href="mailto:meditationmagichelp@gmail.com" className="flex items-center gap-2.5 hover:text-white transition-colors duration-200 w-fit">
+              <a href="mailto:meditationmagicofficial@gmail.com" className="flex items-center gap-2.5 hover:text-white transition-colors duration-200 w-fit">
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#FFD95A] border border-white/10">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
-                <span className="break-all">meditationmagichelp@gmail.com</span>
+                <span className="break-all">meditationmagicofficial@gmail.com</span>
               </a>
             </div>
 

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Sparkles, Star, Award, Shield, Heart, Compass,
   Check, Play, HelpCircle, ChevronDown, Clock, Video, MapPin
 } from 'lucide-react';
 import neelamPortrait from '../assets/neelam_portrait.jpg';
+import { isPrivateSession, useAdminContent } from '../admin/contentStore';
 
 // High-quality custom WhatsApp SVG Logo icon component
 const WhatsAppIcon = ({ className = "w-4 h-4 fill-current" }) => (
@@ -13,66 +15,15 @@ const WhatsAppIcon = ({ className = "w-4 h-4 fill-current" }) => (
 );
 
 export default function CounselingPage() {
+  const workshops = useAdminContent('courses');
+  const privateSessions = workshops.filter((w) => isPrivateSession(w.type));
+
   // State for interactive FAQ accordion
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   const toggleFaq = (index) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
-
-  // 1-to-1 Counseling Tiers
-  const pricingTiers = [
-    {
-      title: 'Inner Shift',
-      duration: '30-Minute Video Call',
-      price: '₹25,000',
-      description: 'Best for quick support, finding current life problems, and getting fast advice for personal growth.',
-      features: [
-        'Understand your current problems',
-        'Find emotional blockages quickly',
-        'Get simple and daily spiritual tips',
-        'Private Zoom or WhatsApp video call',
-        'Actionable steps for a positive mind'
-      ],
-      ctaText: 'Book Inner Shift',
-      whatsAppMsg: 'Hello Neelam Arora Team! I want to book the Inner Shift 30-Minute Session (₹25,000). Please share the details.',
-      featured: false,
-    },
-    {
-      title: 'Deep Consultation',
-      duration: '60-Minute Detailed Video Session',
-      price: '₹50,000',
-      description: 'Our most popular session. We clean old negative energy, clear life blockages, and build a happy life success path.',
-      features: [
-        'Clear negative energy and bad karma',
-        'Remove emotional pain and worries',
-        'Full body energy chakra cleaning',
-        'Get a personalized life success map',
-        'Custom meditation and healing steps',
-        'Private audio recording of the session'
-      ],
-      ctaText: 'Book Deep Consultation',
-      whatsAppMsg: 'Hello Neelam Arora Team! I want to book the Deep Consultation 60-Minute Session (₹50,000). Please share the details.',
-      featured: true,
-    },
-    {
-      title: 'Face-to-Face Session',
-      duration: '1-Hour Private In-Person Session',
-      price: '₹75,000',
-      description: 'The ultimate personal session with direct face-to-face counseling, healing presence, and life solutions in Delhi.',
-      features: [
-        'Direct face-to-face personal advice',
-        'Deep personal energy healing',
-        'Special crystal layout for deep peace',
-        'Solutions for big life or business blocks',
-        'Comfortable and premium private room',
-        'Located in a beautiful space in New Delhi'
-      ],
-      ctaText: 'Book In-Person Session',
-      whatsAppMsg: 'Hello Neelam Arora Team! I want to book the Face-to-Face 1-Hour Session in New Delhi (₹75,000). Please share details.',
-      featured: false,
-    }
-  ];
 
   // FAQ Mappings with easy English words and embedded WhatsApp logos
   const faqItems = [
@@ -97,7 +48,7 @@ export default function CounselingPage() {
             <WhatsAppIcon className="w-3.5 h-3.5 fill-[#20BA56]" />
             WhatsApp
           </span>{' '}
-          to message our friendly team. After confirming your payment, our team will share the available date and time slots so you can choose the best time for you.
+          to message our friendly team. After confirming your session, our team will share the available date and time slots so you can choose the best time for you.
         </span>
       )
     },
@@ -143,122 +94,47 @@ export default function CounselingPage() {
           </div>
         </section>
 
-        {/* 💳 Section 1: Three-Tier Pricing Grid */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-          {pricingTiers.map((tier, idx) => {
-            const encodedText = encodeURIComponent(tier.whatsAppMsg);
-            const waUrl = `https://wa.me/919829156812?text=${encodedText}`;
-
-            return (
-              <div
-                key={idx}
-                className={`relative flex flex-col justify-between rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-8 md:p-10 border transition-all duration-500 hover:-translate-y-1.5 group ${
-                  tier.featured
-                    ? 'bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white border-[#FFD95A]/50 shadow-xl shadow-purple-950/20 hover:shadow-2xl hover:shadow-purple-900/35'
-                    : 'bg-white text-gray-900 border-purple-100 shadow-md hover:shadow-xl'
-                }`}
-              >
-                {/* Most Popular/Featured Badge */}
-                {tier.featured && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-[8px] sm:text-[9px] font-black uppercase tracking-widest bg-gradient-to-r from-[#FFD95A] to-[#F5D28E] text-[#3E0844] px-4 py-1.5 rounded-full border border-white/20 shadow-md whitespace-nowrap">
-                    Best Healing Session
+        {/* 💳 Section 1: Dynamic 1-to-1 Sessions Card Grid */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {privateSessions.map((w) => (
+            <Link
+              key={w.id}
+              to={`/courses/${w.id}`}
+              className="bg-white rounded-[2rem] border-2 border-[#3E0844]/50 p-5 flex flex-col justify-between hover:border-[#3E0844] hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 text-left cursor-pointer animate-fade-in"
+            >
+              <div>
+                {/* Thumbnail Image */}
+                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950 flex items-center justify-center">
+                  <img
+                    src={w.image}
+                    alt={w.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 brightness-90"
+                  />
+                  <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-[#3E0844]/80 text-[#F5D28E] border border-[#F5D28E]/20 px-3 py-1.5 rounded-full backdrop-blur-md">
+                    {w.category}
                   </span>
-                )}
-
-                <div className="space-y-5">
-                  {/* Card Title & Icon */}
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className={`font-serif text-lg sm:text-xl font-black tracking-wide ${
-                        tier.featured ? 'text-white' : 'text-[#1C0320]'
-                      }`}>
-                        {tier.title}
-                      </h3>
-                      <div className="flex items-center gap-1.5 mt-2">
-                        {tier.title.includes('Face-to-Face') ? (
-                          <MapPin className={`w-3.5 h-3.5 ${tier.featured ? 'text-[#FFD95A]' : 'text-[#6B1736]'}`} />
-                        ) : (
-                          <Video className={`w-3.5 h-3.5 ${tier.featured ? 'text-[#FFD95A]' : 'text-[#6B1736]'}`} />
-                        )}
-                        <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider ${
-                          tier.featured ? 'text-white/80' : 'text-gray-600'
-                        }`}>
-                          {tier.duration}
-                        </span>
-                      </div>
-                    </div>
-                    {tier.featured && (
-                      <Star className="w-5 h-5 text-[#FFD95A] fill-[#FFD95A] animate-pulse" />
-                    )}
-                  </div>
-
-                  {/* Price */}
-                  <div>
-                    <div className="flex items-baseline gap-1">
-                      <span className={`text-2xl sm:text-3xl lg:text-4xl font-extrabold ${tier.featured ? 'text-[#FFD95A]' : 'text-[#1C0320]'}`}>
-                        {tier.price}
-                      </span>
-                      <span className={`text-xs font-bold uppercase tracking-wider ${tier.featured ? 'text-white/60' : 'text-gray-500'}`}>
-                        INR
-                      </span>
-                    </div>
-                    <p className={`text-[11px] sm:text-xs font-semibold leading-relaxed mt-2 ${
-                      tier.featured ? 'text-white/95' : 'text-gray-700'
-                    }`}>
-                      {tier.description}
-                    </p>
-                  </div>
-
-                  {/* Bullet Benefits */}
-                  <div className="space-y-3 pt-3 border-t border-purple-100/10">
-                    <p className={`text-[10px] font-black uppercase tracking-wider ${
-                      tier.featured ? 'text-[#FFD95A]' : 'text-[#6B1736]'
-                    }`}>
-                      What is included:
-                    </p>
-                    <ul className="space-y-2.5 text-xs font-semibold leading-relaxed">
-                      {tier.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
-                            tier.featured ? 'text-[#FFD95A]' : 'text-[#6B1736]'
-                          }`} />
-                          
-                          {/* If the benefit mentions WhatsApp, render a small inline WhatsApp icon */}
-                          <span className={tier.featured ? 'text-purple-100' : 'text-gray-800'}>
-                            {feat.includes('WhatsApp') ? (
-                              <span className="inline-flex items-center gap-1.5 flex-wrap">
-                                Private Zoom or 
-                                <span className="inline-flex items-center gap-0.5 font-bold text-[#20BA56]">
-                                  <WhatsAppIcon className="w-3.5 h-3.5 fill-[#20BA56]" />
-                                  WhatsApp
-                                </span>
-                                video call
-                              </span>
-                            ) : (
-                              feat
-                            )}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
 
-                {/* Direct WhatsApp Branded Booking Button */}
-                <div className="mt-6 sm:mt-8">
-                  <a
-                    href={waUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3.5 rounded-xl flex items-center justify-center gap-2 text-xs font-black uppercase tracking-widest transition-all duration-300 shadow-md hover:scale-[1.01] active:scale-[0.98] bg-[#25D366] hover:bg-[#20BA56] text-white border border-white/10 shadow-[#25d366]/20"
-                  >
-                    <WhatsAppIcon className="w-4 h-4 fill-white animate-bounce" />
-                    <span>{tier.ctaText}</span>
-                  </a>
-                </div>
+                {/* Body */}
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1C0320] group-hover:text-[#3E0844] transition-colors leading-snug mb-1">
+                  {w.title}
+                </h3>
+                <h4 className="text-[10px] font-bold text-[#6B1736] uppercase tracking-widest mb-3">
+                  {w.subtitle}
+                </h4>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-3 mb-4">
+                  {w.description}
+                </p>
               </div>
-            );
-          })}
+
+              {/* View syllabus / Book Session Link CTA */}
+              <div
+                className="w-full border border-purple-200 group-hover:border-[#3E0844] group-hover:bg-[#3E0844]/5 text-[#3E0844] font-bold py-3.5 rounded-xl text-center text-xs uppercase tracking-wider transition-all duration-300 block"
+              >
+                View Details &amp; Book Session
+              </div>
+            </Link>
+          ))}
         </section>
 
         {/* 🏢 Section 2: Corporate wellness Callout banner */}

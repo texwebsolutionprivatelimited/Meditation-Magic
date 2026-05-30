@@ -71,7 +71,7 @@ export default function Products({ limit }) {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_60%)] pointer-events-none" />
 
                   {/* Custom Badge */}
-                  <span className={`absolute top-3.5 left-3.5 text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full ${p.badgeColor} shadow-md backdrop-blur-sm border border-white/20`}>
+                  <span className="absolute top-3.5 left-3.5 text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] text-[#FFD95A] shadow-lg border border-white/30 backdrop-blur-sm drop-shadow-sm">
                     {p.badge}
                   </span>
 

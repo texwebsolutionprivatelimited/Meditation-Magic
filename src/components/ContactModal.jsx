@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { X, Sparkles, Send, CheckCircle } from 'lucide-react';
+import { db } from '../admin/firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 export default function ContactModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -14,10 +16,40 @@ export default function ContactModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate API request
+
+    const queryId = String(Date.now());
+    const newQuery = {
+      id: Number(queryId),
+      date: new Date().toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      program: formData.program,
+      message: formData.message.trim()
+    };
+
+    try {
+      // Sync locally for instant snappiness/compatibility
+      const existing = JSON.parse(localStorage.getItem('mm_admin_contacts') || '[]');
+      localStorage.setItem('mm_admin_contacts', JSON.stringify([newQuery, ...existing]));
+      window.dispatchEvent(new Event('meditation-magic-content-updated'));
+
+      // Save to Firebase Firestore cloud database
+      await setDoc(doc(db, 'contacts', queryId), newQuery);
+    } catch (err) {
+      console.error('Error saving contact query to Firestore:', err);
+    }
+
+    // Simulate API request delay for manifestation confirmation UX
     setTimeout(() => {
       setLoading(false);
       setIsSubmitted(true);
@@ -32,7 +64,7 @@ export default function ContactModal({ isOpen, onClose }) {
         });
         onClose();
       }, 3000);
-    }, 1500);
+    }, 1200);
   };
 
   const programs = [

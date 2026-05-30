@@ -17,6 +17,30 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('mm_admin_contacts') || '[]');
+      const newQuery = {
+        id: Date.now(),
+        date: new Date().toLocaleString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }),
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        program: formData.program,
+        message: formData.message.trim()
+      };
+      localStorage.setItem('mm_admin_contacts', JSON.stringify([newQuery, ...existing]));
+      window.dispatchEvent(new Event('meditation-magic-content-updated'));
+    } catch (err) {
+      console.error('Error saving contact query:', err);
+    }
+
     // Simulate API request
     setTimeout(() => {
       setLoading(false);
@@ -318,23 +342,23 @@ export default function ContactPage() {
 
                     {/* Quick Direct Support Channels moved from Left to Right Column */}
                     <div className="pt-4.5 border-t border-purple-100/80 mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-gray-600">
-                      <a href="tel:+919873993666" className="flex items-center gap-3 p-3 rounded-xl bg-purple-50/30 border border-purple-100/50 hover:bg-purple-50/60 transition-colors group/tel">
+                      <a href="tel:+919829156812" className="flex items-center gap-3 p-3 rounded-xl bg-purple-50/30 border border-purple-100/50 hover:bg-purple-50/60 transition-colors group/tel">
                         <div className="w-8 h-8 rounded-lg bg-[#3E0844] text-[#FFD95A] flex items-center justify-center flex-shrink-0 group-hover/tel:scale-105 transition-transform duration-300">
                           <Phone className="w-4 h-4" />
                         </div>
                         <div>
                           <span className="block text-[8px] uppercase font-black text-gray-400 tracking-wider">Phone Support</span>
-                          <span className="text-xs font-black text-[#3E0844]">+91 9873993666</span>
+                          <span className="text-xs font-black text-[#3E0844]">+91 98291 56812</span>
                         </div>
                       </a>
 
-                      <a href="mailto:meditationmagichelp@gmail.com" className="flex items-center gap-3 p-3 rounded-xl bg-purple-50/30 border border-purple-100/50 hover:bg-purple-50/60 transition-colors group/mail">
+                      <a href="mailto:meditationmagicofficial@gmail.com" className="flex items-center gap-3 p-3 rounded-xl bg-purple-50/30 border border-purple-100/50 hover:bg-purple-50/60 transition-colors group/mail">
                         <div className="w-8 h-8 rounded-lg bg-[#3E0844] text-[#FFD95A] flex items-center justify-center flex-shrink-0 group-hover/mail:scale-105 transition-transform duration-300">
                           <Mail className="w-4 h-4" />
                         </div>
                         <div className="min-w-0">
                           <span className="block text-[9px] uppercase font-black text-gray-400 tracking-wider">Email Address</span>
-                          <span className="text-[10px] sm:text-xs font-black text-[#3E0844] break-all sm:truncate block">meditationmagichelp@gmail.com</span>
+                          <span className="text-[10px] sm:text-xs font-black text-[#3E0844] break-all sm:truncate block">meditationmagicofficial@gmail.com</span>
                         </div>
                       </a>
                     </div>

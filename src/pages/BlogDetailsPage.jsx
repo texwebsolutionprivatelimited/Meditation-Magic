@@ -24,8 +24,8 @@ export default function BlogDetailsPage() {
   const { id } = useParams();
   const blogs = useAdminContent('blogs');
   const post = blogs.find((p) => String(p.id) === String(id));
-  const companionId = post ? (post.id === 6 ? 1 : post.id + 1) : 1;
-  const companionPost = post ? blogs.find((p) => String(p.id) === String(companionId)) : null;
+  const currentIndex = blogs.findIndex((p) => String(p.id) === String(id));
+  const companionPost = currentIndex >= 0 ? blogs[(currentIndex + 1) % blogs.length] : null;
 
   // Scroll to top on mount
   useEffect(() => {

@@ -5,7 +5,7 @@ import { isPrivateSession, useAdminContent } from '../admin/contentStore';
 import {
   Menu, X, ShoppingCart, Sparkles, Trash2,
   Home, User, BookOpen, BookMarked, HeartHandshake,
-  Newspaper, Phone, ChevronDown, Flower2, GraduationCap, Award, ShieldCheck
+  Newspaper, Phone, ChevronDown, Flower2, GraduationCap, Award
 } from 'lucide-react';
 
 export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onClearCart, onAddToCart }) {
@@ -54,8 +54,6 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
       setActiveSection('Courses');
     } else if (path === '/contact') {
       setActiveSection('Contact');
-    } else if (path === '/admin') {
-      setActiveSection('Admin');
     } else {
       setActiveSection('Home');
     }
@@ -104,7 +102,6 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
   const secondLinks = [
     { name: 'Blog', href: '/blog', icon: <Newspaper className="w-5 h-5" /> },
     { name: 'Contact', href: '/contact', icon: <Phone className="w-5 h-5" /> },
-    { name: 'Admin', href: '/admin', icon: <ShieldCheck className="w-5 h-5" /> },
   ];
 
   return (

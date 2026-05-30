@@ -144,15 +144,15 @@ export default function TermsAndConditions() {
             <p>If you have any questions about these Terms &amp; Conditions, please contact us:</p>
             <ul className="list-none space-y-2">
               <li>
-                <a href="mailto:meditationmagichelp@gmail.com" className="inline-flex items-center gap-2 text-[#6B1736] hover:underline font-semibold">
+                <a href="mailto:meditationmagicofficial@gmail.com" className="inline-flex items-center gap-2 text-[#6B1736] hover:underline font-semibold">
                   <Mail className="w-4 h-4 shrink-0" />
-                  meditationmagichelp@gmail.com
+                  meditationmagicofficial@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+919873993666" className="inline-flex items-center gap-2 text-[#6B1736] hover:underline font-semibold">
+                <a href="tel:+919829156812" className="inline-flex items-center gap-2 text-[#6B1736] hover:underline font-semibold">
                   <Phone className="w-4 h-4 shrink-0" />
-                  +91 9873993666
+                  +91 98291 56812
                 </a>
               </li>
             </ul>

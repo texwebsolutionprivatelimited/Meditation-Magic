@@ -54,11 +54,11 @@ export default function Offerings({ onOpenModal }) {
             >
               <div>
                 {/* Card Image */}
-                <div className="relative h-44 sm:h-48 overflow-hidden bg-purple-950">
+                <div className="relative h-56 sm:h-64 overflow-hidden bg-purple-950">
                   <img
                     src={prog.image || imageMap[prog.id]}
                     alt={prog.title}
-                    className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 brightness-95"
+                    className="w-full h-full object-cover object-center group-hover:scale-[1.05] transition-transform duration-500 brightness-95"
                   />
                   <span className="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest bg-[#3E0844]/80 text-[#FAF7F2] border border-[#FAF7F2]/20 px-3.5 py-1.5 rounded-full backdrop-blur-md">
                     {prog.category}

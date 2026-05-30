@@ -96,9 +96,9 @@ export default function RefundPolicy() {
             <p>To start a refund or return request, please contact us within the applicable timeframe:</p>
             <ul className="list-none space-y-2">
               <li>
-                <a href="mailto:meditationmagichelp@gmail.com" className="inline-flex items-center gap-2 text-[#6B1736] hover:underline font-semibold">
+                <a href="mailto:meditationmagicofficial@gmail.com" className="inline-flex items-center gap-2 text-[#6B1736] hover:underline font-semibold">
                   <Mail className="w-4 h-4 shrink-0" />
-                  meditationmagichelp@gmail.com
+                  meditationmagicofficial@gmail.com
                 </a>
               </li>
               <li>

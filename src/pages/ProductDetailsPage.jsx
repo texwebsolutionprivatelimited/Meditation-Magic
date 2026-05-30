@@ -7,9 +7,11 @@ export default function ProductDetailsPage() {
   const { id } = useParams();
   const products = useAdminContent('products');
   const product = products.find((p) => String(p.id) === String(id));
+  const isCombo = product?.title?.toLowerCase().includes('combo') || product?.subtitle?.toLowerCase().includes('combo');
   
   // Price and discount calculations
-  const originalPrice = product ? (product.price === 1111 ? 2499
+  const originalPrice = product ? (product.price === 2500 ? 5999
+    : product.price === 1111 ? 2499
     : product.price === 899 ? 1999
     : product.price === 1299 ? 2999
     : product.price === 999 ? 2199
@@ -27,35 +29,35 @@ export default function ProductDetailsPage() {
     {
       name: "Rakesh Singhal",
       city: "Mumbai",
-      review: "The Tiger Eye Bracelet is a real powerhouse! Felt a massive boost in my decision-making confidence within days. Got a major client deal signed within 2 weeks of wearing it!",
+      review: "The Tiger Eye Combo is a real powerhouse! Felt a massive boost in my decision-making confidence and protection within days. Got a major client deal signed within 2 weeks of wearing the pendant!",
       stars: 5,
       date: "2 weeks ago"
     },
     {
       name: "Priya Sharma",
       city: "Delhi",
-      review: "I ordered the Rose Quartz and Amethyst bracelets. The peace of mind is unbelievable. My daily anxiety has vanished and there is so much calm and loving harmony in my house now.",
+      review: "I ordered the Rose Quartz Combo and Pyrite Combo. The peace of mind and abundance is unbelievable. My daily anxiety has vanished and there is so much calm and loving harmony in my house now.",
       stars: 5,
       date: "1 month ago"
     },
     {
       name: "Meera Nair",
       city: "Bangalore",
-      review: "Highly recommend Neelam ji's crystals! You can literally feel the cool energetic vibration the moment you open the box. The packaging is absolutely divine and high quality.",
+      review: "Highly recommend Neelam ji's crystal combos! You can literally feel the cool energetic vibration the moment you open the box. The packaging is absolutely divine and high quality.",
       stars: 5,
       date: "3 weeks ago"
     },
     {
       name: "Amit Patel",
       city: "Ahmedabad",
-      review: "Perfect fit and very high quality! I wear it every day during my morning meditation. It helps me stay extremely focused and calm throughout the workday.",
+      review: "Perfect layout and very high quality crystals! I place the tree on my desk and wear the pendant wand every day. It helps me stay extremely focused and calm throughout the workday.",
       stars: 5,
       date: "4 weeks ago"
     },
     {
       name: "Sneha Reddy",
       city: "Hyderabad",
-      review: "Beautiful crystal beads. Received it in a lovely packaging with a sweet card. Very happy with the purchase!",
+      review: "Beautiful Clear Quartz combo items. Received it in a lovely packaging with a sweet instruction card. Very happy with the purchase!",
       stars: 5,
       date: "5 days ago"
     }
@@ -160,7 +162,8 @@ export default function ProductDetailsPage() {
   }
 
   const getWhatsAppLink = () => {
-    const msg = `Hello Neelam Arora Team! I would like to purchase the energized crystal bracelet: *${product.title}* (₹${product.price.toLocaleString('en-IN')}). Please guide me on payment and shipping details!`;
+    const itemType = isCombo ? 'crystal combo' : 'crystal bracelet';
+    const msg = `Hello Neelam Arora Team! I would like to purchase the energized ${itemType}: *${product.title}* (₹${product.price.toLocaleString('en-IN')}). Please guide me on payment and shipping details!`;
     return `https://wa.me/919829156812?text=${encodeURIComponent(msg)}`;
   };
 
@@ -187,7 +190,53 @@ export default function ProductDetailsPage() {
     }
   ];
 
-  const packageIncludes = [
+  const comboFaqs = [
+    {
+      q: "How do I arrange the different items in my crystal combo?",
+      a: "Each item has a specific energetic role. Place the Crystal Tree in your home/office (North-East for wealth/wisdom, South-West for love) to continuously radiate positivity. Set the Crystal Angel and Crystal Ganesha on your main prayer altar or desk to invite divine protection and remove obstacles. Wear the Pendant/Bracelet for personal auric shielding, and keep the tumble/pyramid stones in your meditation corner or beside your bed."
+    },
+    {
+      q: "Do I need to cleanse and charge all items in the combo individually?",
+      a: "No, you can cleanse them together. Place all components in a glass, ceramic, or wooden tray, then pass sage, camphor, or incense smoke around them. To recharge, place them together under the gentle light of the Full Moon once a week, or position them around a Selenite charging plate."
+    },
+    {
+      q: "Can multiple people in my household share the individual pieces?",
+      a: "For maximum efficacy, the combo is designed to establish a unified energetic grid for one owner or a single home. We strongly recommend that the primary user claims the bracelet or pendant, while the tree, pyramid, and deities harmonize the shared household atmosphere. Sharing personal wear items like bracelets or pendants with people outside the immediate family can dilute the attunement."
+    },
+    {
+      q: "How does Neelam Arora bless and energize these crystal combos?",
+      a: "Every item in the combo undergoes a deep vibrational cleansing with a 528Hz sound bowl. Neelam Arora then performs a sacred energy attunement ritual, invoking specific high-frequency 5D grids (Abundance for Pyrite, Heart-Chakra/Love for Rose Quartz, Solar-Plexus/Protection for Tiger Eye, and Master Healing/Clarity for Clear Quartz) to make them absolute manifestation powerhouses."
+    },
+    {
+      q: "How soon can I expect to feel the shifting energy?",
+      a: "Energetic shifts begin the moment the package enters your home. Many seekers notice an immediate sense of lightness, mental clarity, or emotional relief. Give the crystals 14 to 21 days of daily integration to fully calibrate with your household energy field and support major manifestation breakthroughs."
+    }
+  ];
+
+  const faqItems = (product && product.faqs && product.faqs.length > 0) ? product.faqs : (isCombo ? comboFaqs : productFaqs);
+
+  const packageIncludes = isCombo ? [
+    {
+      title: "Genuine AAA-Grade Combo Set",
+      desc: "Complete 6-piece energized set including Angel, Pendant/Bracelet, Tree, Deity, Pyramid, and Tumble.",
+      icon: Gem
+    },
+    {
+      title: "Cosmic Protection Box",
+      desc: "An elegantly padded, sturdy protective storage box to shield your sacred items.",
+      icon: Gift
+    },
+    {
+      title: "Attunement & Ritual Card",
+      desc: "Detailed guide showing your personal intention-setting ritual step-by-step.",
+      icon: Scroll
+    },
+    {
+      title: "Energy Purifying Incense",
+      desc: "A highly-charged herbal incense cone for your crystal combo's weekly cleansing.",
+      icon: Sparkles
+    }
+  ] : [
     {
       title: "Genuine Activated Bracelet",
       desc: "100% natural, A-Grade gemstone beads hand-calibrated to high vibrations.",
@@ -215,6 +264,7 @@ export default function ProductDetailsPage() {
   const toggleFaq = (index) => {
     setOpenFaqIdx(openFaqIdx === index ? null : index);
   };
+
 
   return (
     <div className="pt-24 lg:pt-28 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden">
@@ -246,7 +296,7 @@ export default function ProductDetailsPage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80`} />
-                <span className={`absolute top-4 left-4 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full ${product.badgeColor} shadow-md border border-white/25`}>
+                <span className="absolute top-4 left-4 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] text-[#FFD95A] shadow-lg border border-white/30 backdrop-blur-sm">
                   {product.badge}
                 </span>
                 
@@ -372,7 +422,7 @@ export default function ProductDetailsPage() {
               Neelam Arora’s 5D Activation
             </h3>
             <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-semibold mb-4">
-              Unlike normal crystals sold commercially, this gemstone bracelet undergoes a careful, high-vibrational sacred activation:
+              Unlike normal crystals sold commercially, this gemstone {isCombo ? 'combo' : 'bracelet'} undergoes a careful, high-vibrational sacred activation:
             </p>
             <div className="p-4 rounded-xl bg-purple-50/50 border border-purple-100 text-xs font-bold text-gray-700 leading-relaxed">
               {product.energization}
@@ -392,11 +442,11 @@ export default function ProductDetailsPage() {
                   <p className="text-xs font-extrabold text-[#1C0320] mt-0.5">{product.specifications.material}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Bead Dimensions</span>
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{isCombo ? "Items Included" : "Bead Dimensions"}</span>
                   <p className="text-xs font-extrabold text-[#1C0320] mt-0.5">{product.specifications.beadsSize}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Bracelet Fit</span>
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{isCombo ? "Wearability" : "Bracelet Fit"}</span>
                   <p className="text-xs font-extrabold text-[#1C0320] mt-0.5">{product.specifications.elasticity}</p>
                 </div>
                 <div>
@@ -458,12 +508,12 @@ export default function ProductDetailsPage() {
               Got Questions?
             </span>
             <h3 className="font-serif text-2xl font-black text-[#1C0320]">
-              Crystal Bracelet FAQ
+              {isCombo ? "Crystal Combo FAQ" : "Crystal Bracelet FAQ"}
             </h3>
           </div>
 
           <div className="space-y-4">
-            {productFaqs.map((faq, idx) => {
+            {faqItems.map((faq, idx) => {
               const isOpen = openFaqIdx === idx;
               return (
                 <div

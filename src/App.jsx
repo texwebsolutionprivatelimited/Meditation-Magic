@@ -17,11 +17,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import RefundPolicy from './pages/RefundPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import CounselingPage from './pages/CounselingPage';
-<<<<<<< HEAD
-import AdminPage from './pages/AdminPage';
-=======
 import AdminPanel from './pages/AdminPanel';
->>>>>>> 607745ad28a869a884edb56d1918f93d840e52aa
 
 
 export default function App() {
@@ -86,11 +82,7 @@ export default function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-<<<<<<< HEAD
-          <Route path="/admin" element={<AdminPage />} />
-=======
           <Route path="/admin" element={<AdminPanel />} />
->>>>>>> 607745ad28a869a884edb56d1918f93d840e52aa
         </Routes>
 
         {/* Footnote Footer */}
