@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Sparkles, Gem, CheckCircle2, ShieldCheck, HelpCircle, Plus, Minus, Gift, Scroll, MessageSquare, Copy, Check, Moon } from 'lucide-react';
-import { PRODUCTS_DATA } from '../data/products';
+import { useAdminContent } from '../admin/contentStore';
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
-  const product = PRODUCTS_DATA.find((p) => p.id === parseInt(id));
+  const products = useAdminContent('products');
+  const product = products.find((p) => String(p.id) === String(id));
   
   // Price and discount calculations
   const originalPrice = product ? (product.price === 1111 ? 2499

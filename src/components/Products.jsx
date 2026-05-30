@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Gem, Star, Shield, Zap } from 'lucide-react';
-import { PRODUCTS_DATA } from '../data/products';
+import { useAdminContent } from '../admin/contentStore';
 
 export default function Products({ limit }) {
+  const products = useAdminContent('products');
   // If limit is passed, slice to show only that many featured items (e.g. 4 on homepage)
-  const displayedProducts = limit ? PRODUCTS_DATA.slice(0, limit) : PRODUCTS_DATA;
+  const displayedProducts = limit ? products.slice(0, limit) : products;
 
   const getWhatsAppLink = (title, price) => {
     const msg = `Hello Neelam Arora Team! I am interested in purchasing the energized *${title}* (₹${price.toLocaleString('en-IN')}). Please guide me on payment and shipping details!`;

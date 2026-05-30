@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import neelamPortrait from '../assets/neelam_portrait.jpg';
 import { BookOpen, Check, Shield, Award, MessageCircle, ArrowLeft, Calendar, Sparkles, AlertCircle, Heart, Star, Coins, Flame, Sun } from 'lucide-react';
-import { WORKSHOPS_DATA } from '../data/workshops';
+import { isPrivateSession, useAdminContent } from '../admin/contentStore';
 
 export default function CourseDetailsPage() {
   const { id } = useParams();
+  const workshops = useAdminContent('courses');
 
   // Find the matching workshop
-  const workshop = WORKSHOPS_DATA.find((w) => w.id === id);
+  const workshop = workshops.find((w) => w.id === id);
 
   // Dynamic styling helper for "Who Can Join" card based on course category
   const getWhoCanJoinStyle = (category) => {
@@ -244,17 +245,17 @@ export default function CourseDetailsPage() {
   }
 
   // Get suggestions of the same general type (group program vs 1-to-1 session)
-  const isOneOnOne = workshop.type === '1-to-1 Session';
+  const isOneOnOne = isPrivateSession(workshop.type);
 
-  const related = WORKSHOPS_DATA.filter((w) => {
-    const typeMatch = isOneOnOne ? w.type === '1-to-1 Session' : w.type !== '1-to-1 Session';
+  const related = workshops.filter((w) => {
+    const typeMatch = isOneOnOne ? isPrivateSession(w.type) : !isPrivateSession(w.type);
     return typeMatch && w.category === workshop.category && w.id !== workshop.id;
   });
 
   let suggestions = [...related];
   if (suggestions.length < 3) {
-    const remaining = WORKSHOPS_DATA.filter((w) => {
-      const typeMatch = isOneOnOne ? w.type === '1-to-1 Session' : w.type !== '1-to-1 Session';
+    const remaining = workshops.filter((w) => {
+      const typeMatch = isOneOnOne ? isPrivateSession(w.type) : !isPrivateSession(w.type);
       return typeMatch && w.id !== workshop.id && !suggestions.some(s => s.id === w.id);
     });
     suggestions = [...suggestions, ...remaining].slice(0, 3);
@@ -266,7 +267,7 @@ export default function CourseDetailsPage() {
   let suggestionsHeading = "More Workshops For You";
   if (workshop.type === 'Course') {
     suggestionsHeading = "More Courses For You";
-  } else if (workshop.type === '1-to-1 Session') {
+  } else if (isPrivateSession(workshop.type)) {
     suggestionsHeading = "More 1-to-1 Sessions For You";
   }
 
