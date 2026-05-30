@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { BookOpen } from 'lucide-react';
-import { WORKSHOPS_DATA } from '../data/workshops';
+import { isPrivateSession, useAdminContent } from '../admin/contentStore';
 
 export default function CoursesPage() {
   const [searchParams] = useSearchParams();
+  const workshops = useAdminContent('courses');
 
   // Internal type filter coming from Navbar Query Parameter (e.g. ?type=Courses)
   const typeParam = searchParams.get('type') || 'All';
@@ -13,14 +14,14 @@ export default function CoursesPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   // 1. Filter workshops matching the internal Navbar type
-  const typeMatchedWorkshops = WORKSHOPS_DATA.filter((w) => {
+  const typeMatchedWorkshops = workshops.filter((w) => {
     if (typeParam !== 'All') {
       return (typeParam === 'Courses' && w.type === 'Course') ||
         (typeParam === 'Workshops' && w.type === 'Workshop') ||
-        (typeParam === '1-to-1 Sessions' && w.type === '1-to-1 Session');
+        (typeParam === '1-to-1 Sessions' && isPrivateSession(w.type));
     }
     // If "All", show everything EXCEPT private '1-to-1 Session' products
-    return w.type !== '1-to-1 Session';
+    return !isPrivateSession(w.type);
   });
 
   // 2. Extract unique categories that actually have available items under this type

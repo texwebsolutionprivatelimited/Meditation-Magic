@@ -1,16 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
-import { WORKSHOPS_DATA } from '../data/workshops';
+import { useAdminContent } from '../admin/contentStore';
 import mahaLaxmiImg from '../assets/maha_laxmi_wealth.png';
 import dragonMasteryImg from '../assets/dragon_protection.png';
 import akashicRecordsImg from '../assets/akashic_records.png';
 import unicornTherapyImg from '../assets/unicorn_healing.png';
 
 export default function Offerings({ onOpenModal }) {
+  const workshops = useAdminContent('courses');
   // Get 4 prominent featured programs to display on the Home page
   const featuredIds = ['maha-laxmi-workshop', 'dragon-mastery', 'akashic-records', 'unicorn-therapy'];
-  const programs = featuredIds.map(id => WORKSHOPS_DATA.find(w => w.id === id)).filter(Boolean);
+  const featuredPrograms = featuredIds.map(id => workshops.find(w => w.id === id)).filter(Boolean);
+  const programs = featuredPrograms.length === featuredIds.length
+    ? featuredPrograms
+    : workshops.slice(0, 4);
 
   const imageMap = {
     'maha-laxmi-workshop': mahaLaxmiImg,
@@ -52,7 +56,7 @@ export default function Offerings({ onOpenModal }) {
                 {/* Card Image */}
                 <div className="relative h-44 sm:h-48 overflow-hidden bg-purple-950">
                   <img
-                    src={imageMap[prog.id] || prog.image}
+                    src={prog.image || imageMap[prog.id]}
                     alt={prog.title}
                     className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 brightness-95"
                   />

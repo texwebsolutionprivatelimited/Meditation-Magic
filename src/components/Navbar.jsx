@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import logoImg from '../assets/logo.jpg';
-import { WORKSHOPS_DATA } from '../data/workshops';
+import { isPrivateSession, useAdminContent } from '../admin/contentStore';
 import {
   Menu, X, ShoppingCart, Sparkles, Trash2,
   Home, User, BookOpen, BookMarked, HeartHandshake,
-  Newspaper, Phone, ChevronDown, Flower2, GraduationCap, Award
+  Newspaper, Phone, ChevronDown, Flower2, GraduationCap, Award, ShieldCheck
 } from 'lucide-react';
 
 export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onClearCart, onAddToCart }) {
+  const workshops = useAdminContent('courses');
   const location = useLocation();
   const currentFullPath = decodeURIComponent(location.pathname + location.search);
   const [activeSection, setActiveSection] = useState('Home');
@@ -53,6 +54,8 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
       setActiveSection('Courses');
     } else if (path === '/contact') {
       setActiveSection('Contact');
+    } else if (path === '/admin') {
+      setActiveSection('Admin');
     } else {
       setActiveSection('Home');
     }
@@ -69,7 +72,7 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
   let currentCourseType = null;
   if (path.startsWith('/courses/')) {
     const courseId = path.substring('/courses/'.length);
-    const course = WORKSHOPS_DATA.find((w) => w.id === courseId);
+    const course = workshops.find((w) => w.id === courseId);
     if (course) {
       currentCourseType = course.type; // 'Course', 'Workshop', or '1-to-1 Session'
     }
@@ -87,7 +90,7 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
       return (location.search.includes('type=Workshops')) || (currentCourseType === 'Workshop');
     }
     if (item.name === '1-to-1 Sessions') {
-      return path === '/counseling';
+      return path === '/counseling' || isPrivateSession(currentCourseType);
     }
     return false;
   };
@@ -101,6 +104,7 @@ export default function Navbar({ onOpenModal, cart = [], onRemoveFromCart, onCle
   const secondLinks = [
     { name: 'Blog', href: '/blog', icon: <Newspaper className="w-5 h-5" /> },
     { name: 'Contact', href: '/contact', icon: <Phone className="w-5 h-5" /> },
+    { name: 'Admin', href: '/admin', icon: <ShieldCheck className="w-5 h-5" /> },
   ];
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Calendar, ArrowRight, Clock, Award, Flame, Sun, Gem, Heart, Shield, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
-import { BLOGS_DATA } from '../data/blogs';
+import { useAdminContent } from '../admin/contentStore';
 
 // Import local premium spiritual images matching course themes
 import mahaLaxmiImg from '../assets/maha_laxmi_wealth.png';
@@ -30,17 +30,18 @@ const iconMap = {
 };
 
 export default function Blog({ limit }) {
+  const blogs = useAdminContent('blogs');
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
 
   // Calculate total pages
-  const totalPages = Math.ceil(BLOGS_DATA.length / postsPerPage);
+  const totalPages = Math.ceil(blogs.length / postsPerPage);
 
   // Get displayed posts for the current page
   const startIndex = (currentPage - 1) * postsPerPage;
   const displayedPosts = limit 
-    ? BLOGS_DATA.slice(0, limit) 
-    : BLOGS_DATA.slice(startIndex, startIndex + postsPerPage);
+    ? blogs.slice(0, limit) 
+    : blogs.slice(startIndex, startIndex + postsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -239,7 +240,7 @@ export default function Blog({ limit }) {
                     <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-xl border border-purple-100/50 aspect-square bg-purple-50 w-full">
                       <Link to={`/blog/${post.id}`} className="w-full h-full block">
                         <img
-                          src={imageMap[post.id] || post.image}
+                          src={post.image || imageMap[post.id]}
                           alt={post.title}
                           className="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-90 transition-transform duration-[8s]"
                         />
@@ -329,8 +330,8 @@ export default function Blog({ limit }) {
             {/* Status Info */}
             <span className="text-xs font-semibold text-gray-500">
               Showing <span className="font-extrabold text-[#3E0844]">{startIndex + 1}</span> to{' '}
-              <span className="font-extrabold text-[#3E0844]">{Math.min(startIndex + postsPerPage, BLOGS_DATA.length)}</span> of{' '}
-              <span className="font-extrabold text-[#3E0844]">{BLOGS_DATA.length}</span> articles
+              <span className="font-extrabold text-[#3E0844]">{Math.min(startIndex + postsPerPage, blogs.length)}</span> of{' '}
+              <span className="font-extrabold text-[#3E0844]">{blogs.length}</span> articles
             </span>
 
             {/* Navigation buttons */}

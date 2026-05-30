@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, Award, Sparkles, Send, Heart, BookOpen } from 'lucide-react';
-import { BLOGS_DATA } from '../data/blogs';
+import { useAdminContent } from '../admin/contentStore';
 
 // Import local premium spiritual images matching course themes
 import mahaLaxmiImg from '../assets/maha_laxmi_wealth.png';
@@ -22,9 +22,10 @@ const imageMap = {
 
 export default function BlogDetailsPage() {
   const { id } = useParams();
-  const post = BLOGS_DATA.find((p) => p.id === parseInt(id));
+  const blogs = useAdminContent('blogs');
+  const post = blogs.find((p) => String(p.id) === String(id));
   const companionId = post ? (post.id === 6 ? 1 : post.id + 1) : 1;
-  const companionPost = post ? BLOGS_DATA.find((p) => p.id === companionId) : null;
+  const companionPost = post ? blogs.find((p) => String(p.id) === String(companionId)) : null;
 
   // Scroll to top on mount
   useEffect(() => {
@@ -155,7 +156,7 @@ export default function BlogDetailsPage() {
               {/* Card 1: Core Article Image */}
               <div className="relative w-full aspect-square bg-[#0D0015] overflow-hidden rounded-[1.25rem] sm:rounded-[2rem] border border-purple-300/40 shadow-md">
                 <img
-                  src={imageMap[post.id] || post.image}
+                  src={post.image || imageMap[post.id]}
                   alt={post.title}
                   className="w-full h-full object-cover brightness-95"
                 />
@@ -169,7 +170,7 @@ export default function BlogDetailsPage() {
               {companionPost && (
                 <div className="hidden md:block relative w-full aspect-square bg-[#0D0015] overflow-hidden rounded-[1.25rem] sm:rounded-[2rem] border border-purple-300/40 shadow-md">
                   <img
-                    src={imageMap[companionPost.id] || companionPost.image}
+                    src={companionPost.image || imageMap[companionPost.id]}
                     alt={companionPost.title}
                     className="w-full h-full object-cover brightness-95"
                   />

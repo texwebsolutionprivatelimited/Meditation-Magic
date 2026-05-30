@@ -17,6 +17,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import RefundPolicy from './pages/RefundPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import CounselingPage from './pages/CounselingPage';
+import AdminPanel from './pages/AdminPanel';
 
 
 export default function App() {
@@ -81,6 +82,7 @@ export default function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
 
         {/* Footnote Footer */}
