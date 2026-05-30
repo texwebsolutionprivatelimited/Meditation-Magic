@@ -248,6 +248,7 @@ export default function Footer({ onOpenModal }) {
             <Link to="/privacy-policy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
             <Link to="/refund-policy" className="hover:text-white/60 transition-colors">Refund Policy</Link>
             <Link to="/terms-and-conditions" className="hover:text-white/60 transition-colors">Terms &amp; Conditions</Link>
+            <Link to="/admin" className="hover:text-[#FFD95A] text-white/50 transition-colors ml-2">Admin Login</Link>
           </div>
 
         </div>

@@ -1,4 +1,4 @@
-export const PRODUCTS_DATA = [
+const defaultProducts = [
   {
     id: 1,
     title: 'Multi Fluorite Crystal Bracelet',
@@ -186,3 +186,18 @@ export const PRODUCTS_DATA = [
     energization: 'Energized with specific throat chakra sound vibrations (HAM) and high-level abundance coding by Neelam Arora.'
   }
 ];
+
+// Initialize localStorage if not present
+if (typeof window !== 'undefined' && !localStorage.getItem('mm_products')) {
+  localStorage.setItem('mm_products', JSON.stringify(defaultProducts));
+}
+
+export const PRODUCTS_DATA = typeof window !== 'undefined' && localStorage.getItem('mm_products')
+  ? JSON.parse(localStorage.getItem('mm_products'))
+  : defaultProducts;
+
+export const saveProductsData = (data) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('mm_products', JSON.stringify(data));
+  }
+};

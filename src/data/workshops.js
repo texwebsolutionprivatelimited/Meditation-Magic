@@ -8,7 +8,7 @@ import saraswatiWisdomImg from '../assets/saraswati_wisdom.png';
 import kaliProtectionImg from '../assets/kali_protection.png';
 import auraShieldImg from '../assets/aura_shield.png';
 
-export const WORKSHOPS_DATA = [
+const defaultWorkshops = [
   {
     id: 'maha-laxmi-workshop',
     title: 'Maha Laxmi, Ashta Lakshmi & Dhan Kuber Workshop',
@@ -391,5 +391,20 @@ export const WORKSHOPS_DATA = [
     image: auraShieldImg
   }
 ];
+
+// Initialize localStorage if not present
+if (typeof window !== 'undefined' && !localStorage.getItem('mm_workshops')) {
+  localStorage.setItem('mm_workshops', JSON.stringify(defaultWorkshops));
+}
+
+export const WORKSHOPS_DATA = typeof window !== 'undefined' && localStorage.getItem('mm_workshops')
+  ? JSON.parse(localStorage.getItem('mm_workshops'))
+  : defaultWorkshops;
+
+export const saveWorkshopsData = (data) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('mm_workshops', JSON.stringify(data));
+  }
+};
 
 export const CATEGORIES = ['All', 'Money & Success', 'Spiritual Healing', 'Angels & Protection', 'Yoga & Peace'];

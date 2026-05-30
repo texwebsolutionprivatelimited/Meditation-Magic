@@ -1,4 +1,4 @@
-export const BLOGS_DATA = [
+const defaultBlogs = [
   {
     id: 1,
     title: 'The Science and Spiritual Power of Words in Manifestation',
@@ -228,3 +228,18 @@ export const BLOGS_DATA = [
     conclusion: 'Crystals are authentic, powerful partners in your spiritual path. When cleansed, blessed, and energized with pure intentions, they serve as remarkable catalysts for grounding, protection, and subconscious manifestation.'
   }
 ];
+
+// Initialize localStorage if not present
+if (typeof window !== 'undefined' && !localStorage.getItem('mm_blogs')) {
+  localStorage.setItem('mm_blogs', JSON.stringify(defaultBlogs));
+}
+
+export const BLOGS_DATA = typeof window !== 'undefined' && localStorage.getItem('mm_blogs')
+  ? JSON.parse(localStorage.getItem('mm_blogs'))
+  : defaultBlogs;
+
+export const saveBlogsData = (data) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('mm_blogs', JSON.stringify(data));
+  }
+};
