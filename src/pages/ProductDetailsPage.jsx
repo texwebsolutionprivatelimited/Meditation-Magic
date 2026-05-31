@@ -277,7 +277,7 @@ export default function ProductDetailsPage() {
 
 
   return (
-    <div className="pt-24 lg:pt-28 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden">
+    <div className="pt-20 lg:pt-28 pb-12 sm:pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden">
       {/* Background soft glowing blurs */}
       <div className="absolute top-0 right-[-10%] w-[500px] h-[500px] rounded-full bg-white/40 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-10 left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-200/50 blur-[130px] pointer-events-none" />
@@ -287,7 +287,7 @@ export default function ProductDetailsPage() {
         {/* Back Link */}
         <Link
           to="/products"
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-[#3E0844] hover:text-[#6B1736] mb-6 sm:mb-8 transition-colors group"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-[#3E0844] hover:text-[#6B1736] mb-4 sm:mb-8 transition-colors group"
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
           Back to Energized Crystal Products
@@ -295,23 +295,23 @@ export default function ProductDetailsPage() {
 
         {/* Product Details Container */}
         <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] shadow-2xl border border-purple-100/50 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 p-3.5 sm:p-10 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 p-3 sm:p-10 lg:p-12">
 
             {/* Left Column: Image Card */}
             <div className="lg:col-span-5 flex flex-col gap-3 sm:gap-4">
-              <div className="relative rounded-[1.25rem] sm:rounded-[2rem] overflow-hidden shadow-lg aspect-square bg-[#0D0015] border border-purple-50 group">
+              <div className="relative rounded-[1.25rem] sm:rounded-[2rem] overflow-hidden shadow-lg h-64 sm:h-auto sm:aspect-square bg-[#0D0015] border border-purple-50 group">
                 <img
                   src={product.image}
                   alt={product.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80`} />
-                <span className="absolute top-4 left-4 text-[9px] sm:text-[10px] font-black uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] text-[#FFD95A] shadow-lg border border-white/30 backdrop-blur-sm">
+                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 text-[8.5px] sm:text-[10px] font-black uppercase tracking-widest px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] text-[#FFD95A] shadow-lg border border-white/30 backdrop-blur-sm">
                   {product.badge}
                 </span>
                 
                 {/* Floating Discount Badge */}
-                <span className="absolute top-4 right-4 text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-md border border-white/25 animate-pulse z-10">
+                <span className="absolute top-3 right-3 sm:top-4 sm:right-4 text-[8.5px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-md border border-white/25 animate-pulse z-10">
                   {discountPercent}% OFF
                 </span>
               </div>
@@ -321,7 +321,7 @@ export default function ProductDetailsPage() {
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 {/* Category & Rating */}
-                <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
+                <div className="flex items-center justify-start flex-wrap gap-2 mb-3">
                   <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold tracking-widest text-[#6B1736] uppercase bg-purple-50 px-3 py-1.5 rounded-full border border-purple-100">
                     <Sparkles className="w-3.5 h-3.5 text-[#6B1736]" />
                     5D Energized Crystal
@@ -338,15 +338,11 @@ export default function ProductDetailsPage() {
                 </div>
 
                 {/* Main Titles */}
-                <h1 className="font-serif text-xl sm:text-4xl lg:text-5xl font-black text-[#1C0320] leading-tight mb-2">
+                <h1 className="font-serif text-lg sm:text-4xl lg:text-5xl font-black text-[#1C0320] leading-tight mb-3 sm:mb-5">
                   {product.title}
                 </h1>
-                <h2 className="text-xs sm:text-base font-bold text-[#6B1736] tracking-wide mb-5 sm:mb-6 uppercase">
-                  {product.subtitle}
-                </h2>
-
                 {/* Price Label Block */}
-                <div className="mb-6 flex items-center gap-3 sm:gap-4 flex-wrap bg-purple-50/30 p-3 sm:px-6 sm:py-4 rounded-2xl sm:rounded-3xl border border-purple-100/60 w-full sm:w-fit justify-between sm:justify-start">
+                <div className="mb-5 sm:mb-6 flex items-center gap-2.5 sm:gap-4 flex-wrap bg-purple-50/30 p-3 sm:px-6 sm:py-4 rounded-2xl sm:rounded-3xl border border-purple-100/60 w-full sm:w-fit justify-start">
                   <div className="flex flex-col text-left">
                     <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">Original Price</span>
                     <span className="text-xs sm:text-base font-bold text-red-700/80 line-through mt-0.5 sm:mt-1">
@@ -425,7 +421,7 @@ export default function ProductDetailsPage() {
 
 
         {/* Tabbed / Extra Details Blocks */}
-        <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-left">
+        <div className="mt-6 sm:mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 text-left">
           <div className="bg-white rounded-[1.25rem] sm:rounded-[2rem] p-4.5 sm:p-8 border border-purple-100 shadow-md">
             <h3 className="font-serif text-lg sm:text-xl font-black text-[#1C0320] mb-3 flex items-center gap-2">
               <Sparkles className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736] animate-pulse" />

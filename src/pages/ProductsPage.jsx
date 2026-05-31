@@ -149,7 +149,7 @@ export default function ProductsPage() {
       <Products />
 
       {/* 🔮 Interactive Crystal Match Calculator */}
-      <div className="mt-6 sm:mt-12 bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4.5 sm:p-10 lg:p-12 border-2 border-[#FFD95A]/30 relative overflow-hidden shadow-2xl max-w-[95%] mx-auto mb-16">
+      <div className="mt-6 sm:mt-12 bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[1.5rem] sm:rounded-[2.5rem] p-3.5 sm:p-10 lg:p-12 border-2 border-[#FFD95A]/30 relative overflow-hidden shadow-2xl w-[calc(100%_-_1.5rem)] sm:max-w-[95%] mx-auto mb-12 sm:mb-16">
         
         {/* Subtle sparkles & cosmic background elements */}
         <div className="absolute top-[-10%] right-[-10%] w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -173,7 +173,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Interactive Widget Block */}
-          <div className="bg-white/5 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-white/10 shadow-inner">
+          <div className="bg-white/5 backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-8 border border-white/10 shadow-inner">
             
             {!isAuraCalculating && !auraResult && (
               /* Stage 1: The Input Form */
@@ -360,7 +360,7 @@ export default function ProductsPage() {
       </div>
 
       {/* 🧼 Interactive 5D Crystal Care & Cleansing Guide */}
-      <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4.5 sm:p-10 lg:p-12 border-2 border-[#3E0844]/50 shadow-2xl max-w-[95%] mx-auto mb-16 relative overflow-hidden">
+      <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-3.5 sm:p-10 lg:p-12 border-2 border-[#3E0844]/50 shadow-2xl w-[calc(100%_-_1.5rem)] sm:max-w-[95%] mx-auto mb-12 sm:mb-16 relative overflow-hidden">
         
         {/* Soft decorative background blurs */}
         <div className="absolute top-[-20%] left-[-20%] w-72 h-72 rounded-full bg-purple-100/50 blur-3xl pointer-events-none" />

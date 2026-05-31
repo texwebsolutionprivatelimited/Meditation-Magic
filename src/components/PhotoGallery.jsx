@@ -60,7 +60,7 @@ export default function PhotoGallery() {
   };
 
   return (
-    <section id="gallery" className="relative py-12 sm:py-16 lg:py-20 bg-[#E2D5F3] overflow-hidden">
+    <section id="gallery" className="relative pt-3 pb-4 sm:pt-8 sm:pb-10 lg:pt-10 lg:pb-14 bg-[#E2D5F3] overflow-hidden">
       
       {/* Dynamic ambient glowing light bubbles */}
       <div className="absolute top-1/3 right-[-10%] w-96 h-96 rounded-full bg-white/40 blur-[130px] pointer-events-none" />
@@ -70,7 +70,7 @@ export default function PhotoGallery() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <span className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-[#6B1736] uppercase bg-white/50 px-4 py-2 rounded-full border border-purple-200/60 shadow-sm mb-4 animate-tagline-blink">
+          <span className="inline-flex items-center gap-1.5 text-xs font-black tracking-widest text-[#6B1736] uppercase mb-4 animate-tagline-blink">
             <Camera className="w-4 h-4 text-[#6B1736]" />
             Moments of Magic & Connection
           </span>
@@ -89,7 +89,7 @@ export default function PhotoGallery() {
           {/* Card 1: Large Featured Left block (Spans 5 cols on lg) */}
           <div 
             onClick={() => setActiveImageIdx(0)}
-            className="lg:col-span-5 relative rounded-[2rem] overflow-hidden border-2 border-[#3E0844]/40 hover:border-[#3E0844] shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 cursor-pointer group h-[26rem] sm:h-auto"
+            className="lg:col-span-5 relative rounded-[2rem] overflow-hidden border-2 border-[#3E0844]/40 hover:border-[#3E0844] shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 cursor-pointer group h-[20rem] sm:h-auto"
           >
             <img 
               src={images[0].src} 

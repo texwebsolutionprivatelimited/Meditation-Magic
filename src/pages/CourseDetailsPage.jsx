@@ -313,7 +313,7 @@ export default function CourseDetailsPage() {
   const curriculumBlocks = parseDetailsToBlocks(workshop.details);
 
   return (
-    <div className="pt-24 lg:pt-28 min-h-screen bg-[#E2D5F3] text-gray-900 pb-24">
+    <div className="pt-20 lg:pt-28 min-h-screen bg-[#E2D5F3] text-gray-900 pb-16 sm:pb-24">
       {/* Decorative backdrop glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[40%] rounded-full bg-white/30 blur-[130px] pointer-events-none" />
 
@@ -332,7 +332,7 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 1: Full-Width Glassmorphic Hero Header */}
-        <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden mb-8">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-3.5 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden mb-5 sm:mb-8">
           <div className="absolute top-[-20%] right-[-10%] w-80 h-80 rounded-full bg-purple-100/40 blur-3xl pointer-events-none" />
           <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 rounded-full bg-white/40 blur-2xl pointer-events-none" />
 
@@ -358,13 +358,13 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 2: Split Columns for Core Details (Left 5-cols, Right 7-cols) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-start mb-6 sm:mb-8">
 
           {/* LEFT SIDE: Sidebar image & action elements (5 cols on lg) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-3 sm:p-6 border border-purple-100 shadow-2xl relative overflow-hidden group">
               {/* Image Box */}
-              <div className="relative h-48 sm:h-80 w-full rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden mb-5 sm:mb-6 bg-purple-950 shadow-inner border-2 border-purple-300/80">
+              <div className="relative h-44 sm:h-80 w-full rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden mb-4 sm:mb-6 bg-purple-950 shadow-inner border-2 border-purple-300/80">
                 <img
                   src={workshop.image}
                   alt={workshop.title}
@@ -377,7 +377,7 @@ export default function CourseDetailsPage() {
               </div>
 
               {/* Quick stats grid */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-5 sm:mb-6">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="bg-purple-50/60 p-2.5 sm:p-4 rounded-2xl border-2 border-purple-300/80 flex flex-col justify-between hover:bg-purple-50/80 hover:scale-[1.02] transition-all duration-300">
                   <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#6B1736] mb-1.5 sm:mb-2" />
                   <div>
@@ -454,7 +454,7 @@ export default function CourseDetailsPage() {
           </div>
 
           {/* RIGHT SIDE: Core Curriculum, Benefits & Who Can Join (7 cols on lg) */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-8">
             <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden">
               <div className="absolute top-[-5%] right-[-5%] w-64 h-64 rounded-full bg-purple-100/30 blur-3xl pointer-events-none" />
 
@@ -522,7 +522,7 @@ export default function CourseDetailsPage() {
 
           <div className="flex flex-col md:flex-row gap-6 sm:gap-10 items-center md:items-start relative z-10">
             {/* Left side: Beautiful large styled portrait photo of Neelam */}
-            <div className="w-36 h-36 sm:w-60 sm:h-60 rounded-2xl sm:rounded-3xl bg-[#E2D5F3] p-1 shadow-2xl border-2 border-purple-300/80 relative group overflow-hidden">
+            <div className="w-32 h-32 sm:w-60 sm:h-60 rounded-2xl sm:rounded-3xl bg-[#E2D5F3] p-1 shadow-2xl border-2 border-purple-300/80 relative group overflow-hidden">
               <img
                 src={neelamPortrait}
                 alt="Neelam Arora"
@@ -650,7 +650,7 @@ export default function CourseDetailsPage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
             {suggestions.map((s) => (
               <Link
                 key={s.id}
@@ -659,7 +659,7 @@ export default function CourseDetailsPage() {
               >
                 <div>
                   {/* Thumbnail Image */}
-                  <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950">
+                  <div className="relative h-52 sm:h-72 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950">
                     <img
                       src={s.image}
                       alt={s.title}

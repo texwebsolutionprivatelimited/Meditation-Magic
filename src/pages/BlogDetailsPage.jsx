@@ -72,7 +72,7 @@ export default function BlogDetailsPage() {
   };
 
   return (
-    <div className="pt-24 lg:pt-28 pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden text-gray-900">
+    <div className="pt-20 lg:pt-28 pb-12 sm:pb-20 min-h-screen bg-[#E2D5F3] relative overflow-hidden text-gray-900">
 
       {/* Floating Background Sparkles / Orbs */}
       <style>{`
@@ -111,7 +111,7 @@ export default function BlogDetailsPage() {
         {/* Back Link */}
         <Link
           to="/blog"
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-[#3E0844] hover:text-[#6B1736] mb-6 sm:mb-8 transition-colors group"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-[#3E0844] hover:text-[#6B1736] mb-4 sm:mb-8 transition-colors group"
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
           Back to Articles
@@ -121,10 +121,10 @@ export default function BlogDetailsPage() {
         <div className="w-full bg-white/35 backdrop-blur-md rounded-[1.25rem] sm:rounded-[2.5rem] border border-[#3E0844]/10 sm:border-purple-300/50 shadow-xl overflow-hidden relative z-10">
 
           {/* Article Header Details */}
-          <div className="p-3.5 sm:p-12 pb-6 border-b border-purple-300/40 text-center sm:text-left">
+          <div className="p-3 sm:p-12 pb-4 sm:pb-6 border-b border-purple-300/40 text-center sm:text-left">
             {/* Meta Tags */}
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 sm:gap-3 mb-4">
-              <span className="inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-black tracking-widest text-[#6B1736] uppercase bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-100">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <span className="inline-flex items-center gap-1.5 text-[8.5px] sm:text-[10px] font-black tracking-widest text-[#6B1736] uppercase bg-purple-50 px-2.5 sm:px-3.5 py-1.5 rounded-full border border-purple-100">
                 <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#6B1736]" /> {post.course}
               </span>
 
@@ -161,17 +161,17 @@ export default function BlogDetailsPage() {
           </div>
 
           {/* Side-by-Side Dual Images - Display two square illustrations naturally in a grid so space is beautifully filled */}
-          <div className="p-3.5 sm:p-10 pb-0 flex justify-center w-full">
+          <div className="p-3 sm:p-10 pb-0 flex justify-center w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 w-full max-w-5xl">
               {/* Card 1: Core Article Image */}
-              <div className="relative w-full aspect-square bg-[#0D0015] overflow-hidden rounded-[1rem] sm:rounded-[2rem] border border-purple-300/40 shadow-md">
+              <div className="relative w-full h-56 sm:h-auto sm:aspect-square bg-[#0D0015] overflow-hidden rounded-[1rem] sm:rounded-[2rem] border border-purple-300/40 shadow-md">
                 <img
                   src={post.image || imageMap[post.id]}
                   alt={post.title}
                   className="w-full h-full object-cover brightness-95"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-                <span className="absolute bottom-4 left-4 text-[9px] sm:text-[10px] font-black bg-[#3E0844]/80 text-white px-3.5 py-1.5 rounded-full backdrop-blur-sm border border-white/10 tracking-widest uppercase">
+                <span className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 text-[8.5px] sm:text-[10px] font-black bg-[#3E0844]/80 text-white px-2.5 sm:px-3.5 py-1.5 rounded-full backdrop-blur-sm border border-white/10 tracking-widest uppercase">
                   Core Topic
                 </span>
               </div>
@@ -194,7 +194,7 @@ export default function BlogDetailsPage() {
           </div>
 
           {/* Article Body Content */}
-          <div className="p-3.5 sm:p-12 pt-6 sm:pt-10 space-y-6 sm:space-y-8 font-medium text-gray-700 text-xs sm:text-sm leading-relaxed text-left">
+          <div className="p-3 sm:p-12 pt-5 sm:pt-10 space-y-5 sm:space-y-8 font-medium text-gray-700 text-xs sm:text-sm leading-relaxed text-left">
 
             {/* Intro paragraph */}
             <p className="text-xs sm:text-base font-bold text-[#1C0320]">

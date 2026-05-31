@@ -5,7 +5,7 @@ import neelamPortrait from '../assets/neelam_portrait.jpg';
 
 export default function AboutBrief() {
   return (
-    <section id="about-brief" className="relative pt-16 pb-12 sm:pt-24 sm:pb-20 bg-[#E2D5F3] overflow-hidden">
+    <section id="about-brief" className="relative pt-12 pb-3 sm:pt-20 sm:pb-8 bg-[#E2D5F3] overflow-hidden">
       
       {/* Self-contained animations */}
       <style>{`

@@ -169,7 +169,7 @@ export default function Hero({ onOpenModal }) {
       </section>
 
       {/* ─── MOBILE/TABLET VERSION (Interactive Tab Accordion & M.A.G.I.C. Pillars) ─── */}
-      <section className="relative w-full h-[48vh] min-h-[330px] md:h-[58vh] md:min-h-[420px] mt-16 flex lg:hidden flex-row overflow-hidden bg-[#1E003B]">
+      <section className="relative w-full h-[46vh] min-h-[300px] md:h-[58vh] md:min-h-[420px] mt-16 flex lg:hidden flex-row overflow-hidden bg-[#1E003B]">
         {mobilePanels.map((p) => {
           const isActive = activeId === p.id;
           return (
@@ -184,7 +184,7 @@ export default function Hero({ onOpenModal }) {
                   navigate(p.path);
                 }
               }}
-              className="relative flex flex-col justify-end p-2 sm:p-4 pb-6 sm:pb-12 text-center transition-all duration-700 ease-out cursor-pointer overflow-hidden border-r border-white/5 last:border-r-0"
+              className="relative flex flex-col justify-end p-1.5 sm:p-4 pb-5 sm:pb-12 text-center transition-all duration-700 ease-out cursor-pointer overflow-hidden border-r border-white/5 last:border-r-0"
               style={{
                 flexGrow: isActive ? 4.5 : 0.7,
                 flexShrink: 1,
@@ -217,13 +217,13 @@ export default function Hero({ onOpenModal }) {
                 {isActive ? (
                   // Expanded Active Content Layout
                   <div className="flex flex-col items-center space-y-2 animate-fade-in w-full px-2">
-                    <h3 className="font-serif text-sm sm:text-2xl font-extrabold text-white tracking-wide leading-tight group-hover:text-gold transition-colors duration-300">
+                    <h3 className="font-serif text-xs sm:text-2xl font-extrabold text-white tracking-wide leading-tight group-hover:text-gold transition-colors duration-300">
                       {p.title}
                     </h3>
                     <span className="font-serif text-xs sm:text-lg font-bold text-gold tracking-widest block">
                       ({p.letter})
                     </span>
-                    <p className="text-[9px] sm:text-xs text-white/90 font-medium leading-relaxed max-w-[240px] mx-auto mt-2">
+                    <p className="text-[8.5px] sm:text-xs text-white/90 font-medium leading-snug sm:leading-relaxed max-w-[240px] mx-auto mt-1 sm:mt-2">
                       {p.desc}
                     </p>
                   </div>
@@ -232,7 +232,7 @@ export default function Hero({ onOpenModal }) {
                   <div className="flex flex-col items-center justify-end space-y-4 h-full animate-fade-in select-none w-full pb-2 sm:pb-4">
                     <div className="w-full flex justify-center items-center">
                       <div 
-                        className="font-serif text-[10px] sm:text-base font-bold text-white/70 tracking-widest uppercase text-center"
+                        className="font-serif text-[8.5px] sm:text-base font-bold text-white/70 tracking-widest uppercase text-center"
                         style={{
                           writingMode: 'vertical-rl',
                           transform: 'rotate(180deg)',

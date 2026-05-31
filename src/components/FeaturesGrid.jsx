@@ -35,7 +35,7 @@ const rightPaths = cardY.map(y => `M ${CX},${CY} C ${CX + 100},${CY} ${RX - 100}
 
 export default function FeaturesGrid() {
   return (
-    <section id="features" className="relative py-20 overflow-hidden bg-gradient-to-b from-[#0D0015] via-[#1C0040] to-[#0D0015]">
+    <section id="features" className="relative pt-8 pb-16 sm:pt-12 sm:pb-20 overflow-hidden bg-gradient-to-b from-[#0D0015] via-[#1C0040] to-[#0D0015]">
 
       {/* Starfield dots */}
       {[...Array(30)].map((_, i) => (

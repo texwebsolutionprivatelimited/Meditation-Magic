@@ -32,7 +32,7 @@ export default function VideoReviews() {
   const [activeVideoId, setActiveVideoId] = useState(null);
 
   return (
-    <section id="videos" className="relative pt-8 pb-4 bg-[#E2D5F3] text-gray-900 overflow-hidden">
+    <section id="videos" className="relative pt-2 sm:pt-6 pb-4 bg-[#E2D5F3] text-gray-900 overflow-hidden">
 
       {/* Soft glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-white/30 blur-[100px] pointer-events-none rounded-full" />
