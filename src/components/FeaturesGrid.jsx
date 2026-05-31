@@ -56,7 +56,7 @@ export default function FeaturesGrid() {
       {/* Radial glow behind center */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[60%] bg-[#7B2FBE]/20 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">

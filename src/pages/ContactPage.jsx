@@ -126,14 +126,14 @@ export default function ContactPage() {
       </div>
 
       {/* Main Grid Content */}
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* Left Block: Image + Contact Details */}
           <div className="lg:col-span-5 flex flex-col gap-6">
 
             {/* Stunning Glowing Portrait Card of Neelam Arora */}
-            <div className="relative rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/60 w-full h-[320px] sm:h-[520px] lg:h-[480px] group bg-[#0D0015]">
+            <div className="relative rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/60 w-full h-[260px] sm:h-[520px] lg:h-[480px] group bg-[#0D0015]">
               <img
                 src={neelamPortrait}
                 alt="Neelam Arora Spiritual Guide"
@@ -151,7 +151,7 @@ export default function ContactPage() {
             </div>
 
             {/* Deep Spiritual Contact & Trust Oath */}
-            <div className="flex-1 flex flex-col justify-between bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 shadow-2xl border border-[#FFD95A]/15 relative overflow-hidden group">
+            <div className="flex-1 flex flex-col justify-between bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[1.75rem] sm:rounded-[2.5rem] p-4 sm:p-10 shadow-2xl border border-[#FFD95A]/15 relative overflow-hidden group">
 
               {/* Top decorative glow */}
               <div className="absolute -top-16 -right-16 w-32 h-32 bg-[#FFD95A]/10 rounded-full blur-3xl pointer-events-none" />
@@ -161,7 +161,7 @@ export default function ContactPage() {
                   <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase text-[#FFD95A] tracking-widest mb-2">
                     🔱 Contact Channels
                   </span>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                  <h2 className="font-serif text-xl sm:text-3xl font-extrabold text-white leading-tight">
                     Get in Touch
                   </h2>
                   <p className="text-white/60 text-xs sm:text-sm font-medium leading-relaxed mt-2">
@@ -172,7 +172,7 @@ export default function ContactPage() {
 
 
                 {/* Trust Alignment Oath */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
+                <div className="p-3.5 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
                   <h4 className="text-[10px] font-black text-[#FFD95A] uppercase tracking-widest mb-1.5 flex items-center gap-1.5">
                     <Heart className="w-3.5 h-3.5 fill-[#FFD95A]/20" /> Safe &amp; Trusted
                   </h4>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                     href="https://wa.me/919829156812?text=Hello%20Neelam%20Arora%20Team!%20I%20would%20like%20to%20connect%20for%20spiritual%20guidance."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full text-center bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-teal-600 hover:to-emerald-500 text-white font-black text-xs px-6 py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-widest flex items-center justify-center gap-2 border border-white/10"
+                    className="w-full text-center bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-teal-600 hover:to-emerald-500 text-white font-black text-[10px] sm:text-xs px-4 sm:px-6 py-3.5 sm:py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-widest flex items-center justify-center gap-1.5 sm:gap-2 border border-white/10"
                   >
                     <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
                       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
@@ -199,7 +199,7 @@ export default function ContactPage() {
               </div>
 
               {/* Bottom trust line */}
-              <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-4 relative z-10 text-[9px] font-extrabold uppercase text-white/50 tracking-widest">
+              <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-3 sm:gap-4 relative z-10 text-[8px] sm:text-[9px] font-extrabold uppercase text-white/50 tracking-widest">
                 <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5 text-[#FFD95A]" /> 100% Confidential</span>
                 <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-[#FFD95A]" /> Certified Channels</span>
               </div>
@@ -209,7 +209,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Block: Spiritual & High-Contrast Form Card */}
-          <div className="lg:col-span-7 bg-white/90 backdrop-blur-md rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border border-purple-100/60 shadow-2xl relative overflow-hidden flex flex-col justify-start">
+          <div className="lg:col-span-7 bg-white/90 backdrop-blur-md rounded-[1.75rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100/60 shadow-2xl relative overflow-hidden flex flex-col justify-start">
 
             {isSubmitted ? (
               <div className="text-center py-16 flex flex-col items-center justify-center animate-fade-in text-gray-800">
@@ -228,7 +228,7 @@ export default function ContactPage() {
             ) : (
               <>
                 {/* Divine Manifestation Gateway Banner */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-purple-50 to-amber-50/60 border border-purple-100/70 mb-6 relative overflow-hidden flex items-start gap-3.5 shadow-sm">
+                <div className="p-3.5 sm:p-5 rounded-2xl bg-gradient-to-r from-purple-50 to-amber-50/60 border border-purple-100/70 mb-5 relative overflow-hidden flex items-start gap-3 shadow-sm">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-amber-200/10 rounded-full blur-2xl pointer-events-none" />
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
                     <Sparkles className="w-4 h-4 animate-pulse" />
@@ -244,12 +244,12 @@ export default function ContactPage() {
                 </div>
 
                 {/* Form Header */}
-                <div className="flex items-center gap-3.5 mb-6 border-b border-purple-100 pb-5">
-                  <div className="w-11 h-11 rounded-xl border border-purple-200 bg-purple-50 flex items-center justify-center text-[#3E0844]">
+                <div className="flex items-center gap-3 mb-5 border-b border-purple-100 pb-4">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl border border-purple-200 bg-purple-50 flex items-center justify-center text-[#3E0844] flex-shrink-0">
                     <Sparkles className="w-5 h-5 animate-pulse" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-black text-[#1C0320] leading-none mb-1">Send a Message</h3>
+                    <h3 className="font-serif text-xl sm:text-2xl font-black text-[#1C0320] leading-none mb-1">Send a Message</h3>
                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Fill out this form to connect with our team</p>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ export default function ContactPage() {
                 {/* Form Elements */}
                 <form onSubmit={handleSubmit} className="space-y-5">
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                     <div>
                       <label className="block text-[10px] font-black text-[#6B1736] uppercase tracking-widest mb-1.5">Your Name</label>
                       <input
@@ -266,7 +266,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Enter your name"
-                        className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold"
+                        className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-4 py-3 sm:px-5 sm:py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold"
                       />
                     </div>
 
@@ -278,7 +278,7 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+91 XXXXX XXXXX"
-                        className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold"
+                        className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-4 py-3 sm:px-5 sm:py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold"
                       />
                     </div>
                   </div>
@@ -291,7 +291,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="name@example.com"
-                      className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold"
+                      className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-4 py-3 sm:px-5 sm:py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold"
                     />
                   </div>
 
@@ -301,7 +301,7 @@ export default function ContactPage() {
                       <select
                         value={formData.program}
                         onChange={(e) => setFormData({ ...formData, program: e.target.value })}
-                        className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-5 py-3.5 text-gray-900 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold appearance-none cursor-pointer"
+                        className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-4 py-3 sm:px-5 sm:py-3.5 text-gray-900 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold appearance-none cursor-pointer"
                       >
                         {programs.map((prog, idx) => (
                           <option key={idx} value={prog} className="bg-white text-gray-900">
@@ -322,13 +322,13 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Please write your questions, queries, or course topics you would like to know more about..."
-                      className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold resize-none"
+                      className="w-full bg-purple-50/30 border border-purple-100 rounded-xl px-4 py-3 sm:px-5 sm:py-3.5 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#3E0844]/60 focus:ring-1 focus:ring-[#3E0844]/30 transition-all text-xs font-semibold resize-none"
                     ></textarea>
                   </div>
 
                   {/* Spiritual Assurance and Submit Button Group */}
                   <div className="space-y-4 pt-4">
-                    <p className="text-[10px] text-[#6B1736] font-bold text-center leading-relaxed bg-amber-50/60 border border-amber-100/50 p-3.5 rounded-xl shadow-inner flex items-center justify-center gap-1.5">
+                    <p className="text-[9px] sm:text-[10px] text-[#6B1736] font-bold text-center leading-relaxed bg-amber-50/60 border border-amber-100/50 p-3 sm:p-3.5 rounded-xl shadow-inner flex items-center justify-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse flex-shrink-0" />
                       <span>Your request undergoes sacred sound vibration scanning prior to attunement scheduling.</span>
                     </p>
@@ -336,7 +336,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-4.5 rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-[#FFD95A] to-[#F5A623] hover:from-[#F5A623] hover:to-[#FFD95A] text-[#0D0015] font-black transition-all duration-300 shadow-md shadow-purple-950/15 hover:shadow-purple-950/25 text-xs uppercase tracking-widest"
+                      className="w-full py-3.5 sm:py-4.5 rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-[#FFD95A] to-[#F5A623] hover:from-[#F5A623] hover:to-[#FFD95A] text-[#0D0015] font-black transition-all duration-300 shadow-md shadow-purple-950/15 hover:shadow-purple-950/25 text-[10px] sm:text-xs uppercase tracking-widest"
                     >
                       {loading ? (
                         <span className="w-5 h-5 border-2 border-[#0D0015] border-t-transparent rounded-full animate-spin"></span>
@@ -349,7 +349,7 @@ export default function ContactPage() {
                     </button>
 
                     {/* Quick Direct Support Channels moved from Left to Right Column */}
-                    <div className="pt-4.5 border-t border-purple-100/80 mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold text-gray-600">
+                    <div className="pt-3.5 border-t border-purple-100/80 mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs font-semibold text-gray-600">
                       <a href="tel:+919829156812" className="flex items-center gap-3 p-3 rounded-xl bg-purple-50/30 border border-purple-100/50 hover:bg-purple-50/60 transition-colors group/tel">
                         <div className="w-8 h-8 rounded-lg bg-[#3E0844] text-[#FFD95A] flex items-center justify-center flex-shrink-0 group-hover/tel:scale-105 transition-transform duration-300">
                           <Phone className="w-4 h-4" />
@@ -381,34 +381,34 @@ export default function ContactPage() {
         </div>
 
         {/* Global Spiritual Stamps bottom trust builder - Jaw-Dropping Cosmic Altar UI */}
-        <div className="mt-12 sm:mt-20 bg-gradient-to-br from-[#3E0844]/95 via-[#2F0A59]/90 to-[#1C0320]/95 backdrop-blur-md rounded-[2rem] sm:rounded-[3rem] p-5 sm:p-12 border border-[#FFD95A]/30 shadow-2xl text-center w-full relative overflow-hidden group">
+        <div className="mt-12 sm:mt-20 bg-gradient-to-br from-[#3E0844]/95 via-[#2F0A59]/90 to-[#1C0320]/95 backdrop-blur-md rounded-[2rem] sm:rounded-[3rem] p-4.5 sm:p-12 border border-[#FFD95A]/30 shadow-2xl text-center w-full relative overflow-hidden group">
           
           {/* Spiritual background glow layers */}
           <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#FFD95A]/10 rounded-full blur-[80px] pointer-events-none group-hover:scale-150 transition-transform duration-1000" />
           <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/20 rounded-full blur-[80px] pointer-events-none group-hover:scale-150 transition-transform duration-1000" />
 
           {/* Golden Crystalline Top Seal Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1C0320]/60 border border-[#FFD95A]/25 backdrop-blur-sm mb-6 shadow-lg animate-pulse" style={{ animationDuration: '4s' }}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#1C0320]/60 border border-[#FFD95A]/25 backdrop-blur-sm mb-6 shadow-lg animate-pulse" style={{ animationDuration: '4s' }}>
             <span className="text-base">🧘</span>
-            <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#FFD95A]">
+            <span className="text-[9px] sm:text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#FFD95A]">
               Meditation Magic Sanctuary
             </span>
           </div>
 
           {/* Main heading */}
-          <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFD95A] to-white leading-tight mb-4 drop-shadow-sm">
+          <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFD95A] to-white leading-tight mb-4 drop-shadow-sm">
             The Meditation Magic Trust Guarantee
           </h2>
           
-          <p className="text-white/70 text-xs sm:text-sm font-semibold max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-white/70 text-[11px] sm:text-sm font-semibold max-w-3xl mx-auto mb-6 sm:mb-10 leading-relaxed">
             Every class, personal consultation, and crystal gemstone bracelet is blessed and energized with pure heart, sound bowls, and divine frequency codes. We promise to support your spiritual journey with complete devotion and over 19+ years of master-level mastership.
           </p>
 
           {/* Three Stunning Crystalline Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full border-t border-white/10 pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full border-t border-white/10 pt-6 sm:pt-10">
             
             {/* Card 1: Private & Secure */}
-            <div className="p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
+            <div className="p-4 sm:p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
               <div className="absolute top-0 right-0 w-16 h-16 bg-[#FFD95A]/5 rounded-bl-[2rem] group-hover/item:scale-110 transition-transform" />
               <div className="space-y-4 relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-[#FFD95A] text-[#0D0015] flex items-center justify-center shadow-lg shadow-[#FFD95A]/15 group-hover/item:scale-105 transition-transform duration-300">
@@ -426,7 +426,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 2: Kind support & Advice */}
-            <div className="p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
+            <div className="p-4 sm:p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
               <div className="absolute top-0 right-0 w-16 h-16 bg-[#FFD95A]/5 rounded-bl-[2rem] group-hover/item:scale-110 transition-transform" />
               <div className="space-y-4 relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-[#FFD95A] text-[#0D0015] flex items-center justify-center shadow-lg shadow-[#FFD95A]/15 group-hover/item:scale-105 transition-transform duration-300">
@@ -444,7 +444,7 @@ export default function ContactPage() {
             </div>
 
             {/* Card 3: Experience */}
-            <div className="p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
+            <div className="p-4 sm:p-5 rounded-[1.75rem] sm:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-[#FFD95A]/40 hover:bg-white/10 transition-all duration-500 text-left relative overflow-hidden group/item flex flex-col justify-between hover:shadow-xl hover:shadow-[#FFD95A]/5">
               <div className="absolute top-0 right-0 w-16 h-16 bg-[#FFD95A]/5 rounded-bl-[2rem] group-hover/item:scale-110 transition-transform" />
               <div className="space-y-4 relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-[#FFD95A] text-[#0D0015] flex items-center justify-center shadow-lg shadow-[#FFD95A]/15 group-hover/item:scale-105 transition-transform duration-300">

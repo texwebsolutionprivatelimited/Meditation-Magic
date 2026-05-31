@@ -27,7 +27,7 @@ export default function Offerings({ onOpenModal }) {
     <section id="programs" className="relative pt-12 pb-8 sm:pb-10 bg-[#E2D5F3] overflow-hidden">
 
       {/* Space left-right inside container */}
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
@@ -45,7 +45,7 @@ export default function Offerings({ onOpenModal }) {
         </div>
 
         {/* Offerings Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 items-stretch">
           {programs.map((prog) => (
             <Link
               key={prog.id}
@@ -54,7 +54,7 @@ export default function Offerings({ onOpenModal }) {
             >
               <div>
                 {/* Card Image */}
-                <div className="relative h-56 sm:h-64 overflow-hidden bg-purple-950">
+                <div className="relative h-48 sm:h-64 overflow-hidden bg-purple-950">
                   <img
                     src={prog.image || imageMap[prog.id]}
                     alt={prog.title}
@@ -66,7 +66,7 @@ export default function Offerings({ onOpenModal }) {
                 </div>
 
                 {/* Card Info */}
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <h3 className="font-serif text-lg font-bold text-[#1C0320] group-hover:text-[#6B1736] leading-snug mb-1 line-clamp-2 transition-colors duration-300">
                     {prog.title}
                   </h3>
@@ -80,7 +80,7 @@ export default function Offerings({ onOpenModal }) {
               </div>
 
               {/* Action Button */}
-              <div className="p-6 pt-0">
+              <div className="p-4 sm:p-6 pt-0">
                 <div className="w-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3 rounded-xl text-center text-xs transition-all duration-300 uppercase tracking-wider shadow-md hover:shadow-lg whitespace-nowrap">
                   See Course Details
                 </div>

@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Content Card */}
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 pb-24">
         <div className="bg-white/70 border border-purple-200 rounded-2xl sm:rounded-3xl p-5 sm:p-12 shadow-sm">
 
           <Section title="Introduction">

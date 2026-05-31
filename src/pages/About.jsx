@@ -83,13 +83,13 @@ export default function About() {
         </div>
       </div>
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-16 lg:space-y-20">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10 space-y-8 sm:space-y-16 lg:space-y-20">
 
         {/* Profiles Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
           {/* Card 1: Neelam Arora */}
-          <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
+          <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-3.5 sm:p-10 border border-purple-100/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
             {/* Top decorative glow */}
             <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100/40 rounded-full blur-2xl group-hover:scale-150 transition-all duration-500" />
 
@@ -140,7 +140,7 @@ export default function About() {
           </div>
 
           {/* Card 2: Bhavya Chudasama */}
-          <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
+          <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-3.5 sm:p-10 border border-purple-100/60 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
             {/* Top decorative glow */}
             <div className="absolute -top-12 -right-12 w-24 h-24 bg-purple-100/40 rounded-full blur-2xl group-hover:scale-150 transition-all duration-500" />
 
@@ -212,7 +212,7 @@ export default function About() {
             {modalities.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-8 border border-purple-100 hover:border-[#6B1736]/40 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between"
+                className="bg-white rounded-[1.25rem] sm:rounded-[2rem] p-3.5 sm:p-8 border border-purple-100 hover:border-[#6B1736]/40 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between text-left"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -241,13 +241,13 @@ export default function About() {
         </div>
 
         {/* YouTube Spotlight Channel Card */}
-        <div className="relative rounded-[1.5rem] sm:rounded-[2.5rem] overflow-hidden bg-gradient-to-r from-[#2F0A59] via-[#3E0844] to-[#1E003B] p-5 sm:p-12 border border-white/10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 group">
+        <div className="relative rounded-[1.25rem] sm:rounded-[2.5rem] overflow-hidden bg-gradient-to-r from-[#2F0A59] via-[#3E0844] to-[#1E003B] p-4 sm:p-12 border border-white/10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 group">
           {/* Subtle overlay decorative grid */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-600/10 via-transparent to-transparent pointer-events-none" />
 
           <div className="space-y-4 max-w-2xl text-center lg:text-left relative z-10">
-            <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-black tracking-widest text-[#F5D28E] uppercase bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full">
-              <Youtube className="w-4 h-4 text-red-500 fill-red-500" />
+            <span className="inline-flex items-center gap-1.5 text-[9px] sm:text-xs font-black tracking-widest text-[#F5D28E] uppercase bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+              <Youtube className="w-3.5 h-3.5 text-red-500 fill-red-500" />
               Official YouTube Channel
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
@@ -256,15 +256,15 @@ export default function About() {
             <p className="text-white/75 text-xs sm:text-sm font-semibold leading-relaxed">
               Unlock a treasure trove of guided 5D meditations, Dragon Energy activations, Angel therapies, chakra attunements, and live spiritual podcasts. Join our community of seekers.
             </p>
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-[11px] sm:text-xs font-bold text-white/60 pt-2">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-[10px] sm:text-xs font-bold text-white/60 pt-2">
               <span className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-red-500 fill-red-500" /> Guided Meditations
+                <Star className="w-3.5 h-3.5 text-red-500 fill-red-500" /> Guided Meditations
               </span>
               <span className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-[#F5D28E] fill-[#F5D28E]" /> Dragon Activations
+                <Star className="w-3.5 h-3.5 text-[#F5D28E] fill-[#F5D28E]" /> Dragon Activations
               </span>
               <span className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-[#A047B8] fill-[#A047B8]" /> Weekly Live Sessions
+                <Star className="w-3.5 h-3.5 text-[#A047B8] fill-[#A047B8]" /> Weekly Live Sessions
               </span>
             </div>
           </div>
@@ -274,9 +274,9 @@ export default function About() {
               href="https://www.youtube.com/@meditationmagic33"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto justify-center flex items-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-black px-8 py-4.5 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 text-xs sm:text-sm uppercase tracking-wider group-hover:shadow-red-600/20"
+              className="w-full sm:w-auto justify-center flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black px-6 sm:px-8 py-3.5 sm:py-4.5 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 text-[10px] sm:text-sm uppercase tracking-wider group-hover:shadow-red-600/20 cursor-pointer"
             >
-              <Youtube className="w-5 h-5 fill-current" />
+              <Youtube className="w-4.5 h-4.5 fill-current" />
               Subscribe Channel
             </a>
           </div>

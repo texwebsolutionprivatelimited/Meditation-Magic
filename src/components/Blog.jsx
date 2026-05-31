@@ -194,7 +194,7 @@ export default function Blog({ limit }) {
       <div className="absolute bottom-[20%] right-[-5%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-br from-indigo-200/30 to-transparent blur-[120px] pointer-events-none animate-drift" style={{ animationDelay: '6s' }} />
       <div className="absolute top-[45%] left-[30%] w-[35vw] h-[35vw] rounded-full bg-white/30 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header - Only render if limit is passed (homepage view) */}
         {limit && (
@@ -237,7 +237,7 @@ export default function Blog({ limit }) {
                     <div className="absolute inset-0 bg-purple-500/5 rounded-[2.5rem] transform -rotate-2 scale-[1.02] opacity-0 group-hover:opacity-100 transition-all duration-700" />
 
                     {/* Main Image Frame - Perfect aspect-square (1:1) card to match original illustrations */}
-                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-xl border border-purple-100/50 aspect-square bg-purple-50 w-full">
+                    <div className="relative z-10 rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden shadow-xl border border-purple-100/50 aspect-square bg-purple-50 w-full">
                       <Link to={`/blog/${post.id}`} className="w-full h-full block">
                         <img
                           src={post.image || imageMap[post.id]}
@@ -269,7 +269,7 @@ export default function Blog({ limit }) {
 
                     {/* Title */}
                     <Link to={`/blog/${post.id}`} className="block">
-                      <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#1C0320] leading-snug hover:text-[#6B1736] transition-colors duration-300">
+                      <h3 className="font-serif text-xl sm:text-3xl font-extrabold text-[#1C0320] leading-snug hover:text-[#6B1736] transition-colors duration-300">
                         {post.title}
                       </h3>
                     </Link>
@@ -295,7 +295,7 @@ export default function Blog({ limit }) {
                   <div className="pt-2">
                     <Link
                       to={`/blog/${post.id}`}
-                      className="inline-flex items-center gap-2 bg-[#3E0844] hover:bg-[#1C0320] text-white font-black text-xs px-6 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-purple-900/10 active:scale-95 uppercase tracking-widest group/btn border border-white/10 cursor-pointer"
+                      className="inline-flex items-center gap-2 bg-[#3E0844] hover:bg-[#1C0320] text-white font-black text-[10px] sm:text-xs px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-purple-900/10 active:scale-95 uppercase tracking-widest group/btn border border-white/10 cursor-pointer"
                     >
                       Read Article
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform text-white" />
@@ -314,7 +314,7 @@ export default function Blog({ limit }) {
           <div className="mt-20 text-center">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#6B1736] hover:to-[#3E0844] text-white font-black text-sm px-8 py-4 rounded-xl transition-all duration-300 shadow-lg active:scale-95 uppercase tracking-widest border border-white/10"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#6B1736] hover:to-[#3E0844] text-white font-black text-xs sm:text-sm px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all duration-300 shadow-lg active:scale-95 uppercase tracking-widest border border-white/10"
             >
               Explore The Magic Blog
               <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

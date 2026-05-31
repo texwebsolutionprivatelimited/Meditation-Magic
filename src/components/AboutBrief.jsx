@@ -45,7 +45,7 @@ export default function AboutBrief() {
       <div className="absolute top-1/2 left-[-15%] w-[450px] h-[450px] rounded-full bg-white/40 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-15%] w-[450px] h-[450px] rounded-full bg-purple-200/50 blur-[130px] pointer-events-none" />
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Grid: Image + Description */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -90,16 +90,16 @@ export default function AboutBrief() {
           </div>
 
           {/* Right Column: Premium Cosmic Gradient Content Card */}
-          <div className="lg:col-span-7 relative rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] p-6 sm:p-12 shadow-2xl overflow-hidden border-2 border-[#FFD95A]/20 sm:border border-[#FFD95A]/15 text-white">
+          <div className="lg:col-span-7 relative rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] p-4.5 sm:p-12 shadow-2xl overflow-hidden border-2 border-[#FFD95A]/20 sm:border border-[#FFD95A]/15 text-white">
             
             {/* Corner Decorative Aura */}
             <div className="absolute -top-20 -right-20 w-44 h-44 bg-[#FFD95A]/10 rounded-full blur-3xl pointer-events-none" />
 
             {/* Mobile-only centered portrait inside the card (Mobile ONLY) */}
-            <div className="flex sm:hidden flex-col items-center justify-center relative min-h-[260px] max-w-full mb-6">
+            <div className="flex sm:hidden flex-col items-center justify-center relative min-h-[220px] max-w-full mb-6">
               {/* Concentric Cosmic Astrolabe Rings */}
-              <div className="absolute w-[240px] h-[240px] rounded-full border border-dashed border-white/10 animate-spin-slow pointer-events-none" />
-              <div className="absolute w-[200px] h-[200px] rounded-full border border-double border-white/5 animate-spin-reverse-slow pointer-events-none" style={{ borderWidth: '2px' }} />
+              <div className="absolute w-[210px] h-[210px] rounded-full border border-dashed border-white/10 animate-spin-slow pointer-events-none" />
+              <div className="absolute w-[180px] h-[180px] rounded-full border border-double border-white/5 animate-spin-reverse-slow pointer-events-none" style={{ borderWidth: '2px' }} />
               
               {/* Glowing background */}
               <div className="absolute w-40 h-40 rounded-full bg-gradient-to-tr from-[#6B1736]/40 to-[#3E0844]/40 opacity-40 blur-3xl pointer-events-none" />
@@ -113,7 +113,7 @@ export default function AboutBrief() {
                   <span className="text-[8px] font-black text-gray-700 uppercase tracking-wider">Verified Guide</span>
                 </div>
 
-                <div className="relative w-44 h-44 rounded-full overflow-hidden ring-4 ring-[#FFD95A]/30 shadow-inner">
+                <div className="relative w-36 h-36 rounded-full overflow-hidden ring-4 ring-[#FFD95A]/30 shadow-inner">
                   <img
                     src={neelamPortrait}
                     alt="Neelam Arora"
@@ -152,7 +152,7 @@ export default function AboutBrief() {
               </p>
 
               {/* Unique bullet features with golden badges */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-2 max-w-lg mx-auto lg:mx-0 text-left">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 pt-2 max-w-lg mx-auto lg:mx-0 text-left">
                 <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-3 rounded-2xl backdrop-blur-sm shadow-sm hover:bg-white/10 transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 border border-white/10">
                     <Compass className="w-4 h-4 text-[#FFD95A]" />
@@ -171,7 +171,7 @@ export default function AboutBrief() {
               <div className="pt-4 flex justify-center lg:justify-start">
                 <Link
                   to="/about"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFD95A] hover:bg-[#F5A623] text-[#0D0015] font-black text-xs px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-[#FFD95A]/15 active:scale-95 uppercase tracking-widest group border border-white/10 whitespace-nowrap"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFD95A] hover:bg-[#F5A623] text-[#0D0015] font-black text-[10px] sm:text-xs px-4 sm:px-7 py-3 sm:py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-[#FFD95A]/15 active:scale-95 uppercase tracking-widest group border border-white/10 whitespace-nowrap"
                 >
                   Read Her Full Journey
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#0d0015]" />

@@ -37,7 +37,7 @@ export default function VideoReviews() {
       {/* Soft glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-white/30 blur-[100px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-8">
@@ -87,7 +87,7 @@ export default function VideoReviews() {
                 </div>
 
                 {/* Info Card Content */}
-                <div className="p-4">
+                <div className="p-3.5 sm:p-4">
                   {/* Stars */}
                   <div className="flex gap-0.5 mb-2">
                     {[...Array(v.stars)].map((_, i) => (
@@ -102,7 +102,7 @@ export default function VideoReviews() {
               </div>
 
               {/* Verified Footer */}
-              <div className="p-4 pt-0 border-t border-purple-50 mt-auto flex items-center justify-between">
+              <div className="p-3.5 sm:p-4 pt-0 border-t border-purple-50 mt-auto flex items-center justify-between">
                 <span className="text-[9px] font-bold uppercase tracking-wider text-[#6B1736]">
                   Meditation Magic
                 </span>

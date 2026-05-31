@@ -318,25 +318,25 @@ export default function CourseDetailsPage() {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[40%] rounded-full bg-white/30 blur-[130px] pointer-events-none" />
 
       {/* Main Container */}
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
 
         {/* Back Link */}
         <div className="mb-6">
           <Link
             to="/courses"
-            className="inline-flex items-center gap-2 text-[#3E0844] hover:text-[#1C0320] font-bold text-xs sm:text-sm uppercase tracking-wider transition-colors bg-white/60 border border-purple-200/50 px-4 py-2 rounded-full"
+            className="inline-flex items-center gap-2 text-[#3E0844] hover:text-[#1C0320] font-bold text-[10px] sm:text-sm uppercase tracking-wider transition-colors bg-white/60 border border-purple-200/50 px-4 py-2 rounded-full"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             Back to Catalog
           </Link>
         </div>
 
         {/* Row 1: Full-Width Glassmorphic Hero Header */}
-        <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden mb-8">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden mb-8">
           <div className="absolute top-[-20%] right-[-10%] w-80 h-80 rounded-full bg-purple-100/40 blur-3xl pointer-events-none" />
           <div className="absolute bottom-[-10%] left-[-10%] w-64 h-64 rounded-full bg-white/40 blur-2xl pointer-events-none" />
 
-          <div className="relative z-10 border-b border-purple-100 pb-6 mb-6">
+          <div className="relative z-10 border-b border-purple-100 pb-5 sm:pb-6 mb-5 sm:mb-6">
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="text-[9px] font-black uppercase tracking-widest text-[#6B1736] bg-[#6B1736]/5 border border-[#6B1736]/15 px-3 py-1 rounded-full">
                 {workshop.category}
@@ -345,13 +345,13 @@ export default function CourseDetailsPage() {
             <p className="text-[#6B1736] text-[10px] sm:text-xs font-black uppercase tracking-widest mb-1.5 animate-pulse">
               {workshop.subtitle}
             </p>
-            <h1 className="font-serif text-2xl sm:text-4xl font-extrabold text-[#1C0320] leading-tight drop-shadow-sm">
+            <h1 className="font-serif text-xl sm:text-4xl font-extrabold text-[#1C0320] leading-tight drop-shadow-sm">
               {workshop.title}
             </h1>
           </div>
 
-          <div className="relative z-10 space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-            <p className="font-semibold text-gray-800 text-base sm:text-lg">
+          <div className="relative z-10 space-y-4 text-gray-700 text-xs sm:text-base leading-relaxed">
+            <p className="font-semibold text-gray-800 text-sm sm:text-lg">
               {workshop.description}
             </p>
           </div>
@@ -362,9 +362,9 @@ export default function CourseDetailsPage() {
 
           {/* LEFT SIDE: Sidebar image & action elements (5 cols on lg) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-4 sm:p-6 border border-purple-100 shadow-2xl relative overflow-hidden group">
+            <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-3 sm:p-6 border border-purple-100 shadow-2xl relative overflow-hidden group">
               {/* Image Box */}
-              <div className="relative h-48 sm:h-80 w-full rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden mb-6 bg-purple-950 shadow-inner border-2 border-purple-300/80">
+              <div className="relative h-48 sm:h-80 w-full rounded-[1.25rem] sm:rounded-[1.75rem] overflow-hidden mb-5 sm:mb-6 bg-purple-950 shadow-inner border-2 border-purple-300/80">
                 <img
                   src={workshop.image}
                   alt={workshop.title}
@@ -377,36 +377,36 @@ export default function CourseDetailsPage() {
               </div>
 
               {/* Quick stats grid */}
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="bg-purple-50/60 p-4 rounded-2xl border-2 border-purple-300/80 flex flex-col justify-between hover:bg-purple-50/80 hover:scale-[1.02] transition-all duration-300">
-                  <Calendar className="w-5 h-5 text-[#6B1736] mb-2" />
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-5 sm:mb-6">
+                <div className="bg-purple-50/60 p-2.5 sm:p-4 rounded-2xl border-2 border-purple-300/80 flex flex-col justify-between hover:bg-purple-50/80 hover:scale-[1.02] transition-all duration-300">
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#6B1736] mb-1.5 sm:mb-2" />
                   <div>
-                    <span className="block text-[9px] font-black text-[#6B1736] uppercase tracking-wider">Format</span>
-                    <span className="font-bold text-xs sm:text-sm text-[#1C0320]">{workshop.duration}</span>
+                    <span className="block text-[8px] sm:text-[9px] font-black text-[#6B1736] uppercase tracking-wider">Format</span>
+                    <span className="font-bold text-[10px] sm:text-sm text-[#1C0320] leading-tight block">{workshop.duration}</span>
                   </div>
                 </div>
 
-                <div className="bg-purple-50/60 p-4 rounded-2xl border-2 border-purple-300/80 flex flex-col justify-between hover:bg-purple-50/80 hover:scale-[1.02] transition-all duration-300">
-                  <Sparkles className="w-5 h-5 text-[#6B1736] mb-2" />
+                <div className="bg-purple-50/60 p-2.5 sm:p-4 rounded-2xl border-2 border-purple-300/80 flex flex-col justify-between hover:bg-purple-50/80 hover:scale-[1.02] transition-all duration-300">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#6B1736] mb-1.5 sm:mb-2" />
                   <div>
-                    <span className="block text-[9px] font-black text-[#6B1736] uppercase tracking-wider">Classification</span>
-                    <span className="font-bold text-xs sm:text-sm text-[#1C0320]">{workshop.type}</span>
+                    <span className="block text-[8px] sm:text-[9px] font-black text-[#6B1736] uppercase tracking-wider">Classification</span>
+                    <span className="font-bold text-[10px] sm:text-sm text-[#1C0320] leading-tight block">{workshop.type}</span>
                   </div>
                 </div>
               </div>
 
               {/* Registration and Whatsapp Actions */}
-              <div className="bg-purple-50/30 border-2 border-purple-300/80 p-5 rounded-2xl space-y-4 shadow-sm">
+              <div className="bg-purple-50/30 border border-purple-200 p-3.5 sm:p-5 rounded-2xl space-y-4 shadow-sm">
                 <a
                   href={`https://wa.me/919829156812?text=Hello%20Neelam%20Arora%20Team,%20I%20am%20very%20interested%20in%20registering%20for%20the%20${encodeURIComponent(workshop.title)}.%20Please%20guide%20me%20on%20the%20registration%20details!`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-gradient-to-r from-[#25D366] to-[#20BA56] hover:brightness-105 text-white font-black py-4 rounded-xl flex items-center justify-center gap-2.5 text-xs sm:text-sm uppercase tracking-wider shadow-md transition-all active:scale-[0.98] cursor-pointer"
+                  className="w-full bg-gradient-to-r from-[#25D366] to-[#20BA56] hover:brightness-105 text-white font-black py-3 sm:py-4 px-2 sm:px-4 rounded-xl flex items-center justify-center gap-1.5 sm:gap-2.5 text-[10px] sm:text-xs uppercase tracking-wider shadow-md transition-all active:scale-[0.98] cursor-pointer"
                 >
-                  <WhatsAppIcon className="w-5 h-5 fill-white animate-bounce" />
+                  <WhatsAppIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5 fill-white animate-bounce flex-shrink-0" />
                   Register via WhatsApp
                 </a>
-                <p className="text-[10px] text-gray-500 text-center font-medium leading-relaxed">
+                <p className="text-[9px] sm:text-[10px] text-gray-500 text-center font-medium leading-relaxed">
                   Deep activations involve precise cosmic timings. Tap above to connect with Neelam's office on WhatsApp for slot allocations, pricing structures, and joining links.
                 </p>
               </div>
@@ -414,16 +414,16 @@ export default function CourseDetailsPage() {
 
             {/* Who Can Join Details Card in Sidebar for Spacing Balance */}
             {workshop.whoCanJoin && workshop.whoCanJoin.length > 0 && (
-              <div className={`rounded-[2.5rem] p-6 border shadow-2xl relative overflow-hidden text-left transition-all duration-300 hover:scale-[1.01] ${cardStyle.cardBg}`}>
+              <div className={`rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-6 border shadow-2xl relative overflow-hidden text-left transition-all duration-300 hover:scale-[1.01] ${cardStyle.cardBg}`}>
                 <div className={`absolute top-[-20%] left-[-20%] w-32 h-32 rounded-full blur-2xl pointer-events-none z-0 ${cardStyle.glowBg}`} />
                 <div className="relative z-10">
-                  <h3 className={`font-serif text-sm font-black flex items-center gap-2 mb-3 border-b border-purple-100/25 pb-2 ${cardStyle.titleColor}`}>
+                  <h3 className={`font-serif text-xs sm:text-sm font-black flex items-center gap-2 mb-3 border-b border-purple-100/25 pb-2 ${cardStyle.titleColor}`}>
                     {renderCategoryIcon(cardStyle.iconName)}
                     Who Can Join?
                   </h3>
                   <div className="space-y-2">
                     {workshop.whoCanJoin.map((who, idx) => (
-                      <div key={idx} className={`flex gap-2.5 text-[11px] leading-relaxed font-semibold p-3 rounded-xl border transition-all duration-200 ${cardStyle.titleColor} ${cardStyle.itemBg}`}>
+                      <div key={idx} className={`flex gap-2 text-[10px] sm:text-[11px] leading-relaxed font-semibold p-2.5 sm:p-3 rounded-xl border transition-all duration-200 ${cardStyle.titleColor} ${cardStyle.itemBg}`}>
                         <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5 ${cardStyle.bulletColor}`} />
                         <span>{who}</span>
                       </div>
@@ -434,17 +434,17 @@ export default function CourseDetailsPage() {
             )}
 
             {/* Unique Portal Element: Mandalic Sacred Geometry SVG Seal */}
-            <div className="bg-white rounded-[2.5rem] p-6 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden text-center transition-all duration-300 hover:scale-[1.01]">
+            <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-6 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden text-center transition-all duration-300 hover:scale-[1.01]">
               <div className={`absolute top-[-20%] left-[-20%] w-32 h-32 rounded-full blur-2xl pointer-events-none z-0 ${sealData.glowBg}`} />
               <div className="relative z-10">
-                <div className="mx-auto w-24 h-24 mb-4 relative flex items-center justify-center bg-purple-50 rounded-full border border-[#E2D5F3]">
+                <div className="mx-auto w-20 h-20 sm:w-24 sm:h-24 mb-4 relative flex items-center justify-center bg-purple-50 rounded-full border border-[#E2D5F3]">
                   {sealData.svg}
-                  <Star className="w-4 h-4 text-[#F5D28E] absolute animate-pulse" />
+                  <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F5D28E] absolute animate-pulse" />
                 </div>
-                <h4 className="font-serif font-black text-[#1C0320] text-sm uppercase tracking-widest mb-1.5">
+                <h4 className="font-serif font-black text-[#1C0320] text-xs sm:text-sm uppercase tracking-widest mb-1.5">
                   {sealData.title}
                 </h4>
-                <p className="text-[11px] text-gray-600 leading-relaxed max-w-xs mx-auto font-semibold">
+                <p className="text-[10px] sm:text-[11px] text-gray-600 leading-relaxed max-w-xs mx-auto font-semibold">
                   {sealData.desc}
                 </p>
               </div>
@@ -455,35 +455,35 @@ export default function CourseDetailsPage() {
 
           {/* RIGHT SIDE: Core Curriculum, Benefits & Who Can Join (7 cols on lg) */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden">
+            <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-100 shadow-2xl relative overflow-hidden">
               <div className="absolute top-[-5%] right-[-5%] w-64 h-64 rounded-full bg-purple-100/30 blur-3xl pointer-events-none" />
 
               {/* Sacred Roadmap / Curriculum Timeline */}
               {curriculumBlocks.length > 0 && (
                 <div className="space-y-6 mb-8">
-                  <h3 className="font-serif text-xl font-bold text-[#1C0320] flex items-center gap-2 mb-4">
-                    <BookOpen className="w-5 h-5 text-[#6B1736]" />
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1C0320] flex items-center gap-2 mb-4">
+                    <BookOpen className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736]" />
                     Program Roadmap & Curriculum
                   </h3>
 
-                  <div className="relative pl-6 sm:pl-8 border-l-2 border-purple-300/80 ml-2 space-y-6">
+                  <div className="relative pl-5 sm:pl-8 border-l-2 border-purple-300/80 ml-1.5 sm:ml-2 space-y-6">
                     {curriculumBlocks.map((block, idx) => (
                       <div key={idx} className="relative group/timeline">
                         {/* Timeline Node dot */}
-                        <span className="absolute left-[-33px] sm:left-[-41px] top-1.5 w-5 h-5 rounded-full bg-[#3E0844] border-4 border-white shadow-md group-hover/timeline:scale-110 transition-transform duration-300 flex items-center justify-center z-10" />
+                        <span className="absolute left-[-29px] sm:left-[-41px] top-2 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[#3E0844] border-4 border-white shadow-md group-hover/timeline:scale-110 transition-transform duration-300 flex items-center justify-center z-10" />
 
-                        <div className="bg-purple-50/40 border-2 border-purple-300/80 p-4 sm:p-5 rounded-2xl group-hover/timeline:border-[#3E0844]/40 group-hover/timeline:bg-purple-50/70 transition-all duration-300">
+                        <div className="bg-purple-50/40 border-2 border-purple-300/80 p-3.5 sm:p-5 rounded-2xl group-hover/timeline:border-[#3E0844]/40 group-hover/timeline:bg-purple-50/70 transition-all duration-300">
                           {block.title ? (
                             <>
-                              <h4 className="font-serif font-black text-sm sm:text-base text-[#1C0320] mb-1.5">
+                              <h4 className="font-serif font-black text-xs sm:text-base text-[#1C0320] mb-1.5">
                                 {block.title}
                               </h4>
-                              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed font-medium">
+                              <p className="text-gray-700 text-[11px] sm:text-sm leading-relaxed font-medium">
                                 {block.desc}
                               </p>
                             </>
                           ) : (
-                            <p className="text-gray-700 text-xs sm:text-sm leading-relaxed font-medium">
+                            <p className="text-gray-700 text-[11px] sm:text-sm leading-relaxed font-medium">
                               {block.desc}
                             </p>
                           )}
@@ -496,15 +496,15 @@ export default function CourseDetailsPage() {
 
               {/* Key Benefits Grid */}
               {workshop.benefits && workshop.benefits.length > 0 && (
-                <div className="space-y-4 border-t border-purple-100 pt-8 mb-8">
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1C0320] flex items-center gap-2">
-                    <Award className="w-5 h-5 text-[#6B1736] flex-shrink-0" />
+                <div className="space-y-4 border-t border-purple-100 pt-6 sm:pt-8 mb-8">
+                  <h3 className="font-serif text-base sm:text-xl font-bold text-[#1C0320] flex items-center gap-2">
+                    <Award className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736] flex-shrink-0" />
                     Key Benefits of This Attunement
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {workshop.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex gap-2.5 text-xs sm:text-sm text-gray-700 leading-relaxed font-semibold bg-purple-50/40 border-2 border-purple-300/80 p-4 rounded-2xl hover:bg-purple-50/70 hover:scale-[1.01] transition-all duration-300">
-                        <Check className="w-4 h-4 text-[#3E0844] flex-shrink-0 mt-0.5" />
+                      <div key={idx} className="flex gap-2 text-[11px] sm:text-sm text-gray-700 leading-relaxed font-semibold bg-purple-50/40 border-2 border-purple-300/80 p-3.5 sm:p-4 rounded-2xl hover:bg-purple-50/70 hover:scale-[1.01] transition-all duration-300">
+                        <Check className="w-3.5 h-3.5 text-[#3E0844] flex-shrink-0 mt-0.5" />
                         <span>{benefit}</span>
                       </div>
                     ))}
@@ -516,19 +516,19 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 3: Full-Width Meet Your Facilitator Banner (Spans 12 columns) */}
-        <div className="bg-white/85 rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 shadow-2xl relative overflow-hidden border border-purple-200/60 mb-8">
+        <div className="bg-white/85 rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 shadow-2xl relative overflow-hidden border border-purple-200/60 mb-8">
           <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#E2D5F3]/50 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-10 -left-10 w-64 h-64 rounded-full bg-purple-50 blur-3xl pointer-events-none" />
 
-          <div className="flex flex-col md:flex-row gap-8 sm:gap-10 items-center md:items-start relative z-10">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-10 items-center md:items-start relative z-10">
             {/* Left side: Beautiful large styled portrait photo of Neelam */}
-            <div className="w-48 h-48 sm:w-60 sm:h-60 rounded-3xl bg-[#E2D5F3] p-1.5 flex-shrink-0 shadow-2xl border-2 border-purple-300/80 relative group overflow-hidden">
+            <div className="w-36 h-36 sm:w-60 sm:h-60 rounded-2xl sm:rounded-3xl bg-[#E2D5F3] p-1 shadow-2xl border-2 border-purple-300/80 relative group overflow-hidden">
               <img
                 src={neelamPortrait}
                 alt="Neelam Arora"
-                className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700 brightness-95"
+                className="w-full h-full object-cover rounded-xl sm:rounded-2xl group-hover:scale-105 transition-transform duration-700 brightness-95"
               />
-              <div className="absolute inset-0 border border-[#F5D28E]/20 rounded-2xl pointer-events-none" />
+              <div className="absolute inset-0 border border-[#F5D28E]/20 rounded-xl sm:rounded-2xl pointer-events-none" />
             </div>
 
             {/* Right side: Detailed spiritual Facilitator Bio directly matching user image content */}
@@ -558,12 +558,12 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 4: Collapsible FAQs Accordion (Full Width) */}
-        <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden mb-12">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-10 border border-purple-200 shadow-2xl relative overflow-hidden mb-12">
           <div className="absolute top-[-10%] right-[-10%] w-64 h-64 rounded-full bg-purple-50 blur-3xl pointer-events-none z-0" />
 
           <div className="relative z-10">
             <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1C0320] flex items-center gap-2 mb-6">
-              <Star className="w-5 h-5 text-[#6B1736] flex-shrink-0 animate-pulse" />
+              <Star className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736] flex-shrink-0 animate-pulse" />
               Frequently Asked Questions
             </h3>
 
@@ -573,12 +573,12 @@ export default function CourseDetailsPage() {
                 return (
                   <div
                     key={idx}
-                    className="bg-purple-50/40 border-2 border-purple-300/80 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-purple-50/60"
+                    className="bg-purple-50/40 border border-purple-200 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-purple-50/60"
                   >
                     <button
                       type="button"
                       onClick={() => setOpenFaqIdx(isOpen ? null : idx)}
-                      className="w-full text-left p-4 sm:p-5 flex justify-between items-center gap-4 focus:outline-none hover:bg-purple-50/50 transition-colors"
+                      className="w-full text-left p-3.5 sm:p-5 flex justify-between items-center gap-4 focus:outline-none hover:bg-purple-50/50 transition-colors"
                     >
                       <span className="font-serif font-bold text-xs sm:text-sm text-[#1C0320]">
                         {item.q}
@@ -589,7 +589,7 @@ export default function CourseDetailsPage() {
                     </button>
 
                     <div
-                      className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] border-t-2 border-purple-200/80 p-4 sm:p-5 bg-white/40' : 'max-h-0'
+                      className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] border-t border-purple-100 p-3.5 sm:p-5 bg-white/40' : 'max-h-0'
                         }`}
                     >
                       <p className="text-[11px] sm:text-xs text-gray-700 leading-relaxed font-medium">
@@ -604,7 +604,7 @@ export default function CourseDetailsPage() {
         </div>
 
         {/* Row 5: Balanced Bottom Footer Actions */}
-        <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-6 border-2 border-purple-300/80 shadow-2xl relative overflow-hidden mb-6 sm:mb-12 max-w-2xl mx-auto text-center transition-all duration-300 hover:scale-[1.01]">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4 sm:p-6 border border-purple-200 shadow-2xl relative overflow-hidden mb-6 sm:mb-12 max-w-2xl mx-auto text-center transition-all duration-300 hover:scale-[1.01]">
           <div className={`absolute top-[-30%] left-[-30%] w-32 h-32 rounded-full blur-2xl pointer-events-none ${bottomData.glowBg}`} />
           <h4 className="font-serif font-bold text-[#1C0320] text-sm sm:text-base mb-2">
             {bottomData.title}
@@ -612,19 +612,19 @@ export default function CourseDetailsPage() {
           <p className="text-gray-600 text-xs mb-5 font-semibold leading-relaxed">
             {bottomData.desc}
           </p>
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center">
             <a
               href={`https://wa.me/919829156812?text=Hello%20Neelam%20Arora%20Team,%20I%20am%20very%20interested%20in%20registering%20for%20the%20${encodeURIComponent(workshop.title)}.%20Please%20guide%20me%20on%20the%20registration%20details!`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-64 bg-[#3E0844] hover:bg-[#1C0320] text-white font-black py-4 rounded-2xl flex items-center justify-center gap-2.5 text-xs sm:text-sm uppercase tracking-wider shadow-lg transition-all active:scale-[0.98] cursor-pointer"
+              className="w-full sm:w-64 bg-[#3E0844] hover:bg-[#1C0320] text-white font-black py-3.5 sm:py-4 rounded-2xl flex items-center justify-center gap-2 text-[10px] sm:text-xs uppercase tracking-wider shadow-lg transition-all active:scale-[0.98] cursor-pointer"
             >
-              <WhatsAppIcon className="w-5 h-5 fill-white" />
+              <WhatsAppIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5 fill-white" />
               Connect for Booking
             </a>
             <Link
               to="/courses"
-              className="w-full sm:w-auto border border-purple-200 hover:bg-gray-50 text-gray-800 font-bold py-4 px-8 rounded-2xl text-center text-xs sm:text-sm uppercase tracking-wider transition-all"
+              className="w-full sm:w-auto border border-purple-200 hover:bg-gray-50 text-gray-800 font-bold py-3.5 sm:py-4 px-6 sm:px-8 rounded-2xl text-center text-[10px] sm:text-xs uppercase tracking-wider transition-all"
             >
               Return to Catalog
             </Link>

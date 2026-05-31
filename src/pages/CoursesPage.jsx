@@ -89,13 +89,13 @@ export default function CoursesPage() {
       `}</style>
 
       {/* Categories Tabs Filter (Dynamically showing only categories that have items available) */}
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-12 relative z-10">
-        <div className="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-center gap-2.5 sm:gap-3 overflow-x-auto no-scrollbar border-b border-purple-200 pb-3 sm:pb-6 px-1 sm:px-0">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 mb-6 sm:mb-12 relative z-10">
+        <div className="flex flex-nowrap sm:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar border-b border-purple-200 pb-3 sm:pb-6 px-1 sm:px-0">
           {availableCategories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 border uppercase tracking-wider whitespace-nowrap flex-shrink-0 ${selectedCategory === cat
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-[10px] sm:text-xs font-bold transition-all duration-300 border uppercase tracking-wider whitespace-nowrap flex-shrink-0 ${selectedCategory === cat
                   ? 'bg-[#3E0844] text-white border-transparent'
                   : 'bg-white/60 text-[#3E0844]/80 border-purple-200 hover:bg-white hover:text-[#3E0844]'
                 }`}
@@ -107,7 +107,7 @@ export default function CoursesPage() {
       </div>
 
       {/* Catalog Grid */}
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 pb-24 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 pb-24 relative z-10">
         {filteredWorkshops.length === 0 ? (
           <div className="text-center py-16 bg-white/40 border border-purple-100/50 rounded-[2rem] p-8 max-w-lg mx-auto shadow-sm">
             <BookOpen className="w-12 h-12 text-[#6B1736]/60 mx-auto mb-4" />
@@ -130,11 +130,11 @@ export default function CoursesPage() {
               <Link
                 key={w.id}
                 to={`/courses/${w.id}`}
-                className="bg-white rounded-[2rem] border-2 border-[#3E0844]/50 p-5 flex flex-col justify-between hover:border-[#3E0844] hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 text-left cursor-pointer animate-fade-in"
+                className="bg-white rounded-[1.5rem] sm:rounded-[2rem] border-2 border-[#3E0844]/50 p-4 sm:p-5 flex flex-col justify-between hover:border-[#3E0844] hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 text-left cursor-pointer animate-fade-in"
               >
                 <div>
                   {/* Thumbnail Image */}
-                  <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950 flex items-center justify-center">
+                  <div className="relative h-48 sm:h-72 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-4 bg-purple-950 flex items-center justify-center">
                     <img
                       src={w.image}
                       alt={w.title}

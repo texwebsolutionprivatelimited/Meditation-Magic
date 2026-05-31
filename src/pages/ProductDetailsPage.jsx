@@ -282,36 +282,36 @@ export default function ProductDetailsPage() {
       <div className="absolute top-0 right-[-10%] w-[500px] h-[500px] rounded-full bg-white/40 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-10 left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-200/50 blur-[130px] pointer-events-none" />
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
 
         {/* Back Link */}
         <Link
           to="/products"
-          className="inline-flex items-center gap-2 text-sm font-extrabold text-[#3E0844] hover:text-[#6B1736] mb-8 transition-colors group"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-[#3E0844] hover:text-[#6B1736] mb-6 sm:mb-8 transition-colors group"
         >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
           Back to Energized Crystal Products
         </Link>
 
         {/* Product Details Container */}
-        <div className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] shadow-2xl border border-purple-100/50 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-4 sm:p-10 lg:p-12">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] shadow-2xl border border-purple-100/50 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 p-3.5 sm:p-10 lg:p-12">
 
             {/* Left Column: Image Card */}
-            <div className="lg:col-span-5 flex flex-col gap-4">
-              <div className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden shadow-lg aspect-square bg-[#0D0015] border border-purple-50 group">
+            <div className="lg:col-span-5 flex flex-col gap-3 sm:gap-4">
+              <div className="relative rounded-[1.25rem] sm:rounded-[2rem] overflow-hidden shadow-lg aspect-square bg-[#0D0015] border border-purple-50 group">
                 <img
                   src={product.image}
                   alt={product.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80`} />
-                <span className="absolute top-4 left-4 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] text-[#FFD95A] shadow-lg border border-white/30 backdrop-blur-sm">
+                <span className="absolute top-4 left-4 text-[9px] sm:text-[10px] font-black uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-[#3E0844] to-[#6B1736] text-[#FFD95A] shadow-lg border border-white/30 backdrop-blur-sm">
                   {product.badge}
                 </span>
                 
                 {/* Floating Discount Badge */}
-                <span className="absolute top-4 right-4 text-[10px] font-black uppercase tracking-wider px-4 py-2 rounded-full bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-md border border-white/25 animate-pulse z-10">
+                <span className="absolute top-4 right-4 text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-md border border-white/25 animate-pulse z-10">
                   {discountPercent}% OFF
                 </span>
               </div>
@@ -322,69 +322,69 @@ export default function ProductDetailsPage() {
               <div>
                 {/* Category & Rating */}
                 <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-extrabold tracking-widest text-[#6B1736] uppercase bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-100">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-extrabold tracking-widest text-[#6B1736] uppercase bg-purple-50 px-3 py-1.5 rounded-full border border-purple-100">
                     <Sparkles className="w-3.5 h-3.5 text-[#6B1736]" />
                     5D Energized Crystal
                   </span>
 
-                  <div className="flex items-center gap-1 bg-amber-50 px-3 py-1 rounded-full border border-amber-100">
-                    <span className="text-xs font-black text-amber-900">5.0</span>
+                  <div className="flex items-center gap-1 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-100">
+                    <span className="text-[10px] sm:text-xs font-black text-amber-900">5.0</span>
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 text-amber-500 fill-amber-500" />
+                        <Star key={i} className="w-2.5 h-2.5 text-amber-500 fill-amber-500" />
                       ))}
                     </div>
                   </div>
                 </div>
 
                 {/* Main Titles */}
-                <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-black text-[#1C0320] leading-tight mb-2">
+                <h1 className="font-serif text-xl sm:text-4xl lg:text-5xl font-black text-[#1C0320] leading-tight mb-2">
                   {product.title}
                 </h1>
-                <h2 className="text-sm sm:text-base font-bold text-[#6B1736] tracking-wide mb-6 uppercase">
+                <h2 className="text-xs sm:text-base font-bold text-[#6B1736] tracking-wide mb-5 sm:mb-6 uppercase">
                   {product.subtitle}
                 </h2>
 
                 {/* Price Label Block */}
-                <div className="mb-6 flex items-center gap-3.5 sm:gap-4 flex-wrap bg-purple-50/30 px-3.5 sm:px-6 py-2.5 sm:py-4 rounded-2xl sm:rounded-3xl border border-purple-100/60 w-full sm:w-fit justify-between sm:justify-start">
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">Original Price</span>
-                    <span className="text-base font-bold text-red-700/80 line-through mt-1">
+                <div className="mb-6 flex items-center gap-3 sm:gap-4 flex-wrap bg-purple-50/30 p-3 sm:px-6 sm:py-4 rounded-2xl sm:rounded-3xl border border-purple-100/60 w-full sm:w-fit justify-between sm:justify-start">
+                  <div className="flex flex-col text-left">
+                    <span className="text-[8px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">Original Price</span>
+                    <span className="text-xs sm:text-base font-bold text-red-700/80 line-through mt-0.5 sm:mt-1">
                       ₹{originalPrice.toLocaleString('en-IN')}
                     </span>
                   </div>
                   
-                  <div className="w-[1px] h-8 bg-purple-200/60 self-center" />
+                  <div className="hidden sm:block w-[1px] h-8 bg-purple-200/60 self-center" />
 
-                  <div className="flex flex-col">
-                    <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest leading-none">Blessed Price</span>
-                    <span className="text-3xl font-black text-[#3E0844] mt-0.5">
+                  <div className="flex flex-col text-left">
+                    <span className="text-[8px] sm:text-[10px] font-bold text-emerald-700 uppercase tracking-widest leading-none">Blessed Price</span>
+                    <span className="text-xl sm:text-3xl font-black text-[#3E0844] mt-0.5">
                       ₹{product.price.toLocaleString('en-IN')}
                     </span>
                   </div>
 
-                  <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md animate-pulse ml-2">
+                  <div className="bg-gradient-to-r from-red-500 to-rose-600 text-white text-[8px] sm:text-[10px] font-black uppercase tracking-wider px-2 sm:px-3.5 py-1 sm:py-1.5 rounded-full shadow-md animate-pulse">
                     {discountPercent}% OFF
                   </div>
                 </div>
 
                 {/* Product Description */}
-                <div className="prose prose-purple max-w-none mb-8">
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed font-medium">
+                <div className="prose prose-purple max-w-none mb-6 sm:mb-8 text-left">
+                  <p className="text-gray-600 text-xs sm:text-base leading-relaxed font-semibold">
                     {product.description}
                   </p>
                 </div>
 
                 {/* Key Benefits */}
-                <div className="mb-8">
-                  <h3 className="text-xs font-black text-[#1C0320] uppercase tracking-widest mb-4 flex items-center gap-1.5">
+                <div className="mb-6 sm:mb-8 text-left">
+                  <h3 className="text-[10px] sm:text-xs font-black text-[#1C0320] uppercase tracking-widest mb-3.5 flex items-center gap-1.5">
                     <Gem className="w-4 h-4 text-[#6B1736]" /> Divine Crystal Benefits:
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5">
                     {product.benefits.map((benefit, i) => (
                       <div key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#6B1736] mt-0.5 flex-shrink-0" />
-                        <span className="text-xs font-bold text-gray-600 leading-snug">{benefit}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#6B1736] mt-0.5 flex-shrink-0" />
+                        <span className="text-[11px] sm:text-xs font-bold text-gray-600 leading-snug">{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -392,13 +392,13 @@ export default function ProductDetailsPage() {
               </div>
 
               {/* CTA Action Area */}
-              <div className="pt-6 border-t border-purple-50 flex flex-col md:flex-row items-stretch gap-4">
+              <div className="pt-5 sm:pt-6 border-t border-purple-50 flex flex-col sm:flex-row items-stretch gap-3">
                 {/* Secure Trust Stamp */}
-                <div className="flex-1 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100/60 flex items-center gap-3">
-                  <ShieldCheck className="w-8 h-8 text-emerald-600 flex-shrink-0" />
-                  <div className="text-left">
-                    <h4 className="text-xs font-black text-emerald-950 uppercase tracking-wider">Certified Authenticity</h4>
-                    <p className="text-[10px] font-bold text-emerald-800 leading-snug">100% natural, premium vibrational gemstones guaranteed.</p>
+                <div className="flex-1 p-3.5 rounded-2xl bg-emerald-50/50 border border-emerald-100/60 flex items-center gap-2.5 text-left">
+                  <ShieldCheck className="w-7 h-7 text-emerald-600 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-[10px] font-black text-emerald-950 uppercase tracking-wider">Certified Authenticity</h4>
+                    <p className="text-[9px] font-bold text-emerald-800 leading-snug">100% natural, premium vibrational gemstones guaranteed.</p>
                   </div>
                 </div>
 
@@ -407,10 +407,10 @@ export default function ProductDetailsPage() {
                   href={getWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 text-center bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:brightness-110 text-white font-black text-sm sm:text-base px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 uppercase tracking-widest flex items-center justify-center gap-2.5 animate-pulse hover:shadow-emerald-500/20"
+                  className="flex-1 text-center bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:brightness-110 text-white font-black text-[11px] sm:text-base px-4 py-3.5 sm:py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 uppercase tracking-widest flex items-center justify-center gap-2 animate-pulse hover:shadow-emerald-500/20 cursor-pointer"
                   style={{ animationDuration: '3s' }}
                 >
-                  <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                  <svg className="w-4.5 h-4.5 fill-white flex-shrink-0" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                   </svg>
                   Buy on WhatsApp
@@ -425,43 +425,43 @@ export default function ProductDetailsPage() {
 
 
         {/* Tabbed / Extra Details Blocks */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
-            <h3 className="font-serif text-xl font-black text-[#1C0320] mb-4 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-[#6B1736] animate-pulse" />
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-left">
+          <div className="bg-white rounded-[1.25rem] sm:rounded-[2rem] p-4.5 sm:p-8 border border-purple-100 shadow-md">
+            <h3 className="font-serif text-lg sm:text-xl font-black text-[#1C0320] mb-3 flex items-center gap-2">
+              <Sparkles className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736] animate-pulse" />
               Neelam Arora’s 5D Activation
             </h3>
             <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-semibold mb-4">
               Unlike normal crystals sold commercially, this gemstone {isCombo ? 'combo' : 'bracelet'} undergoes a careful, high-vibrational sacred activation:
             </p>
-            <div className="p-4 rounded-xl bg-purple-50/50 border border-purple-100 text-xs font-bold text-gray-700 leading-relaxed">
+            <div className="p-4 rounded-xl bg-purple-50/50 border border-purple-100 text-[11px] sm:text-xs font-semibold text-gray-700 leading-relaxed">
               {product.energization}
             </div>
           </div>
 
           {/* Specifications */}
-          <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md flex flex-col justify-between">
+          <div className="bg-white rounded-[1.25rem] sm:rounded-[2rem] p-4.5 sm:p-8 border border-purple-100 shadow-md flex flex-col justify-between">
             <div>
-              <h3 className="font-serif text-xl font-black text-[#1C0320] mb-4 flex items-center gap-2">
-                <HelpCircle className="w-5 h-5 text-[#6B1736]" />
+              <h3 className="font-serif text-lg sm:text-xl font-black text-[#1C0320] mb-3 flex items-center gap-2">
+                <HelpCircle className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736]" />
                 Crystal Specifications
               </h3>
-              <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Gemstone Material</span>
-                  <p className="text-xs font-extrabold text-[#1C0320] mt-0.5">{product.specifications.material}</p>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">Gemstone Material</span>
+                  <p className="text-[11px] sm:text-xs font-bold text-[#1C0320] mt-0.5">{product.specifications.material}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{isCombo ? "Items Included" : "Bead Dimensions"}</span>
-                  <p className="text-xs font-extrabold text-[#1C0320] mt-0.5">{product.specifications.beadsSize}</p>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">{isCombo ? "Items Included" : "Bead Dimensions"}</span>
+                  <p className="text-[11px] sm:text-xs font-bold text-[#1C0320] mt-0.5">{product.specifications.beadsSize}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{isCombo ? "Wearability" : "Bracelet Fit"}</span>
-                  <p className="text-xs font-extrabold text-[#1C0320] mt-0.5">{product.specifications.elasticity}</p>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">{isCombo ? "Wearability" : "Bracelet Fit"}</span>
+                  <p className="text-[11px] sm:text-xs font-bold text-[#1C0320] mt-0.5">{product.specifications.elasticity}</p>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Mining Origin</span>
-                  <p className="text-xs font-extrabold text-[#1C0320] mt-0.5">{product.specifications.origin}</p>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest">Mining Origin</span>
+                  <p className="text-[11px] sm:text-xs font-bold text-[#1C0320] mt-0.5">{product.specifications.origin}</p>
                 </div>
               </div>
             </div>
@@ -469,21 +469,21 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* What's Included in Sacred Box */}
-        <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
-          <h3 className="font-serif text-xl font-black text-[#1C0320] mb-6 flex items-center gap-2">
-            <Gift className="w-5 h-5 text-[#6B1736]" />
+        <div className="mt-6 sm:mt-8 bg-white rounded-[1.25rem] sm:rounded-[2rem] p-4.5 sm:p-8 border border-purple-100 shadow-md text-left">
+          <h3 className="font-serif text-lg sm:text-xl font-black text-[#1C0320] mb-5 sm:mb-6 flex items-center gap-2">
+            <Gift className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736]" />
             What is Included in Your Sacred Package?
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
             {packageIncludes.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="p-4 rounded-xl bg-purple-50/20 border border-purple-100/50 hover:shadow-md transition-all duration-300">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center mb-3">
-                    <Icon className="w-5 h-5 text-white" />
+                <div key={idx} className="p-3.5 sm:p-4 rounded-xl bg-purple-50/20 border border-purple-100/50 hover:shadow-md transition-all duration-300">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center mb-3">
+                    <Icon className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
                   </div>
-                  <h4 className="text-xs font-black text-[#1C0320] uppercase tracking-wider mb-1">{item.title}</h4>
-                  <p className="text-[10px] font-semibold text-gray-500 leading-relaxed">{item.desc}</p>
+                  <h4 className="text-[11px] sm:text-xs font-black text-[#1C0320] uppercase tracking-wider mb-1">{item.title}</h4>
+                  <p className="text-[9px] sm:text-[10px] font-bold text-gray-500 leading-relaxed">{item.desc}</p>
                 </div>
               );
             })}
@@ -491,18 +491,18 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* How to Use Block */}
-        <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
-          <h3 className="font-serif text-xl font-black text-[#1C0320] mb-6 flex items-center gap-2">
-            <Gem className="w-5 h-5 text-[#6B1736]" />
+        <div className="mt-6 sm:mt-8 bg-white rounded-[1.25rem] sm:rounded-[2rem] p-4.5 sm:p-8 border border-purple-100 shadow-md text-left">
+          <h3 className="font-serif text-lg sm:text-xl font-black text-[#1C0320] mb-5 sm:mb-6 flex items-center gap-2">
+            <Gem className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736]" />
             How to Wear, Attune & Care for your Crystal
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
             {product.howToUse.map((step, idx) => (
-              <div key={idx} className="relative p-4 rounded-xl bg-purple-50/30 border border-purple-100/50 flex gap-4">
-                <span className="w-8 h-8 rounded-full bg-[#3E0844] text-white flex items-center justify-center font-black text-sm flex-shrink-0">
+              <div key={idx} className="relative p-3.5 sm:p-4 rounded-xl bg-purple-50/30 border border-purple-100/50 flex gap-3 sm:gap-4">
+                <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#3E0844] text-white flex items-center justify-center font-black text-xs sm:text-sm flex-shrink-0">
                   {idx + 1}
                 </span>
-                <p className="text-xs font-bold text-gray-600 leading-relaxed mt-0.5">
+                <p className="text-[11px] sm:text-xs font-bold text-gray-600 leading-relaxed mt-0.5">
                   {step}
                 </p>
               </div>
@@ -511,18 +511,18 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* Interactive FAQs Accordion */}
-        <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
-          <div className="mb-6">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-2 animate-tagline-blink">
+        <div className="mt-6 sm:mt-8 bg-white rounded-[1.25rem] sm:rounded-[2rem] p-4.5 sm:p-8 border border-purple-100 shadow-md text-left">
+          <div className="mb-5 sm:mb-6">
+            <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold tracking-widest text-[#6B1736] uppercase mb-1.5 animate-tagline-blink">
               <HelpCircle className="w-4 h-4 text-[#6B1736]" />
               Got Questions?
             </span>
-            <h3 className="font-serif text-2xl font-black text-[#1C0320]">
+            <h3 className="font-serif text-xl sm:text-2xl font-black text-[#1C0320]">
               {isCombo ? "Crystal Combo FAQ" : "Crystal Bracelet FAQ"}
             </h3>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {faqItems.map((faq, idx) => {
               const isOpen = openFaqIdx === idx;
               return (
@@ -532,21 +532,21 @@ export default function ProductDetailsPage() {
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full p-5 text-left bg-purple-50/20 hover:bg-purple-50/50 flex items-center justify-between gap-4 transition-colors"
+                    className="w-full p-4 sm:p-5 text-left bg-purple-50/20 hover:bg-purple-50/50 flex items-center justify-between gap-4 transition-colors focus:outline-none"
                   >
-                    <span className="text-xs sm:text-sm font-black text-[#1C0320] leading-snug">
+                    <span className="text-[11px] sm:text-sm font-black text-[#1C0320] leading-snug">
                       {faq.q}
                     </span>
-                    <span className="w-6 h-6 rounded-full bg-[#3E0844]/5 flex items-center justify-center text-[#3E0844] flex-shrink-0">
-                      {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                    <span className="w-5.5 h-5.5 sm:w-6 sm:h-6 rounded-full bg-[#3E0844]/5 flex items-center justify-center text-[#3E0844] flex-shrink-0">
+                      {isOpen ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
                     </span>
                   </button>
 
                   <div
-                    className={`transition-all duration-500 overflow-hidden ${isOpen ? 'max-h-[300px] border-t border-purple-50 p-5 bg-white' : 'max-h-0 p-0'
+                    className={`transition-all duration-500 overflow-hidden ${isOpen ? 'max-h-[300px] border-t border-purple-50 p-4 sm:p-5 bg-white' : 'max-h-0 p-0'
                       }`}
                   >
-                    <p className="text-xs sm:text-sm font-semibold text-gray-600 leading-relaxed">
+                    <p className="text-[11px] sm:text-sm font-semibold text-gray-600 leading-relaxed">
                       {faq.a}
                     </p>
                   </div>
@@ -557,9 +557,9 @@ export default function ProductDetailsPage() {
         </div>
 
         {/* Real Seeker Reviews (Product Specific) */}
-        <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-purple-100 shadow-md">
-          <h3 className="font-serif text-xl font-black text-[#1C0320] mb-6 flex items-center gap-2">
-            <MessageSquare className="w-5 h-5 text-[#6B1736]" />
+        <div className="mt-6 sm:mt-8 bg-white rounded-[1.25rem] sm:rounded-[2rem] p-4.5 sm:p-8 border border-purple-100 shadow-md text-left">
+          <h3 className="font-serif text-lg sm:text-xl font-black text-[#1C0320] mb-5 sm:mb-6 flex items-center gap-2">
+            <MessageSquare className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#6B1736]" />
             Customer Reviews
           </h3>
           
@@ -574,7 +574,7 @@ export default function ProductDetailsPage() {
               {reviews.map((rev, idx) => (
                 <div
                   key={idx}
-                  className="p-4.5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border-2 border-[#3E0844]/50 shadow-sm hover:border-[#3E0844] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between flex-shrink-0"
+                  className="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-white border-2 border-[#3E0844]/50 shadow-sm hover:border-[#3E0844] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between flex-shrink-0"
                   style={{
                     width: `calc(${100 / itemsPerPage}% - ${(itemsPerPage - 1) * 20 / itemsPerPage}px)`
                   }}
@@ -582,19 +582,19 @@ export default function ProductDetailsPage() {
                   <div>
                     <div className="flex gap-0.5 mb-3">
                       {[...Array(rev.stars)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                        <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-500 fill-amber-500" />
                       ))}
                     </div>
-                    <p className="text-xs font-semibold text-gray-600 leading-relaxed italic mb-4">
+                    <p className="text-[11px] sm:text-xs font-semibold text-gray-600 leading-relaxed italic mb-4">
                       "{rev.review}"
                     </p>
                   </div>
                   <div className="flex justify-between items-center pt-3 border-t border-purple-100/40 mt-auto">
                     <div>
-                      <h5 className="text-xs font-black text-[#1C0320] leading-none mb-0.5">{rev.name}</h5>
-                      <span className="text-[9px] font-bold text-[#6B1736]/60 uppercase tracking-widest">{rev.city}</span>
+                      <h5 className="text-[11px] sm:text-xs font-black text-[#1C0320] leading-none mb-0.5">{rev.name}</h5>
+                      <span className="text-[8px] sm:text-[9px] font-bold text-[#6B1736]/60 uppercase tracking-widest">{rev.city}</span>
                     </div>
-                    <span className="text-[9px] font-bold text-gray-400">{rev.date}</span>
+                    <span className="text-[8px] sm:text-[9px] font-bold text-gray-400">{rev.date}</span>
                   </div>
                 </div>
               ))}
@@ -620,8 +620,8 @@ export default function ProductDetailsPage() {
           )}
 
           {/* Write a Review Form */}
-          <div className="mt-10 border-t border-purple-100/60 pt-8">
-            <h4 className="font-serif text-lg font-black text-[#1C0320] mb-4 flex items-center gap-2">
+          <div className="mt-8 border-t border-purple-100/60 pt-6 sm:pt-8 text-left">
+            <h4 className="font-serif text-base sm:text-lg font-black text-[#1C0320] mb-4 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#6B1736]" /> Share Your Review
             </h4>
             
@@ -634,10 +634,10 @@ export default function ProductDetailsPage() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleReviewSubmit} className="max-w-2xl bg-purple-50/25 border border-purple-100/65 p-4 sm:p-8 rounded-2xl sm:rounded-[2rem] shadow-sm space-y-4">
+              <form onSubmit={handleReviewSubmit} className="max-w-2xl bg-purple-50/25 border border-purple-100/65 p-3.5 sm:p-8 rounded-2xl sm:rounded-[2rem] shadow-sm space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Your Full Name</label>
+                    <label className="block text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Your Full Name</label>
                     <input
                       type="text"
                       required
@@ -648,7 +648,7 @@ export default function ProductDetailsPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Your City</label>
+                    <label className="block text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Your City</label>
                     <input
                       type="text"
                       required
@@ -661,24 +661,24 @@ export default function ProductDetailsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Your Rating</label>
-                  <div className="flex items-center gap-1.5 bg-white border border-purple-100/80 w-fit px-4 py-2.5 rounded-xl shadow-sm">
+                  <label className="block text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Your Rating</label>
+                  <div className="flex items-center gap-1.5 bg-white border border-purple-100/80 w-fit px-3 sm:px-4 py-2 rounded-xl shadow-sm">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
                         key={star}
                         type="button"
                         onClick={() => setNewReviewStars(star)}
-                        className="text-amber-400 hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                        className="text-amber-400 hover:scale-110 active:scale-95 transition-all cursor-pointer focus:outline-none"
                       >
-                        <Star className={`w-5 h-5 ${star <= newReviewStars ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`} />
+                        <Star className={`w-4.5 h-4.5 sm:w-5 sm:h-5 ${star <= newReviewStars ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`} />
                       </button>
                     ))}
-                    <span className="text-[10px] font-bold text-[#3E0844] uppercase tracking-wider ml-2">{newReviewStars} Stars</span>
+                    <span className="text-[9px] sm:text-[10px] font-bold text-[#3E0844] uppercase tracking-wider ml-2">{newReviewStars} Stars</span>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Write Your Review</label>
+                  <label className="block text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Write Your Review</label>
                   <textarea
                     required
                     rows={4}
@@ -689,7 +689,7 @@ export default function ProductDetailsPage() {
                   />
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-1.5">
                   <button
                     type="submit"
                     className="w-full sm:w-auto bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3.5 px-8 rounded-xl text-xs uppercase tracking-widest shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer"

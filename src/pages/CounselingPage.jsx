@@ -100,11 +100,11 @@ export default function CounselingPage() {
             <Link
               key={w.id}
               to={`/courses/${w.id}`}
-              className="bg-white rounded-[2rem] border-2 border-[#3E0844]/50 p-5 flex flex-col justify-between hover:border-[#3E0844] hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 text-left cursor-pointer animate-fade-in"
+              className="bg-white rounded-[1.5rem] sm:rounded-[2rem] border-2 border-[#3E0844]/50 p-4 sm:p-5 flex flex-col justify-between hover:border-[#3E0844] hover:shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 text-left cursor-pointer animate-fade-in"
             >
               <div>
                 {/* Thumbnail Image */}
-                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-4 bg-purple-950 flex items-center justify-center">
+                <div className="relative h-48 sm:h-72 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-4 bg-purple-950 flex items-center justify-center">
                   <img
                     src={w.image}
                     alt={w.title}
@@ -139,7 +139,7 @@ export default function CounselingPage() {
 
         {/* 🏢 Section 2: Corporate wellness Callout banner */}
         <section className="relative z-10">
-          <div className="bg-gradient-to-r from-[#3E0844] via-[#2F0A59] to-[#1C0320] rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 lg:p-12 border border-[#FFD95A]/30 shadow-2xl relative overflow-hidden group">
+          <div className="bg-gradient-to-r from-[#3E0844] via-[#2F0A59] to-[#1C0320] rounded-[1.75rem] sm:rounded-[2.5rem] p-4.5 sm:p-10 lg:p-12 border border-[#FFD95A]/30 shadow-2xl relative overflow-hidden group">
             {/* Ambient glows inside corporate card */}
             <div className="absolute -top-12 -left-12 w-28 h-28 bg-[#FFD95A]/5 rounded-full blur-2xl pointer-events-none" />
             <div className="absolute -bottom-12 -right-12 w-28 h-28 bg-purple-500/5 rounded-full blur-2xl pointer-events-none" />
@@ -162,7 +162,7 @@ export default function CounselingPage() {
                 href="https://wa.me/919829156812?text=Hello%20Neelam%20Arora%20Team!%20I%20want%20to%20inquire%20about%20group%20meditation%20sessions%20or%20corporate%20wellness%20training."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full lg:w-auto px-6 py-3.5 bg-[#25D366] hover:bg-[#20BA56] text-white text-xs font-black uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 shrink-0 whitespace-nowrap active:scale-95 animate-pulse"
+                className="w-full lg:w-auto px-6 py-3 sm:py-3.5 bg-[#25D366] hover:bg-[#20BA56] text-white text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-xl transition-all duration-300 shadow-md flex items-center justify-center gap-2 shrink-0 whitespace-nowrap active:scale-95 animate-pulse cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 fill-white" />
                 <span>Inquire For Corporate</span>
@@ -200,7 +200,7 @@ export default function CounselingPage() {
         </section>
 
         {/* 🧘 Section 4: Why Choose Us Split Benefits / Portrait Card */}
-        <section className="bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 border border-purple-100/60 shadow-lg relative overflow-hidden">
+        <section className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4.5 sm:p-10 border border-purple-100/60 shadow-lg relative overflow-hidden text-left">
           {/* Subtle decoration */}
           <div className="absolute top-0 right-0 w-24 h-24 bg-purple-50 rounded-full blur-2xl" />
 

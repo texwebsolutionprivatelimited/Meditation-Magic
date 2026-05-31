@@ -43,7 +43,7 @@ export default function Testimonials({ testimonialsList, activeIdx, setActiveIdx
       {/* Soft glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1/2 bg-white/30 blur-[100px] pointer-events-none rounded-full" />
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
@@ -68,7 +68,7 @@ export default function Testimonials({ testimonialsList, activeIdx, setActiveIdx
             {testimonialsList.map((t, idx) => (
               <div
                 key={idx}
-                className="relative bg-white rounded-2xl p-5 border-2 border-[#3E0844]/40 hover:border-[#3E0844]/80 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between flex-shrink-0"
+                className="relative bg-white rounded-2xl p-4.5 sm:p-5 border-2 border-[#3E0844]/40 hover:border-[#3E0844]/80 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between flex-shrink-0"
                 style={{
                   width: `calc(${100 / itemsPerPage}% - ${(itemsPerPage - 1) * 20 / itemsPerPage}px)`
                 }}
@@ -159,10 +159,10 @@ export function WriteTestimonialForm({ onAddTestimonial }) {
 
   return (
     <section className="relative pb-6 bg-[#E2D5F3] text-gray-900 overflow-hidden">
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[95%] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
 
         {/* Share Your Review Form Split Block */}
-        <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-8 border-2 border-[#3E0844]/40 w-full">
+        <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-3.5 sm:p-8 border-2 border-[#3E0844]/40 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Column: Warm Call to Action Wording */}
@@ -256,7 +256,7 @@ export function WriteTestimonialForm({ onAddTestimonial }) {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3.5 px-8 rounded-xl text-xs uppercase tracking-widest shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer whitespace-nowrap"
+                      className="w-full sm:w-auto bg-gradient-to-r from-[#3E0844] to-[#6B1736] hover:from-[#1C0320] hover:to-[#3E0844] text-white font-bold py-3 sm:py-3.5 px-6 sm:px-8 rounded-xl text-[10px] sm:text-xs uppercase tracking-widest shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 cursor-pointer whitespace-nowrap"
                     >
                       Submit Review
                     </button>

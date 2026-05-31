@@ -149,7 +149,7 @@ export default function ProductsPage() {
       <Products />
 
       {/* 🔮 Interactive Crystal Match Calculator */}
-      <div className="mt-6 sm:mt-12 bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 lg:p-12 border-2 border-[#FFD95A]/30 relative overflow-hidden shadow-2xl max-w-[95%] mx-auto mb-16">
+      <div className="mt-6 sm:mt-12 bg-gradient-to-br from-[#3E0844] via-[#2F0A59] to-[#1C0320] text-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4.5 sm:p-10 lg:p-12 border-2 border-[#FFD95A]/30 relative overflow-hidden shadow-2xl max-w-[95%] mx-auto mb-16">
         
         {/* Subtle sparkles & cosmic background elements */}
         <div className="absolute top-[-10%] right-[-10%] w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -178,7 +178,7 @@ export default function ProductsPage() {
             {!isAuraCalculating && !auraResult && (
               /* Stage 1: The Input Form */
               <form onSubmit={handleAuraCalculate} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                   {/* Name Input */}
                   <div>
                     <label className="block text-[10px] font-black text-[#FFD95A] uppercase tracking-widest mb-2">Your Name</label>
@@ -279,11 +279,11 @@ export default function ProductsPage() {
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-4">
                 {/* Left Circle: Compatibility Score Ring */}
                 <div className="md:col-span-4 flex flex-col items-center justify-center text-center">
-                  <div className="relative w-36 h-36 rounded-full bg-[#1E003B] border-4 border-[#FFD95A]/30 flex flex-col items-center justify-center shadow-2xl mx-auto">
+                  <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-[#1E003B] border-4 border-[#FFD95A]/30 flex flex-col items-center justify-center shadow-2xl mx-auto">
                     <div className="absolute inset-2 rounded-full border border-dashed border-[#FFD95A]/45 animate-spin pointer-events-none" style={{ animationDuration: '20s' }} />
-                    <span className="text-[10px] font-black text-[#FFD95A] uppercase tracking-widest">Vibe Match</span>
-                    <span className="text-3xl font-black text-white mt-1">{auraResult.score}%</span>
-                    <span className="text-[9px] font-extrabold text-emerald-400 uppercase tracking-widest mt-1">Excellent Match</span>
+                    <span className="text-[9px] sm:text-[10px] font-black text-[#FFD95A] uppercase tracking-widest">Vibe Match</span>
+                    <span className="text-2xl sm:text-3xl font-black text-white mt-1">{auraResult.score}%</span>
+                    <span className="text-[8px] sm:text-[9px] font-extrabold text-emerald-400 uppercase tracking-widest mt-1">Excellent Match</span>
                   </div>
                 </div>
 
@@ -336,7 +336,7 @@ export default function ProductsPage() {
                       href={`https://wa.me/919829156812?text=${encodeURIComponent("Hello! I calculated my vibe match for the " + auraResult.crystalName + " and got a wonderful " + auraResult.score + "% score! I want to buy this blessed crystal bracelet.")}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto text-center justify-center bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 text-white font-black text-xs px-6 py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-widest flex items-center gap-2 cursor-pointer"
+                      className="w-full sm:w-auto text-center justify-center bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 text-white font-black text-[10px] sm:text-xs px-4 sm:px-6 py-3 sm:py-3.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 uppercase tracking-widest flex items-center gap-2 cursor-pointer"
                     >
                       Claim My Blessed Crystal on WhatsApp
                     </a>
@@ -360,7 +360,7 @@ export default function ProductsPage() {
       </div>
 
       {/* 🧼 Interactive 5D Crystal Care & Cleansing Guide */}
-      <div className="mt-8 bg-white rounded-[1.75rem] sm:rounded-[2.5rem] p-5 sm:p-10 lg:p-12 border-2 border-[#3E0844]/50 shadow-2xl max-w-[95%] mx-auto mb-16 relative overflow-hidden">
+      <div className="mt-8 bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-4.5 sm:p-10 lg:p-12 border-2 border-[#3E0844]/50 shadow-2xl max-w-[95%] mx-auto mb-16 relative overflow-hidden">
         
         {/* Soft decorative background blurs */}
         <div className="absolute top-[-20%] left-[-20%] w-72 h-72 rounded-full bg-purple-100/50 blur-3xl pointer-events-none" />
@@ -393,27 +393,27 @@ export default function ProductsPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveCleanseTab(tab.id)}
-                className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border text-center transition-all duration-300 cursor-pointer ${
+                className={`p-2 sm:p-4 rounded-xl sm:rounded-2xl border text-center transition-all duration-300 cursor-pointer ${
                   activeCleanseTab === tab.id
                     ? 'bg-[#3E0844] text-white border-transparent shadow-lg shadow-purple-950/25 scale-[1.02]'
                     : 'bg-purple-50/50 text-[#3E0844] border-purple-200 hover:bg-white'
                 }`}
               >
-                <span className="block text-[10px] font-black uppercase tracking-wider">{tab.label}</span>
-                <span className="block text-[9px] font-bold opacity-60 mt-0.5">{tab.desc}</span>
+                <span className="block text-[9px] sm:text-[10px] font-black uppercase tracking-wider">{tab.label}</span>
+                <span className="block text-[8px] sm:text-[9px] font-bold opacity-60 mt-0.5">{tab.desc}</span>
               </button>
             ))}
           </div>
 
           {/* Tab Display Panel */}
-          <div className="bg-purple-50/40 border-2 border-purple-200 rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+          <div className="bg-purple-50/40 border-2 border-purple-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
             {activeCleanseTab === 'camphor' && (
               <>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
-                  <Flame className="w-8 h-8" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
+                  <Flame className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
                 <div className="text-left space-y-2">
-                  <h4 className="font-serif text-lg font-bold text-[#1C0320]">1. Camphor Smoke Incense Cleansing</h4>
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-[#1C0320]">1. Camphor Smoke Incense Cleansing</h4>
                   <p className="text-xs sm:text-sm font-semibold text-gray-600 leading-relaxed">
                     Light a camphor tablet or a sage incense cone. Slowly pass your crystal bracelet through the rising smoke 5 to 7 times. This cleanses previous hand vibrations and keeps the crystal pure.
                   </p>
@@ -424,11 +424,11 @@ export default function ProductsPage() {
 
             {activeCleanseTab === 'sound' && (
               <>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
-                  <Headphones className="w-8 h-8" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
+                  <Headphones className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
                 <div className="text-left space-y-2">
-                  <h4 className="font-serif text-lg font-bold text-[#1C0320]">2. Sound Charging with Healing Frequencies</h4>
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-[#1C0320]">2. Sound Charging with Healing Frequencies</h4>
                   <p className="text-xs sm:text-sm font-semibold text-gray-600 leading-relaxed">
                     Play a metal singing bowl or a 528Hz healing sound frequency from your phone next to your bracelet for 2 minutes. The sound vibrations charge the crystal beads back to peak positive energy.
                   </p>
@@ -439,11 +439,11 @@ export default function ProductsPage() {
 
             {activeCleanseTab === 'moonlight' && (
               <>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
-                  <Moon className="w-8 h-8" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
+                  <Moon className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
                 <div className="text-left space-y-2">
-                  <h4 className="font-serif text-lg font-bold text-[#1C0320]">3. Moonlight Bath Vibe Recharge</h4>
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-[#1C0320]">3. Moonlight Bath Vibe Recharge</h4>
                   <p className="text-xs sm:text-sm font-semibold text-gray-600 leading-relaxed">
                     Once a month during the Full Moon, place your crystal bracelet on your window sill overnight. The gentle moonbeams will naturally wash away heavy stress and fill the crystal with calm, happy vibes.
                   </p>
@@ -454,11 +454,11 @@ export default function ProductsPage() {
 
             {activeCleanseTab === 'ritual' && (
               <>
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
-                  <Gem className="w-8 h-8" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#3E0844] to-[#6B1736] flex items-center justify-center flex-shrink-0 text-white shadow-md">
+                  <Gem className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
                 <div className="text-left space-y-2">
-                  <h4 className="font-serif text-lg font-bold text-[#1C0320]">4. Intention Attunement Mantra Ritual</h4>
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-[#1C0320]">4. Intention Attunement Mantra Ritual</h4>
                   <p className="text-xs sm:text-sm font-semibold text-gray-600 leading-relaxed">
                     Hold your bracelet in your left palm. Close your eyes, take 3 deep breaths, and say your daily positive mantra 11 times. This tells the crystal exactly what goal it needs to manifest for you!
                   </p>
